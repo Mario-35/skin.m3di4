@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes> 
+	<include name="Notifications">
+		<control type="grouplist">		
+			<left>490</left>
+			<top>StatusBartop</top>
+			<height>43</height>
+			<width>780</width>
+			<itemgap>4</itemgap>
+			<align>right</align>
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<control type="image" id="5558">
+				<width>43</width>
+				<height>43</height>	
+				<texture border="8">gui/notification-video.png</texture>
+				<bordersize>1</bordersize>
+				<aspectratio>keep</aspectratio>
+				<visible>Player.HasVideo + ![Window.IsActive(Home) + ![Window.IsActive(DialogVideoInfo.xml) | Window.IsActive(DialogAddonInfo.xml)]]</visible>
+			</control>
+			<control type="label" id="5559">
+				<description>Video Playing Line 1</description>
+				<top>2</top>
+				<width>210</width>
+				<height>16</height>
+				<font>NowPlayingFont</font>	
+				<textcolor>StatusBarColor</textcolor>
+				<label>$INFO[VideoPlayer.Title] $INFO[VideoPlayer.Year,(,)]</label>
+				<scroll>true</scroll>
+				<scrollsuffix> - </scrollsuffix>
+				<visible>Player.HasVideo + ![Window.IsActive(Home) + ![Window.IsActive(DialogVideoInfo.xml) | Window.IsActive(DialogAddonInfo.xml)]]</visible>
+			</control>
+			<control type="fadelabel" id="5560">
+				<description>Video Playing Line 2</description>
+				<left>-214</left>
+				<top>20</top>
+				<width>210</width>
+				<height>16</height>
+				<font>NowPlayingFont</font>	
+				<textcolor>StatusBarColor2</textcolor>
+				<label>$INFO[VideoPlayer.TVShowTitle]</label>
+				<label>$INFO[VideoPlayer.Genre]</label>
+				<label>$INFO[VideoPlayer.ChannelName]</label>
+				<label>[B]$INFO[Player.Time] / $INFO[Player.Duration][/B]</label>
+				<scroll>true</scroll>
+				<scrollout>false</scrollout>
+				<pauseatend>1500</pauseatend>
+				<resetonlabelchange>false</resetonlabelchange>
+				<visible>Player.HasVideo + ![Window.IsActive(Home) + ![Window.IsActive(DialogVideoInfo.xml) | Window.IsActive(DialogAddonInfo.xml)]]</visible>
+			</control>
+			<control type="button">
+				<left>-267</left>
+				<width>267</width>
+				<height>43</height>
+				<texturefocus />
+				<texturenofocus />
+				<onclick>ActivateWindow(PlayerControls)</onclick>
+				<visible>Player.HasMedia + ![Window.IsActive(Home) + ![Window.IsActive(DialogVideoInfo.xml) | Window.IsActive(DialogAddonInfo.xml)]]</visible>
+			</control>
+			<control type="image">
+				<width>6</width>
+			</control>
+			<control type="button" id="5562">
+				<description>DVD</description>
+				<top>6</top>
+				<width>33</width>
+				<height>33</height>	
+				<texturenofocus>gui/notification-media-dvd.png</texturenofocus>
+				<texturefocus>gui/notification-media-dvd.png</texturefocus>
+				<onclick>PlayDVD()</onclick>
+				<visible>System.HasMediaDVD</visible>
+			</control>
+			<control type="image" id="5563">
+				<description>Volume</description>
+				<width>128</width>
+				<height>43</height>	
+				<texture border="8">gui/notification-volume.png</texture>
+				<bordersize>1</bordersize>
+				<aspectratio>keep</aspectratio>
+				<visible>Window.IsActive(VolumeBar) + !Player.Muted</visible>
+			</control>
+			<control type="image" id="5564">
+				<description>Volume Mute</description>
+				<width>53</width>
+				<height>43</height>	
+				<texture border="8">gui/notification-volume-mute.png</texture>
+				<bordersize>1</bordersize>
+				<aspectratio>keep</aspectratio>
+				<visible>Player.Muted</visible>
+			</control>
+			<control type="progress" id="5565">
+				<description>Volume Progress</description>
+				<left>-86</left>
+				<top>7</top>
+				<width>73</width>
+				<height>29</height>
+				<info>Player.Volume</info>
+				<texturebg border="5">controls/volume-slider-background.png</texturebg>
+				<midtexture border="5">controls/volume-slider.png</midtexture>
+				<visible>Window.IsActive(VolumeBar) + !Player.Muted</visible>
+			</control>
+			<control type="image">
+				<width>3</width>
+				<visible>Control.IsVisible(5563)</visible>
+			</control>
+			<control type="label" id="5569">
+				<width min="25" max="100">auto</width>
+				<height>43</height>
+				<font>BreadCrumbFontBold</font>
+				<textcolor>BreadCrumbColor</textcolor>
+				<label>[UPPERCASE]$INFO[System.Time(hh)] H $INFO[System.Time(mm)][/UPPERCASE]</label>
+				<aligny>center</aligny>
+			</control>
+		</control>	
+	</include>
+</includes>

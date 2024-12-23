@@ -1,0 +1,877 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+	<variable name="LabelPlaylist">		
+		<value condition="!String.IsEmpty(Container.FolderName) + String.StartsWith(Container.FolderPath,special://skin/extras/playlists/videos/)">$LOCALIZE[342] $LOCALIZE[21404]</value>
+		<value condition="!String.IsEmpty(Container.FolderName) + String.StartsWith(Container.FolderPath,special://skin/extras/playlists/4k/)">$LOCALIZE[342]</value>
+	</variable>
+	
+	<variable name="VideoLibraryBreadCrumbsLabel">		
+		<value condition="Container.Content(Addons) | String.Contains(Container.FolderPath,plugin:)">$LOCALIZE[24001]</value>
+		<value condition="String.Contains(Container.FolderPath,/genres/)">$LOCALIZE[135]</value>
+		<value condition="String.Contains(Container.FolderPath,/years/)">$LOCALIZE[652]</value>
+		<value condition="String.Contains(Container.FolderPath,/actors/)">$LOCALIZE[344]</value>
+		<value condition="String.Contains(Container.FolderPath,/directors/)">$LOCALIZE[20348]</value>
+		<value condition="String.Contains(Container.FolderPath,/studios/)">$LOCALIZE[20388]</value>
+		<value condition="String.Contains(Container.FolderPath,/tags/)">$LOCALIZE[31907]</value>
+		<value condition="String.Contains(Container.FolderPath,videodb://movies/countries/)">$LOCALIZE[20451]</value>
+		<value condition="String.Contains(Container.FolderPath,videodb://movies/sets/)">$LOCALIZE[20434]</value>
+		<value condition="[String.IsEqual(Container.FolderPath,sources://video/) | Container.Content(Videos,Files)] + ![String.IsEmpty(Container.FolderPath) | String.Contains(Container.FolderPath,special://videoplaylists/) | String.Contains(Container.FolderPath,plugin:)]">$LOCALIZE[1214]</value>
+		<value condition="[Window.IsActive(videoplaylist) | String.Contains(Container.FolderPath,.xsp) | String.Contains(Container.FolderPath,special://videoplaylists/)] + !String.StartsWith(Container.FolderPath,special://skin/extras/playlists/)">$LOCALIZE[136]</value>
+		<value>$INFO[Container.FolderName]</value>
+	</variable>
+	
+	<variable name="TVShowsBreadCrumbsLabel">
+		<value condition="String.Contains(Container.FolderPath,inprogress)">$LOCALIZE[626]</value>
+		<value>$LOCALIZE[20343]</value>
+	</variable>
+	
+	<variable name="BreadCrumbSettingsLabel">
+		<value condition="Window.IsVisible(InterfaceSettings)">$LOCALIZE[14206]</value>
+		<value condition="Window.IsVisible(SkinSettings)">$LOCALIZE[166]</value>
+		<value condition="Window.IsVisible(PlayerSettings)">$LOCALIZE[14200]</value>
+		<value condition="Window.IsVisible(MediaSettings)">$LOCALIZE[14211]</value>
+		<value condition="Window.IsVisible(ServiceSettings)">$LOCALIZE[14036]</value>
+		<value condition="Window.IsVisible(SystemSettings)">$LOCALIZE[13000]</value>
+	</variable>
+	
+	<include name="BreadCrumbHomeIcon">	
+		<top>12</top>
+		<width>20</width>
+		<height>20</height>
+		<hitrect x="-20" y="-20" w="60" h="60"/>
+		<texturenofocus>gui/breadcrumb-home-nofocus.png</texturenofocus>
+		<texturefocus>gui/breadcrumb-home-focus.png</texturefocus>
+		<onright condition="Window.IsActive(MovieInformation) | Window.IsActive(AddonInformation) | Window.IsActive(songinformation) | Window.IsActive(script-script.extendedinfo-DialogInfo.xml) | Window.IsActive(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsActive(script-script.extendedinfo-VideoList.xml) | Window.IsActive(script-script.extendedinfo-YoutubeList.xml)">987</onright>
+		<onright condition="![Window.IsActive(MovieInformation) | Window.IsActive(AddonInformation) | Window.IsActive(songinformation) | Window.IsActive(script-script.extendedinfo-DialogInfo.xml) | Window.IsActive(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsActive(script-script.extendedinfo-VideoList.xml) | Window.IsActive(script-script.extendedinfo-YoutubeList.xml)]">850</onright>
+		<ondown condition="Window.IsActive(MovieInformation) | Window.IsActive(AddonInformation) | Window.IsActive(songinformation) | Window.IsActive(script-script.extendedinfo-DialogInfo.xml) | Window.IsActive(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsActive(script-script.extendedinfo-VideoList.xml) | Window.IsActive(script-script.extendedinfo-YoutubeList.xml)">987</ondown>
+		<ondown condition="![Window.IsActive(MovieInformation) | Window.IsActive(AddonInformation) | Window.IsActive(songinformation) | Window.IsActive(script-script.extendedinfo-DialogInfo.xml) | Window.IsActive(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsActive(script-script.extendedinfo-VideoList.xml) | Window.IsActive(script-script.extendedinfo-YoutubeList.xml)]">850</ondown>
+		<onclick>Dialog.Close(all,true)</onclick>
+		<onclick>ActivateWindow(Home)</onclick>
+		<animation type="Conditional" condition="![Container.Scrolling | Container(584).Scrolling | [Window.IsActive(script-globalsearch-main.xml) + [Container(221).Scrolling | Container(111).Scrolling | Container(211).Scrolling | Container(121).Scrolling | Container(131).Scrolling | Container(141).Scrolling | Container(151).Scrolling | Container(161).Scrolling | Container(171).Scrolling | Container(181).Scrolling]]]">
+			<effect type="fade" start="0" end="100" time="300" delay="1100"/>
+			<effect type="slide" start="-60,0" time="400" tween="cubic" easing="out" delay="1100"/>	
+		</animation>		
+		<animation type="Conditional" condition="Container.Scrolling | Container(584).Scrolling | [Window.IsActive(script-globalsearch-main.xml) + [Container(221).Scrolling | Container(111).Scrolling | Container(211).Scrolling | Container(121).Scrolling | Container(131).Scrolling | Container(141).Scrolling | Container(151).Scrolling | Container(161).Scrolling | Container(171).Scrolling | Container(181).Scrolling]]">
+			<effect type="fade" start="100" end="0" time="300"/>
+			<effect type="slide" end="-60,0" time="400" tween="cubic" easing="out"/>	
+		</animation>
+	</include>
+	
+	<include name="BreadCrumbSeparator">
+		<top>10</top>
+		<width>12</width>
+		<height>23</height>
+		<texture>gui/breadcrumb-separator.png</texture>
+		<aspectratio>stretch</aspectratio>
+		<animation effect="fade" end="35" condition="true">conditional</animation>
+	</include>
+	
+	<include name="BreadCrumbLabel">
+	    <width min="10" max="350">auto</width>
+		<height>43</height>
+		<font>BreadCrumbFontBold</font>
+		<textcolor>BreadCrumbColor</textcolor>
+		<aligny>center</aligny>
+		<scroll>false</scroll>
+	</include>
+	
+	<include name="BreadCrumbVideoLibrary">	
+		<control type="grouplist">
+			<left>10</left>
+			<top>StatusBartop</top>
+			<height>43</height>
+			<width>740</width>
+			<itemgap>8</itemgap>
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<visible>!Window.IsActive(MovieInformation)</visible>
+			<control type="button" id="555">
+				<include>BreadCrumbHomeIcon</include>
+				<include>BreadCrumbSlideLevelAnim</include>
+			</control>
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<include>BreadCrumbSlideLevelAnim</include>
+			</control>
+			<control type="label" id="5501">
+				<description>Videos</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$LOCALIZE[3][/UPPERCASE]</label>
+				<visible>[String.IsEqual(Container.FolderPath,sources://video/) | String.IsEmpty(Container.FolderPath) | Container.Content(Addons) | String.Contains(Container.FolderPath,plugin:) | String.IsEqual(Container.FolderPath,special://videoplaylists/)] + !String.StartsWith(Container.FolderPath,special://skin/extras/playlists/)</visible>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>				
+			</control>		
+			<control type="label" id="5502">
+				<description>Movies</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$LOCALIZE[20342][/UPPERCASE]</label>
+				<visible>String.Contains(Container.FolderPath,/movies/) | String.Contains(Container.FolderPath,/films/)</visible>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+			</control>			
+			<control type="label" id="5503">
+				<description>TV Shows</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$VAR[TVShowsBreadCrumbsLabel][/UPPERCASE]</label>
+				<visible>String.Contains(Container.FolderPath,/tvshows/) | String.Contains(Container.FolderPath,videodb://inprogresstvshows/)</visible>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+			</control>		
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+				<visible>Control.IsVisible(5501) | Control.IsVisible(5502) | Control.IsVisible(5503) | Control.IsVisible(5504)</visible>
+			</control>
+			<control type="label" id="5505">
+				<description>BreadCrumb Label</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$VAR[VideoLibraryBreadCrumbsLabel][/UPPERCASE]</label>
+				<visible>[[String.IsEqual(Container.FolderPath,sources://video/) | Container.Content(Videos,Files)] + ![String.IsEmpty(Container.FolderPath) | String.Contains(Container.FolderPath,special://videoplaylists/) | String.Contains(Container.FolderPath,plugin:)]]
+				| [Container.Content(Addons) | String.Contains(Container.FolderPath,plugin:)]
+				| [[Window.IsActive(videoplaylist) | String.Contains(Container.FolderPath,.xsp) | String.Contains(Container.FolderPath,special://videoplaylists/)] + !String.StartsWith(Container.FolderPath,special://skin/extras/playlists/)]
+				| [![Container.Content() | String.Contains(Container.FolderPath,/titles/)] + [String.Contains(Container.FolderPath,videodb://movies/) | String.Contains(Container.FolderPath,videodb://tvshows/)]] | String.IsEqual(Container.FolderPath,videodb://recentlyaddedmovies/) | String.IsEqual(Container.FolderPath,videodb://recentlyaddedepisodes/)</visible>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="400"/>
+				</include>	
+			</control>
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="400"/>
+				</include>	
+				<visible>Control.IsVisible(5505)</visible>
+			</control>
+
+			<control type="label" id="5522">
+				<description>Folder</description>
+				<include>BreadCrumbLabel</include>
+				<label>$VAR[LabelPlaylist] [UPPERCASE]$INFO[Container.FolderName][/UPPERCASE]</label>
+				<visible>!String.IsEmpty(Container.FolderName)</visible>
+				<visible>![String.IsEmpty(Container.FolderPath) | String.IsEqual(Container.FolderPath,sources://video/) | String.IsEqual(Container.FolderPath,special://videoplaylists/) | String.Contains(Container.FolderPath,plugin:)
+				| String.Contains(Container.FolderPath,/titles/) | String.Contains(Container.FolderPath,videodb://movies/sets/) | Container.Content() | Container.Content(Genres) | Container.Content(Years) | Container.Content(Actors) | Container.Content(Directors) | Container.Content(Studios) | Container.Content(Countries) | Container.Content(Artists) | Container.Content(Tags) | Container.Content(Addons)
+				| String.IsEqual(Container.FolderPath,videodb://recentlyaddedmovies/)| String.IsEqual(Container.FolderPath,videodb://recentlyaddedepisodes/)]
+				| String.EndsWith(Container.FolderPath,.xsp) | String.Contains(Container.FolderPath,plugin:)
+				| [Container.Content(Episodes) + String.Contains(Container.FolderPath,plugin:)] | [Container.Content(Seasons) + String.Contains(Container.FolderPath,plugin:)]</visible>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="500"/>
+				</include>	
+			</control>
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<visible>Control.IsVisible(5522)</visible>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="500"/>
+				</include>	
+			</control>
+			<control type="label" id="5519">
+				<description>TV Show Title</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$INFO[Container.ShowTitle][/UPPERCASE]</label>
+				<visible>!String.IsEqual(Container.FolderPath,videodb://recentlyaddedepisodes/) + !String.Contains(Container.FolderPath,plugin:) + !String.IsEmpty(Container.ShowTitle) + [Container.Content(Seasons) | Container.Content(Episodes)]</visible>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="400"/>
+				</include>	
+			</control>
+			<control type="label" id="5520">
+				<description>Movie / TV Show Title</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+				<visible>Skin.HasSetting(HideMoviesWallInfoPanel) + [![Control.IsVisible(582) + [Control.HasFocus(581) | Control.HasFocus(907)]] + [Container.Content(Movies) | Container.Content(Sets)]] | [Container.Content(TVShows) + Skin.HasSetting(HideTVShowsWallInfoPanel)]</visible>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="400"/>
+				</include>	
+			</control>
+			<control type="label" id="5527">
+				<description>Movie Title</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$INFO[Container(581).ListItem.Title][/UPPERCASE]</label>
+				<visible>Control.IsVisible(582) + [Control.HasFocus(581) | Control.HasFocus(907)] + [Container.Content(Movies) | Container.Content(Sets)]</visible>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="400"/>
+				</include>	
+			</control>
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<visible>Control.IsVisible(5519) | Control.IsVisible(5520) | Control.IsVisible(5525) | Control.IsVisible(5527)</visible>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="400"/>
+				</include>	
+			</control>
+			<control type="label" id="5526">
+				<description>Season Number</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$INFO[ListItem.Season,$LOCALIZE[20373] ,][/UPPERCASE]</label>
+				<visible>Container.Content(Episodes) + !String.IsEmpty(ListItem.Season)</visible>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="500"/>
+				</include>	
+			</control>
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="500"/>
+				</include>	
+				<visible>Control.IsVisible(5526)</visible>
+			</control>
+
+			<control type="label" id="5528">
+				<description>Count</description>
+				<include>BreadCrumbLabel</include>
+				<label>$INFO[Container.CurrentItem] / $INFO[Container.NumItems] $LOCALIZE[342]</label>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="500"/>
+				</include>	
+				<visible>Container.Content(Movies)</visible>
+			</control>
+			<control type="label" id="5528">
+				<description>Count</description>
+				<include>BreadCrumbLabel</include>
+				<label>$INFO[Container.CurrentItem] / $INFO[Container.NumItems] $LOCALIZE[20360]</label>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="500"/>
+				</include>	
+				<visible>Container.Content(Episodes) + !String.IsEmpty(ListItem.Season)</visible>
+			</control>		
+			<control type="label" id="5528">
+				<description>Count</description>
+				<include>BreadCrumbLabel</include>
+				<label>$INFO[Container.CurrentItem] / $INFO[Container.NumItems] $LOCALIZE[33054]</label>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="500"/>
+				</include>	
+				<visible>Container.Content(seasons)</visible>
+			</control>	
+			<control type="label" id="5528">
+				<description>Count</description>
+				<include>BreadCrumbLabel</include>
+				<label>$INFO[Container.CurrentItem] / $INFO[Container.NumItems] $LOCALIZE[36902]</label>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="500"/>
+				</include>	
+				<visible>Container.Content(tvshows)</visible>
+			</control>		
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="500"/>
+				</include>	
+				<visible>Control.IsVisible(5528)</visible>
+			</control>
+		</control>
+	</include>
+	
+	<include name="BreadCrumbPrograms">		
+		<control type="grouplist">
+			<left>10</left>
+			<top>StatusBartop</top>
+			<height>43</height>
+			<width>740</width>
+			<itemgap>8</itemgap>
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<control type="button" id="555">
+				<include>BreadCrumbHomeIcon</include>
+				<include>BreadCrumbSlideLevelAnim</include>
+			</control>
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<include>BreadCrumbSlideLevelAnim</include>
+			</control>
+			<control type="label" id="5501">
+				<description>Programs</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$LOCALIZE[0][/UPPERCASE]</label>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+			</control>
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+			</control>
+			<control type="label" id="5502">
+				<description>Files</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$LOCALIZE[1214][/UPPERCASE]</label>
+				<visible>!Container.Content(Addons) + !String.Contains(Container.FolderPath,plugin:)</visible>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="400"/>
+				</include>	
+			</control>
+			<control type="label" id="5503">
+				<description>Add-ons</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$LOCALIZE[24001][/UPPERCASE]</label>
+				<visible>Container.Content(Addons) | String.Contains(Container.FolderPath,plugin:)</visible>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="400"/>
+				</include>	
+			</control>
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<visible>Control.IsVisible(5502) | Control.IsVisible(5503)</visible>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="400"/>
+				</include>	
+			</control>
+			<control type="label" id="5504">
+				<description>Folder</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$INFO[Container.FolderName][/UPPERCASE]</label>
+				<visible>!String.IsEmpty(Container.FolderPath) + !Container.Content(Addons) | String.Contains(Container.FolderPath,plugin:)</visible>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="500"/>
+				</include>	
+			</control>
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<visible>Control.IsVisible(5504)</visible>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="500"/>
+				</include>	
+			</control>
+		</control>	
+	</include>
+	
+	<include name="BreadCrumbAddons">
+		<control type="grouplist">
+			<left>10</left>
+			<top>StatusBartop</top>
+			<height>43</height>
+			<width>740</width>
+			<itemgap>8</itemgap>
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<control type="button" id="555">
+				<include>BreadCrumbHomeIcon</include>
+				<include>BreadCrumbSlideLevelAnim</include>
+			</control>
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<include>BreadCrumbSlideLevelAnim</include>
+			</control>
+			<control type="label" id="5501">
+				<description>Add-ons</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$LOCALIZE[24001][/UPPERCASE]</label>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+			</control>
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+			</control>
+			<control type="label" id="5502">
+				<description>Repository Name</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$INFO[Container.Property(reponame)][/UPPERCASE]</label>
+				<visible>!String.IsEmpty(Container.Property(reponame))</visible>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="400"/>
+				</include>	
+			</control>
+			<control type="label" id="5503">
+				<description>Get Add-ons</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$LOCALIZE[24033][/UPPERCASE]</label>
+				<visible>String.IsEqual(Container.FolderPath,addons://repos/) + String.IsEmpty(Container.Property(reponame))</visible>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="400"/>
+				</include>	
+			</control>
+			<control type="label" id="5504">
+				<description>Folder</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$INFO[Container.FolderName][/UPPERCASE]</label>
+				<visible>!String.IsEqual(Container.FolderPath,addons://) + !String.IsEqual(Container.FolderPath,addons://repos/) + String.IsEmpty(Container.Property(reponame))</visible>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="400"/>
+				</include>	
+			</control>
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<visible>Control.IsVisible(5502) | Control.IsVisible(5503) | Control.IsVisible(5504)</visible>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="400"/>
+				</include>	
+			</control>
+			<control type="label" id="5505">
+				<description>Add-on Category</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$INFO[Container.Property(AddonCategory)][/UPPERCASE]</label>
+				<visible>!String.IsEmpty(Container.Property(AddonCategory)) + !String.IsEmpty(Container.Property(reponame))</visible>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="500"/>
+				</include>	
+			</control>
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<visible>Control.IsVisible(5505)</visible>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="500"/>
+				</include>	
+			</control>
+		</control>
+	</include>
+	
+	<include name="BreadCrumbSettings">
+		<control type="grouplist">
+			<left>10</left>
+			<top>StatusBartop</top>
+			<height>43</height>
+			<width>740</width>
+			<itemgap>8</itemgap>
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<control type="button" id="555">
+				<include>BreadCrumbHomeIcon</include>
+				<include>BreadCrumbSlideLevelAnim</include>
+			</control>
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<include>BreadCrumbSlideLevelAnim</include>
+			</control>
+			<control type="label" id="5501">
+				<description>Settings</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$LOCALIZE[5][/UPPERCASE]</label>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+			</control>
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+			</control>
+			<control type="label" id="5502">
+				<description>Label</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$VAR[BreadCrumbSettingsLabel][/UPPERCASE]</label>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="400"/>
+				</include>	
+			</control>
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="400"/>
+				</include>	
+			</control>
+		</control>
+	</include>
+	
+	<include name="BreadCrumbMediaInfo">
+		<control type="grouplist">
+			<left>10</left>
+			<top>StatusBartop</top>
+			<height>43</height>
+			<width>740</width>
+			<itemgap>8</itemgap>
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<control type="button" id="555">
+				<include>BreadCrumbHomeIcon</include>
+				<include>BreadCrumbSlideLevelAnim</include>
+			</control>
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<include>BreadCrumbSlideLevelAnim</include>
+			</control>
+			<control type="label" id="5501">
+				<description>Unknown</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]?[/UPPERCASE]</label>
+				<visible>!String.IsEqual(ListItem.DBTYPE,movie) + !String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEqual(ListItem.DBTYPE,season) + !String.IsEqual(ListItem.DBTYPE,episode) + !String.IsEqual(ListItem.DBTYPE,song)
+				+ !String.IsEqual(ListItem.DBTYPE,album) + !String.IsEqual(ListItem.DBTYPE,artist) + !Container.Content(Directors) + !Container.Content(Actors)
+				+ !Window.IsActive(AddonInformation) + !String.Contains(Container.FolderPath,plugin://plugin.program)</visible>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+			</control>
+			<control type="label" id="5502">
+				<description>Movie</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$LOCALIZE[20338][/UPPERCASE]</label>
+				<visible>String.IsEqual(ListItem.DBTYPE,movie)</visible>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+			</control>
+			<control type="label" id="5503">
+				<description>TV Show</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$LOCALIZE[20364][/UPPERCASE]</label>
+				<visible>String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season)</visible>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+			</control>
+			<control type="label" id="5504">
+				<description>Episode</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$LOCALIZE[20359][/UPPERCASE]</label>
+				<visible>String.IsEqual(ListItem.DBTYPE,episode)</visible>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+			</control>
+			<control type="label" id="5506">
+				<description>Album</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$LOCALIZE[558][/UPPERCASE]</label>
+				<visible>String.IsEqual(ListItem.DBTYPE,album)</visible>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+			</control>
+			<control type="label" id="5507">
+				<description>Artist</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$LOCALIZE[557][/UPPERCASE]</label>
+				<visible>String.IsEqual(ListItem.DBTYPE,artist)</visible>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+			</control>
+			<control type="label" id="5508">
+				<description>Add-on</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$LOCALIZE[24000][/UPPERCASE]</label>
+				<visible>Window.IsActive(AddonInformation)</visible>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+			</control>
+			<control type="label" id="5509">
+				<description>Programs</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$INFO[Container.FolderName][/UPPERCASE]</label>
+				<visible>String.Contains(Container.FolderPath,plugin://plugin.program)</visible>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+			</control>
+			<control type="label" id="5510">
+				<description>Director</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$LOCALIZE[20339][/UPPERCASE]</label>
+				<visible>Container.Content(Directors)</visible>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+			</control>
+			<control type="label" id="5511">
+				<description>Actor</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$LOCALIZE[20337][/UPPERCASE]</label>
+				<visible>Container.Content(Actors)</visible>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+			</control>
+			<control type="label" id="5512">
+				<description>Song</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$LOCALIZE[179][/UPPERCASE]</label>
+				<visible>String.IsEqual(ListItem.DBTYPE,song)</visible>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+			</control>
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+			</control>
+			<control type="label" id="5510">
+				<description>Information</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$LOCALIZE[31304][/UPPERCASE]</label>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="400"/>
+				</include>	
+			</control>
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="400"/>
+				</include>	
+			</control>
+		</control>
+	</include>
+	
+	<include name="BreadCrumbSystemInfo">
+		<control type="grouplist">
+			<left>10</left>
+			<top>StatusBartop</top>
+			<height>43</height>
+			<width>740</width>
+			<itemgap>8</itemgap>
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<control type="button" id="555">
+				<include>BreadCrumbHomeIcon</include>
+				<include>BreadCrumbSlideLevelAnim</include>
+			</control>
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<include>BreadCrumbSlideLevelAnim</include>
+			</control>
+			<control type="label" id="5501">
+				<description>System Info</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$LOCALIZE[138][/UPPERCASE]</label>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+			</control>
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+			</control>
+		</control>
+	</include>
+	
+	<include name="BreadCrumbFileManager">
+		<control type="grouplist">
+			<left>10</left>
+			<top>StatusBartop</top>
+			<height>43</height>
+			<width>740</width>
+			<itemgap>8</itemgap>
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<control type="button" id="555">
+				<include>BreadCrumbHomeIcon</include>
+				<include>BreadCrumbSlideLevelAnim</include>
+			</control>
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<include>BreadCrumbSlideLevelAnim</include>
+			</control>
+			<control type="label">
+				<description>File Manager</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$LOCALIZE[7][/UPPERCASE]</label>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+			</control>
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+			</control>
+		</control>
+	</include>
+	
+	<include name="BreadCrumbEventLog">
+		<control type="grouplist">
+			<left>10</left>
+			<top>StatusBartop</top>
+			<height>43</height>
+			<width>740</width>
+			<itemgap>8</itemgap>
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<control type="button" id="555">
+				<include>BreadCrumbHomeIcon</include>
+				<include>BreadCrumbSlideLevelAnim</include>
+			</control>
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<include>BreadCrumbSlideLevelAnim</include>
+			</control>
+			<control type="label">
+				<description>Event Log</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$LOCALIZE[14111][/UPPERCASE]</label>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+			</control>
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+			</control>
+		</control>
+	</include>
+	
+	<include name="BreadCrumbGlobalSearch">
+		<control type="grouplist">
+			<left>10</left>
+			<top>StatusBartop</top>
+			<height>43</height>
+			<width>740</width>
+			<itemgap>8</itemgap>
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<control type="button" id="555">
+				<include>BreadCrumbHomeIcon</include>
+				<include>BreadCrumbSlideLevelAnim</include>
+				<ondown condition="!Window.IsActive(script-globalsearch-infodialog.xml)">Control.SetFocus(9000)</ondown>
+				<ondown condition="Window.IsActive(script-globalsearch-infodialog.xml)">Control.SetFocus(190)</ondown>
+			</control>
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<include>BreadCrumbSlideLevelAnim</include>
+			</control>
+			<control type="label">
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$LOCALIZE[137][/UPPERCASE]</label>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+			</control>
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+			</control>
+			<control type="label">
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$INFO[Window.Property(GlobalSearch.SearchString),","][/UPPERCASE]</label>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="400"/>
+				</include>	
+				<visible>!Window.IsActive(script-globalsearch-infodialog.xml)</visible>
+			</control>
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="400"/>
+				</include>	
+				<visible>!Window.IsActive(script-globalsearch-infodialog.xml)</visible>
+			</control>
+			<control type="label">
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$INFO[Container(9000).ListItem.Label][/UPPERCASE]</label>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="500"/>
+				</include>	
+				<visible>!String.IsEmpty(Container(9000).ListItem.Label) + !Container(9000).HasFocus(11) + !Window.IsActive(script-globalsearch-infodialog.xml)</visible>
+			</control>
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="500"/>
+				</include>	
+				<visible>!String.IsEmpty(Container(9000).ListItem.Label) + !Container(9000).HasFocus(11) + !Window.IsActive(script-globalsearch-infodialog.xml)</visible>
+			</control>
+			<control type="label">
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$INFO[Container(100).ListItem.Label][/UPPERCASE]</label>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="400"/>
+				</include>	
+				<visible>Window.IsActive(script-globalsearch-infodialog.xml)</visible>
+			</control>
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="400"/>
+				</include>	
+				<visible>Window.IsActive(script-globalsearch-infodialog.xml)</visible>
+			</control>
+		</control>
+	</include>
+	
+	<include name="BreadCrumbExtendedInfoVideoList">	
+		<control type="grouplist">
+			<left>10</left>
+			<top>StatusBartop</top>
+			<height>43</height>
+			<width>740</width>
+			<itemgap>8</itemgap>
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<control type="button" id="555">
+				<include>BreadCrumbHomeIcon</include>
+				<include>BreadCrumbSlideLevelAnim</include>
+			</control>
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<include>BreadCrumbSlideLevelAnim</include>
+			</control>
+			<control type="label">
+				<description>Youtube Browser</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$LOCALIZE[31012][/UPPERCASE]</label>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+				<visible>Window.IsActive(script-script.extendedinfo-YoutubeList.xml)</visible>
+			</control>
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<include content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+				<visible>Window.IsActive(script-script.extendedinfo-YoutubeList.xml)</visible>
+			</control>
+			<control type="label">
+				<description>Type</description>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$INFO[Window.Property(Type)][/UPPERCASE]</label>
+				<include condition="Window.IsActive(script-script.extendedinfo-VideoList.xml)" content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+				<include condition="Window.IsActive(script-script.extendedinfo-YoutubeList.xml)" content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="400"/>
+				</include>
+			</control>
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<include condition="Window.IsActive(script-script.extendedinfo-VideoList.xml)" content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+				<include condition="Window.IsActive(script-script.extendedinfo-YoutubeList.xml)" content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="400"/>
+				</include>
+			</control>
+			<control type="label">
+				<description>Filter</description>
+				<width min="10" max="800">auto</width>
+				<include>BreadCrumbLabel</include>
+				<label>[UPPERCASE]$INFO[Window.Property(Filter_Label)][/UPPERCASE]</label>
+				<include condition="Window.IsActive(script-script.extendedinfo-VideoList.xml)" content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+				<include condition="Window.IsActive(script-script.extendedinfo-YoutubeList.xml)" content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="400"/>
+				</include>
+				<visible>!String.IsEmpty(Window.Property(Filter_Label))</visible>
+			</control>
+			<control type="image">
+				<include>BreadCrumbSeparator</include>
+				<include condition="Window.IsActive(script-script.extendedinfo-VideoList.xml)" content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="300"/>
+				</include>
+				<include condition="Window.IsActive(script-script.extendedinfo-YoutubeList.xml)" content="BreadCrumbSlideLevelAnimFade">
+					<param name="delay" value="400"/>
+				</include>
+				<visible>!String.IsEmpty(Window.Property(Filter_Label))</visible>
+			</control>
+		</control>
+	</include>
+</includes>

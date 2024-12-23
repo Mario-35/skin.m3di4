@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">500</defaultcontrol>
+	<menucontrol>850</menucontrol>
+	<views>91</views>
+	<controls>
+		<control type="group">
+			<depth>DepthBackground</depth>
+			<include>BackgroundDefault</include>
+			<include>BackgroundVideoPlaying</include>
+			<include>WindowOpenFadeInOut</include>
+		</control>
+		
+		<control type="group">
+			<visible>!Window.IsActive(AddonInformation)</visible>
+			<depth>DepthContent</depth>
+			<include>MediaInfoOpenCloseAnim</include>
+			<include>AddonsListInfoView</include> <!-- 91 -->
+		</control>
+			
+		<include>MediaMenuBar</include>
+		
+		<control type="group">
+			<description>Top Bar Area</description>
+			<depth>DepthTopBar</depth>
+			<include>TopBarImage</include>
+			<include>TopBarOpenCloseAnim</include>
+			<include>BreadCrumbAddons</include>
+			<include>Notifications</include>
+			<include>SortLetterNotification</include>
+			<visible>!Window.IsActive(AddonInformation)</visible>
+		</control>
+	</controls>
+</window>

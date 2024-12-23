@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window id="3000">
+    <defaultcontrol always="true">500</defaultcontrol>
+	<views>500</views>
+	<menucontrol>987</menucontrol>	
+	<include>OnUnloadViews</include>	
+	<include>Animation_Bottom</include>	
+    <controls>
+		<control type="group">
+			<depth>DepthBackground</depth>
+			<include>BackgroundDefault</include>		
+			<control type="group">
+				<visible>!Skin.HasSetting(ShowExtendedInfoYoutubeFanart)</visible>
+				<include>BackgroundVisibleAnim</include>
+				<control type="image">
+					<include>BackgroundSize</include>
+					<texture background="true">$INFO[Container(500).ListItem.Thumb]</texture>
+					<aspectratio>scale</aspectratio>
+					<fadetime>FanartCrossfadeTime</fadetime>
+					<visible>!String.IsEqual(Window.Property(type),channel)</visible>
+				</control>
+				<control type="image">
+					<include>BackgroundSize</include>
+					<texture background="true">$INFO[Container(500).ListItem.Art(fanart)]</texture>
+					<aspectratio>scale</aspectratio>
+					<fadetime>FanartCrossfadeTime</fadetime>
+					<visible>String.IsEqual(Window.Property(type),channel)</visible>
+				</control>
+			</control>			
+			<include>BackgroundVideoPlaying</include>
+			<control type="image">
+				<include>BackgroundDim</include>
+			</control>
+			<include>WindowOpenFadeInOut</include>
+		</control>
+		
+		<control type="group">
+			<depth>DepthContent</depth>
+			
+			<control type="panel" id="500">
+				<left>25</left>
+				<top>55</top>
+				<width>1248</width>
+				<height>650</height>
+				<pagecontrol>904</pagecontrol>
+				<preloaditems>2</preloaditems>
+				<scrolltime tween="sine" easing="inout">404</scrolltime>
+				<onup>700</onup>
+                <ondown>600</ondown>
+				<onleft>987</onleft>
+				<onright>904</onright>
+				<animation effect="slide" end="15,-15" condition="Skin.String(ExtendedInfoYoutubeViewStyle,2)">Conditional</animation>
+				<animation effect="slide" end="570,-15" condition="Skin.String(ExtendedInfoYoutubeViewStyle,3)">Conditional</animation>
+				<itemlayout height="260" width="311">
+					<control type="label">
+						<left>14</left>
+						<width>165</width>
+						<font>ListFontSize14</font>
+						<textcolor>GreyColor</textcolor>
+						<shadowcolor>ShadowColor</shadowcolor>
+						<label>$INFO[ListItem.Property(duration)]$INFO[ListItem.Property(itemcount),, $LOCALIZE[36913]]</label>
+					</control>
+					<control type="label">
+						<right>34</right>
+						<width>165</width>
+						<align>right</align>
+						<font>ListFontSize14</font>
+						<textcolor>GreyColor</textcolor>
+						<shadowcolor>ShadowColor</shadowcolor>
+						<label>$INFO[ListItem.Premiered]</label>
+					</control>
+					<control type="image">
+						<description>Cover Case</description>
+						<top>17</top>
+						<width>291</width>
+						<height>176</height>
+						<texture background="true" border="14">covers/cover-case-thumbnail-nofocus.png</texture>
+						<aspectratio>stretch</aspectratio>
+					</control>
+					<control type="image">
+						<description>Cover</description>
+						<top>17</top>
+						<width>291</width>
+						<height>176</height>
+						<bordersize>14</bordersize>
+						<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+						<aspectratio>scale</aspectratio>
+					</control>
+					<control type="image">
+						<description>Default Cover</description>
+						<top>17</top>
+						<width>291</width>
+						<height>176</height>
+						<bordersize>25</bordersize>
+						<texture>$VAR[ExtendedInfoYoutubeActualIcon]</texture>
+						<aspectratio>keep</aspectratio>
+						<visible>String.IsEmpty(ListItem.Art(thumb))</visible>
+						<animation effect="fade" end="40" condition="true">Conditional</animation>
+					</control>
+					<control type="textbox">
+						<description>Label</description>
+						<left>14</left>
+						<top>189</top>
+						<width>263</width>
+						<height>34</height>
+						<font>YoutubeBrowserFont</font>
+						<textcolor>GreyColor</textcolor>
+						<shadowcolor>ShadowColor</shadowcolor>
+						<align>center</align>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</itemlayout>
+				<focusedlayout height="260" width="311">
+					<control type="group">
+						<include>ThumbnailViewCoverFocusAnim</include>
+						<control type="label">
+							<left>14</left>
+							<width>165</width>
+							<font>ListFontSize14</font>
+							<textcolor>SelectedColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$INFO[ListItem.Property(duration)]$INFO[ListItem.Property(itemcount),, $LOCALIZE[36913]]</label>
+						</control>
+						<control type="label">
+							<right>34</right>
+							<width>165</width>
+							<align>right</align>
+							<font>ListFontSize14</font>
+							<textcolor>SelectedColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$INFO[ListItem.Premiered]</label>
+						</control>
+						<control type="image">
+							<description>Cover Case</description>
+							<top>17</top>
+							<width>291</width>
+							<height>176</height>
+							<texture background="true" border="14">covers/cover-case-thumbnail-focus.png</texture>
+							<aspectratio>stretch</aspectratio>
+						</control>
+						<control type="image">
+							<description>Cover</description>
+							<top>17</top>
+							<width>291</width>
+							<height>176</height>
+							<bordersize>14</bordersize>
+							<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+							<aspectratio>scale</aspectratio>
+						</control>
+						<control type="image">
+							<description>Default Cover</description>
+							<top>17</top>
+							<width>291</width>
+							<height>176</height>
+							<bordersize>25</bordersize>
+							<texture>$VAR[ExtendedInfoYoutubeActualIcon]</texture>
+							<aspectratio>keep</aspectratio>
+							<visible>String.IsEmpty(ListItem.Art(thumb))</visible>
+						</control>
+						<control type="textbox">
+							<description>Label</description>
+							<left>14</left>
+							<top>189</top>
+							<width>263</width>
+							<height>34</height>
+							<font>YoutubeBrowserFont</font>
+							<textcolor>SelectedColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<align>center</align>
+							<autoscroll time="2000" delay="3000" repeat="10000">true</autoscroll>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+					</control>	
+				</focusedlayout>
+			</control>
+			
+			<control type="button" id="600">
+                <onfocus>SetFocus(500)</onfocus>
+                <width>1</width>
+                <height>1</height>
+                <left>-1000</left>
+            </control>
+            <control type="button" id="700">
+                <onfocus>SetFocus(500)</onfocus>
+                <width>1</width>
+                <height>1</height>
+                <left>-1000</left>
+            </control>
+		</control>
+			
+		<control type="group">
+			<description>Top Bar Area</description>
+			<depth>DepthTopBar</depth>
+			<include>BreadCrumbExtendedInfoVideoList</include>
+			<include>Notifications</include>
+		</control>
+		
+		<control type="group">
+			<left>2000</left>
+			<control type="button" id="5002">
+			</control>
+			<control type="button" id="5003">
+			</control>
+			<control type="button" id="5006">
+			</control>
+			<control type="button" id="5008">
+			</control>
+			<control type="button" id="5009">
+			</control>
+			<control type="button" id="5012">
+			</control>
+			<control type="button" id="5005">
+			</control>
+		</control>
+    </controls>
+</window>

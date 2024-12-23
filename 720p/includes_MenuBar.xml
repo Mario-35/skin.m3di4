@@ -1,0 +1,1345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+	<include name="MenuVideoBarImage">
+		<control type="image">
+			<top>0</top>
+			<width>ScreenWidth</width>
+			<height>55</height>
+			<texture border="0,0,0,8">gui/menu-bar-background.png</texture>
+			<aspectratio>stretch</aspectratio>
+			<animation effect="fade" end="80" condition="true">Conditional</animation>
+		</control>
+	</include>	
+	
+	<include name="MenuBarImage">
+		<control type="image">
+			<width>ScreenWidth</width>
+			<height>42</height>
+			<texture border="0,0,0,8">gui/menu-bar-background.png</texture>
+			<aspectratio>stretch</aspectratio>
+			<animation effect="fade" end="80" condition="true">Conditional</animation>
+		</control>
+	</include>
+	
+	<include name="MenuBarIconBtn">
+		<width>30</width>
+		<height>MenuBarHeight</height>
+		<aspectratio>keep</aspectratio>
+		<pulseonselect>false</pulseonselect>
+		<include>MenuBarBtnFocusAnim</include>
+	</include>
+
+	<include name="MenuBarIcone">
+		<width>MenuBarPlayerHeight</width>
+		<height>MenuBarPlayerHeight</height>
+		<aspectratio>keep</aspectratio>
+		<pulseonselect>true</pulseonselect>
+		<include>MenuBarBtnFocusAnim</include>
+	</include>
+	
+	<include name="MenuBarBtn">
+		<width>160</width>
+		<height>MenuBarHeight</height>	
+		<font>MenuBarBtnFont</font>	
+		<textcolor>ButtonColor</textcolor>
+		<focusedcolor>ButtonFocusColor</focusedcolor>
+		<aligny>top</aligny>
+		<textoffsety>9</textoffsety>
+		<textoffsetx>13</textoffsetx>
+		<textwidth>134</textwidth>
+		<texturefocus border="4">gui/menu-bar-button-focus.png</texturefocus>
+		<texturenofocus />
+	</include>
+
+	<include name="MenuBarBigBtn">
+		<width>200</width>
+		<height>MenuBarHeight</height>	
+		<font>MenuBarBtnFont</font>	
+		<textcolor>ButtonColor</textcolor>
+		<focusedcolor>ButtonFocusColor</focusedcolor>
+		<aligny>top</aligny>
+		<textoffsety>9</textoffsety>
+		<textoffsetx>13</textoffsetx>
+		<textwidth>174</textwidth>
+		<texturefocus border="4">gui/menu-bar-button-focus.png</texturefocus>
+		<texturenofocus />
+	</include>
+	
+	<include name="MenuBarRadioBtn">
+		<width>185</width>
+		<height>MenuBarHeight</height>
+		<font>MenuBarBtnFont</font>	
+		<focusedcolor>ButtonFocusColor</focusedcolor>
+		<textcolor>ButtonColor</textcolor>
+		<disabledcolor>DisabledColor</disabledcolor>
+		<textwidth>110</textwidth>
+		<aligny>top</aligny>
+		<textoffsety>9</textoffsety>
+		<textoffsetx>13</textoffsetx>
+		<radiowidth>40</radiowidth>
+		<radioheight>16</radioheight>
+		<texturefocus border="4">gui/menu-bar-button-focus.png</texturefocus>
+		<texturenofocus />
+	</include>
+	
+	<include name="MenuBarSpinBtn">	
+		<width>185</width>
+		<height>MenuBarHeight</height>	
+		<font>MenuBarBtnFont</font>	
+		<textcolor>ButtonColor</textcolor>
+		<focusedcolor>ButtonFocusColor</focusedcolor>
+		<aligny>center</aligny>
+		<textoffsetx>13</textoffsetx>
+		<textwidth>134</textwidth>
+		<align>left</align>
+		<texturefocus border="4">gui/menu-bar-button-focus.png</texturefocus>
+		<texturenofocus />
+	</include>
+	
+	<include name="MenuBarArrowBtn">
+		<width>200</width>
+		<height>MenuBarHeight</height>
+		<font>MenuBarBtnFont</font>	
+		<textcolor>ButtonColor</textcolor>
+		<focusedcolor>ButtonFocusColor</focusedcolor>
+		<align>left</align>
+		<aligny>top</aligny>
+		<textoffsety>9</textoffsety>
+		<textoffsetx>13</textoffsetx>
+		<textwidth>149</textwidth>
+		<texturefocus border="4,4,32,4">gui/menu-bar-button-arrow-focus.png</texturefocus>
+		<texturenofocus border="4,4,32,4">gui/menu-bar-button-arrow-nofocus.png</texturenofocus>
+	</include>
+
+	<include name="MenuBarSettingsBtn">	
+		<width>156</width>
+		<height>MenuBarHeight</height>	
+		<font>MenuBarBtnFont</font>	
+		<focusedcolor>ButtonFocusColor</focusedcolor>
+		<textwidth>142</textwidth>
+		<aligny>top</aligny>
+		<textoffsety>9</textoffsety>
+		<texturefocus border="4">gui/menu-bar-button-focus.png</texturefocus>
+		<texturenofocus />
+	</include>
+
+	<include name="DropDownMenuRadioBtnLarge">	
+		<width>312</width>
+		<height>37</height>
+		<font>MenuItemFont</font>
+		<textcolor>MenuItemColor</textcolor>
+		<focusedcolor>MenuItemFocusColor</focusedcolor>
+		<textoffsetx>18</textoffsetx>
+		<align>left</align>
+		<radiowidth>26</radiowidth>
+		<radioheight>20</radioheight>
+		<radioposx>272</radioposx>
+		<radioposy>-</radioposy>
+		<textwidth>243</textwidth>
+		<textureradiofocus>controls/radio-button-focus4.png</textureradiofocus>
+		<textureradionofocus>controls/radio-button-nofocus4.png</textureradionofocus>
+		<texturefocus border="12,4,12,5">gui/menu-bar-item-focus.png</texturefocus>
+		<texturenofocus border="9,0,9,3">gui/menu-bar-item-nofocus.png</texturenofocus>
+		<textureradioondisabled colordiffuse="66FFFFFF">controls/radio-button-nofocus4.png</textureradioondisabled>
+		<textureradiooffdisabled colordiffuse="66FFFFFF">controls/radio-button-nofocus4.png</textureradiooffdisabled>
+		<pulseonselect>false</pulseonselect>
+	</include>	
+	
+	<include name="MenuBarSettingsBtn2">
+		<width>139</width>
+		<textwidth>128</textwidth>
+		<include>MenuBarSettingsBtn</include>
+	</include>
+	
+	<include name="DropDownMenuBtn">	
+		<width>212</width>
+		<height>37</height>
+		<font>MenuItemFont</font>
+		<textcolor>MenuItemColor</textcolor>
+		<focusedcolor>MenuItemFocusColor</focusedcolor>
+		<textoffsetx>18</textoffsetx>
+		<align>left</align>
+		<textwidth>176</textwidth>
+		<texturefocus border="12,4,12,5">gui/menu-bar-item-focus.png</texturefocus>
+		<texturenofocus border="9,0,9,3">gui/menu-bar-item-nofocus.png</texturenofocus>
+		<pulseonselect>false</pulseonselect>		
+	</include>
+	
+	<include name="DropDownMenuViewModeBtn">	
+		<width>212</width>
+		<height>37</height>
+		<font>MenuItemFont</font>
+		<textcolor>MenuItemColor</textcolor>
+		<focusedcolor>MenuItemFocusColor</focusedcolor>
+		<textoffsetx>60</textoffsetx>
+		<align>left</align>
+		<textwidth>134</textwidth>
+		<texturefocus border="12,4,12,5">gui/menu-bar-item-focus.png</texturefocus>
+		<texturenofocus border="9,0,9,3">gui/menu-bar-item-nofocus.png</texturenofocus>
+		<pulseonselect>false</pulseonselect>		
+	</include>
+	
+	<include name="DropDownMenuRadioBtn">	
+		<width>212</width>
+		<height>37</height>
+		<font>MenuItemFont</font>
+		<textcolor>MenuItemColor</textcolor>
+		<focusedcolor>MenuItemFocusColor</focusedcolor>
+		<textoffsetx>18</textoffsetx>
+		<align>left</align>
+		<radiowidth>26</radiowidth>
+		<radioheight>20</radioheight>
+		<radioposx>172</radioposx>
+		<radioposy />
+		<textwidth>143</textwidth>
+		<textureradiofocus>controls/radio-button-focus4.png</textureradiofocus>
+		<textureradionofocus>controls/radio-button-nofocus4.png</textureradionofocus>
+		<texturefocus border="12,4,12,5">gui/menu-bar-item-focus.png</texturefocus>
+		<texturenofocus border="9,0,9,3">gui/menu-bar-item-nofocus.png</texturenofocus>
+		<textureradioondisabled colordiffuse="66FFFFFF">controls/radio-button-nofocus4.png</textureradioondisabled>
+		<textureradiooffdisabled colordiffuse="66FFFFFF">controls/radio-button-nofocus4.png</textureradiooffdisabled>
+		<pulseonselect>false</pulseonselect>
+	</include>
+	
+	<include name="DropDownMenuHeader">	
+		<width>212</width>
+		<height>30</height>
+		<font>MenuBarBtnFont</font>
+		<textcolor>ContentTitleColor</textcolor>
+		<disabledcolor>ContentTitleColor</disabledcolor>
+		<textoffsetx>18</textoffsetx>
+		<textwidth>176</textwidth>
+		<texturefocus border="9,0,9,3">gui/menu-bar-item-nofocus2.png</texturefocus>
+		<texturenofocus border="9,0,9,3">gui/menu-bar-item-nofocus2.png</texturenofocus>
+		<enable>false</enable>
+	</include>
+	
+	<include name="DropDownMenuTopBorder">
+		<width>212</width>
+		<height>10</height>
+		<texture border="7,7,7,0">gui/menu-bar-item-top-border.png</texture>		
+	</include>
+	
+	<include name="DropDownMenuBottomBorder">
+		<width>212</width>
+		<height>7</height>
+		<texture border="7,0,7,7">gui/menu-bar-item-bottom-border.png</texture>	
+	</include>
+
+	<include name="MenuBarSeparator">	
+		<width>3</width>
+		<height>MenuBarHeight</height>
+		<texture>gui/menu-bar-separator.png</texture>		
+	</include>
+	
+	<include name="MediaMenuBar">
+		<control type="group" id="505">
+			<visible allowhiddenfocus="true">ControlGroup(505).HasFocus + [Container.Content(Movies) | Container.Content(tvshows) | Container.Content(Artists)]</visible>
+			<!--  <visible allowhiddenfocus="true">ControlGroup(505).HasFocus</visible>  -->
+			<description>Menu Bar Area</description>
+			<depth>DepthMenuBar</depth>
+			<top>MenuBarOffsetY</top>
+			<include>MenuBarImage</include>
+			<include>MenuBarOpenCloseAnim</include>
+			<control type="group" id="850">
+				<control type="group">
+					<!-- Films -->
+					<control type="list" id="110">
+						<visible>Container.Content(Movies)</visible>		
+						<left>5</left>
+						<top>0</top>
+						<width>ScreenWidth</width>
+						<height>MenuBarHeight</height>
+						<itemgap>0</itemgap>
+						<onup>555</onup>
+						<ondown>500</ondown>
+						<onleft>212</onleft>
+						<onright>212</onright>
+						<orientation>horizontal</orientation>
+						<usecontrolcoords>true</usecontrolcoords>
+						<include>MenuBarBtnOpenCloseAnim</include>
+						<include content="WidgetSubMenutList">
+							<param name="content_all" value="ActivateWindow(Videos,videodb://movies/titles/, return)"/>
+							<param name="content_path" value="ActivateWindow(Videos,special://skin/extras/playlists/videos/"/>
+							<param name="widthNoFocus" value="33"/>
+							<param name="heightNoFocus" value="35"/>
+							<param name="widthFocus" value="45"/>
+							<param name="heightFocus" value="38"/>
+							<param name="itemWidth" value="35"/>
+							<param name="itemWidthFocus" value="40"/>					
+							<param name="itemDecalageTopFocus" value="-2"/>					
+							<param name="fontNoFocus" value="AlphabetNoFocus"/>
+							<param name="fontFocus" value="AlphabetFocus"/>
+						</include>						
+					</control>	
+					<!-- TVShows Animes -->
+					<control type="list" id="110">
+						<visible>Container.Content(tvshows)</visible>		
+						<left>5</left>
+						<top>0</top>
+						<width>ScreenWidth</width>
+						<height>MenuBarHeight</height>
+						<itemgap>0</itemgap>
+						<onup>555</onup>
+						<ondown>500</ondown>
+						<onleft>347</onleft>
+						<onright>212</onright>
+						<orientation>horizontal</orientation>
+						<usecontrolcoords>true</usecontrolcoords>
+						<include>MenuBarBtnOpenCloseAnim</include>
+						<include condition="!Skin.HasSetting(UseAnimes)" content="WidgetSubMenutList">
+							<param name="content_all" value="ActivateWindow(Videos,special://skin/extras/playlists/series/All.xsp,return)"/>
+							<param name="content_path" value="ActivateWindow(Videos,special://skin/extras/playlists/series/"/>
+							<param name="widthNoFocus" value="33"/>
+							<param name="heightNoFocus" value="35"/>
+							<param name="widthFocus" value="45"/>
+							<param name="heightFocus" value="38"/>
+							<param name="itemWidth" value="35"/>
+							<param name="itemWidthFocus" value="40"/>					
+							<param name="itemDecalageTopFocus" value="-2"/>					
+							<param name="fontNoFocus" value="AlphabetNoFocus"/>
+							<param name="fontFocus" value="AlphabetFocus"/>
+						</include>	
+						<include condition="Skin.HasSetting(UseAnimes) + !Skin.HasSetting(SkinAnimeType)" content="WidgetSubMenutList">
+							<param name="content_all" value="ActivateWindow(Videos,special://skin/extras/playlists/animes/series/All.xsp,return)"/>
+							<param name="content_path" value="ActivateWindow(Videos,special://skin/extras/playlists/animes/series/"/>
+							<param name="widthNoFocus" value="33"/>
+							<param name="heightNoFocus" value="35"/>
+							<param name="widthFocus" value="45"/>
+							<param name="heightFocus" value="38"/>
+							<param name="itemWidth" value="35"/>
+							<param name="itemWidthFocus" value="40"/>					
+							<param name="itemDecalageTopFocus" value="-2"/>					
+							<param name="fontNoFocus" value="AlphabetNoFocus"/>
+							<param name="fontFocus" value="AlphabetFocus"/>
+						</include>		
+						<include condition="Skin.HasSetting(UseAnimes) + Skin.HasSetting(SkinAnimeType)" content="WidgetSubMenutList">
+							<param name="content_all" value="ActivateWindow(Videos,special://skin/extras/playlists/animes/All.xsp,return)"/>
+							<param name="content_path" value="ActivateWindow(Videos,special://skin/extras/playlists/animes/"/>
+							<param name="widthNoFocus" value="33"/>
+							<param name="heightNoFocus" value="35"/>
+							<param name="widthFocus" value="45"/>
+							<param name="heightFocus" value="38"/>
+							<param name="itemWidth" value="35"/>
+							<param name="itemWidthFocus" value="40"/>					
+							<param name="itemDecalageTopFocus" value="-2"/>					
+							<param name="fontNoFocus" value="AlphabetNoFocus"/>
+							<param name="fontFocus" value="AlphabetFocus"/>
+						</include>
+					</control>			
+
+					<control type="button" id="2">
+						<visible>false</visible>
+					</control>
+					
+					<control type="button" id="3">
+						<visible>false</visible>
+					</control>
+				</control>
+
+				<control type="group">   			
+					<include condition="!Window.IsActive(AddonBrowser)">MenuBarExtraOptions</include>
+					<include condition="Window.IsActive(AddonBrowser)">MenuBarExtraOptionsAddonBrowser</include>
+					<include>MenuBarOptionsSwitchAnim</include>
+					<visible>Skin.HasSetting(ShowExtraOptions)</visible>
+				</control>		
+			</control>
+		</control>
+	</include>
+	
+	<include name="MenuBarExtraOptions">
+		<control type="grouplist" id="212">
+			<left>130</left>
+			<top>0</top>
+			<width>ScreenWidth</width>
+			<height>MenuBarHeight</height>
+			<itemgap>0</itemgap>
+			<onup>555</onup>
+			<ondown>500</ondown>
+			<onleft>110</onleft>
+			<onright>850</onright>
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<include>MenuBarBtnOpenCloseAnim</include>
+			<visible>ControlGroup(505).HasFocus</visible>
+			<control type="image" id="99">
+				<include>MenuBarSeparator</include>
+			</control>
+			<control type="button" id="10">
+				<description>All Videos/Watched/Unwatched</description>
+				<include>MenuBarRadioBtn</include>
+				<visible>Window.IsVisible(Videos)</visible>
+			</control>
+			<control type="image" id="104">
+				<include>MenuBarSeparator</include>
+				<visible>Window.IsVisible(Videos)</visible>
+			</control>			
+			<control type="button" id="3">
+				<description>Sort By</description>
+				<include>MenuBarBigBtn</include>
+				<label>[UPPERCASE]$LOCALIZE[103][/UPPERCASE]</label>
+			</control>
+			<control type="image" id="352">
+				<include>MenuBarSeparator</include>
+			</control>
+			<control type="togglebutton" id="4">			
+				<description>Order By</description>
+				<include>MenuBarIconBtn</include>
+				<label>↓</label>
+				<altlabel>↑</altlabel>
+				<alttexturefocus border="4">gui/menu-bar-button-focus.png</alttexturefocus>
+				<alttexturenofocus>-</alttexturenofocus>
+			</control>
+			<control type="image" id="355">
+				<include>MenuBarSeparator</include>
+			</control>
+			<control type="button" id="402">
+				<description>Video Library</description>
+				<include>MenuBarArrowBtn</include>
+				<label>[UPPERCASE]$LOCALIZE[14022][/UPPERCASE]</label>
+				<onclick>ActivateWindow(1110)</onclick>
+				<onclick>Control.SetFocus(500)</onclick>
+				<enable>[Window.IsVisible(Videos) | Window.IsVisible(Videos,Files)] + String.Contains(Container.FolderPath,videodb)</enable>
+				<visible>Window.IsVisible(Videos) | Window.IsVisible(Videos,Files)</visible>
+			</control>
+			<control type="image" id="353">
+				<include>MenuBarSeparator</include>
+				<visible>Control.IsVisible(402)</visible>
+			</control>
+			<control type="button" id="411">
+				<description>Go to playlist</description>
+				<width>180</width>
+				<textwidth>154</textwidth>
+				<include>MenuBarBtn</include>
+				<onclick condition="Player.HasVideo">ActivateWindow(videoplaylist)</onclick>
+				<label>[UPPERCASE]$LOCALIZE[13350][/UPPERCASE]</label>
+				<visible>Window.IsActive(AddonBrowser) + [Player.HasVideo + !VideoPlayer.Content(livetv)]</visible>
+			</control>
+			<control type="image" id="371">
+				<include>MenuBarSeparator</include>
+				<visible>Window.IsActive(AddonBrowser) + [Player.HasVideo + !VideoPlayer.Content(livetv)]</visible>
+			</control>
+			<control type="button" id="412">
+				<description>Fullscreen</description>
+				<width>180</width>
+				<textwidth>154</textwidth>
+				<include>MenuBarBtn</include>
+				<onclick>fullscreen</onclick>
+				<label>[UPPERCASE]$LOCALIZE[31961][/UPPERCASE]</label>
+				<visible>Window.IsActive(AddonBrowser) + Player.HasMedia</visible>
+			</control>
+			<control type="image" id="372">
+				<include>MenuBarSeparator</include>
+				<visible>Window.IsActive(AddonBrowser) + Player.HasMedia</visible>
+			</control>
+			<control type="button" id="408">
+				<description>Go to playlist</description>
+				<include>MenuBarBtn</include>
+				<onclick condition="Player.HasVideo | [Window.IsActive(Videos) + !String.IsEqual(Playlist.Length(video),0)]">ActivateWindow(videoplaylist)</onclick>
+				<label>[UPPERCASE]$LOCALIZE[13350][/UPPERCASE]</label>
+				<visible>[[Player.HasVideo + !VideoPlayer.Content(livetv)] | [Window.IsActive(Videos) + !String.IsEqual(Playlist.Length(video),0)]]</visible>
+			</control>
+			<control type="image" id="118">
+				<include>MenuBarSeparator</include>
+				<visible>Control.IsVisible(408)</visible>
+			</control>
+			<control type="button" id="409">
+				<description>Fullscreen</description>
+				<include>MenuBarBtn</include>
+				<onclick>fullscreen</onclick>
+				<label>[UPPERCASE]$LOCALIZE[31961][/UPPERCASE]</label>
+				<visible>Player.HasMedia</visible>
+			</control>
+			<control type="image" id="119">
+				<include>MenuBarSeparator</include>
+				<visible>Player.HasMedia</visible>
+			</control>
+			<control type="button" id="410">			
+				<description>Shuffle</description>
+				<include>MenuBarBtn</include>
+				<label>[UPPERCASE]$LOCALIZE[191]$INFO[Playlist.Random,: ][/UPPERCASE]</label>
+				<onclick>PlayerControl(Random)</onclick>
+				<visible>Window.IsVisible(VideoPlaylist) + !Control.IsVisible(580)</visible>
+			</control>
+			<control type="image" id="109">
+				<include>MenuBarSeparator</include>
+				<visible>Window.IsVisible(VideoPlaylist) + !Control.IsVisible(580)</visible>
+			</control>
+			<control type="button" id="26">			
+				<description>Repeat</description>
+				<include>MenuBarBtn</include>
+				<align>center</align>
+				<visible>Window.IsVisible(VideoPlaylist) + !Control.IsVisible(580)</visible>
+			</control>
+			<control type="image" id="110">
+				<include>MenuBarSeparator</include>
+				<visible>Window.IsVisible(VideoPlaylist) + !Control.IsVisible(580)</visible>
+			</control>
+			<control type="button" id="21">			
+				<description>Save</description>
+				<include>MenuBarBtn</include>
+				<align>center</align>
+				<label>[UPPERCASE]$LOCALIZE[190][/UPPERCASE]</label>
+				<enable>!Skin.HasSetting(EnableKioskMode)</enable>
+				<visible>Window.IsVisible(VideoPlaylist) + !Control.IsVisible(580)</visible>
+			</control>
+			<control type="image" id="111">
+				<include>MenuBarSeparator</include>
+				<visible>Window.IsVisible(VideoPlaylist) + !Control.IsVisible(580)</visible>
+			</control>
+			<control type="button" id="22">			
+				<description>Clear</description>
+				<include>MenuBarBtn</include>
+				<align>center</align>
+				<label>[UPPERCASE]$LOCALIZE[192][/UPPERCASE]</label>
+				<enable>!Skin.HasSetting(EnableKioskMode)</enable>
+				<visible>Window.IsVisible(VideoPlaylist) + !Control.IsVisible(580)</visible>
+			</control>
+			<control type="image" id="112">
+				<include>MenuBarSeparator</include>
+				<visible>Window.IsVisible(VideoPlaylist) + !Control.IsVisible(580)</visible>
+			</control>
+		</control>		
+	</include>
+	
+	<include name="MenuBarExtraOptionsAddonBrowser">
+		<control type="grouplist" id="212">
+			<left>99</left>
+			<width>ScreenWidth</width>
+			<height>MenuBarHeight</height>
+			<itemgap>0</itemgap>
+			<onup>555</onup>
+			<ondown>500</ondown>
+			<onleft>347</onleft>
+			<onright>345</onright>
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<include>MenuBarBtnOpenCloseAnim</include>
+			<visible>ControlGroup(505).HasFocus | !Skin.HasSetting(HideMenuBar)</visible>
+			<control type="image" id="99">
+				<include>MenuBarSeparator</include>
+			</control>
+			<control type="radiobutton" id="19">
+				<visible>Container.CanFilter + !Container.CanFilterAdvanced</visible>
+				<description>Filter</description>
+				<width>190</width>
+				<textwidth>115</textwidth>
+				<include>MenuBarRadioBtn</include>
+				<selected>Container.Filtered</selected>
+				<label>[UPPERCASE]$LOCALIZE[587][/UPPERCASE]</label>
+			</control>
+			<control type="image" id="101">
+				<visible>Container.CanFilter + !Container.CanFilterAdvanced</visible>
+				<include>MenuBarSeparator</include>
+			</control>
+			<control type="radiobutton" id="98">
+				<visible>Container.CanFilterAdvanced</visible>
+				<description>Filter</description>
+				<width>190</width>
+				<textwidth>115</textwidth>
+				<include>MenuBarRadioBtn</include>
+				<label>[UPPERCASE]$LOCALIZE[587][/UPPERCASE]</label>
+				<selected>Container.Filtered</selected>
+				<onclick>Filter</onclick>
+			</control>
+			<control type="image" id="116">
+				<visible>Container.CanFilterAdvanced</visible>
+				<include>MenuBarSeparator</include>
+			</control>
+			<control type="button" id="9">
+				<description>Force Refresh Repo</description>
+				<width>190</width>
+				<textwidth>164</textwidth>
+				<include>MenuBarBtn</include>
+				<label>[UPPERCASE]$LOCALIZE[24034][/UPPERCASE]</label>
+				<enable>!Skin.HasSetting(EnableKioskMode)</enable>
+			</control>
+			<control type="image" id="120">
+				<include>MenuBarSeparator</include>
+			</control>
+			<control type="radiobutton" id="7">
+				<description>Hide foreign</description>
+				<width>197</width>
+				<textwidth>122</textwidth>
+				<include>MenuBarRadioBtn</include>
+				<label>[UPPERCASE]$LOCALIZE[25001][/UPPERCASE]</label>
+				<enable>!Skin.HasSetting(EnableKioskMode)</enable>
+			</control>
+			<control type="image" id="121">
+				<include>MenuBarSeparator</include>
+			</control>
+			<control type="radiobutton" id="8">
+				<description>Show / Hide broken add-ons</description>
+				<width>197</width>
+				<textwidth>122</textwidth>
+				<include>MenuBarRadioBtn</include>
+				<label>[UPPERCASE]$LOCALIZE[24999][/UPPERCASE]</label>
+				<enable>!Skin.HasSetting(EnableKioskMode)</enable>
+			</control>
+			<control type="image" id="122">
+				<include>MenuBarSeparator</include>
+			</control>
+			<control type="button" id="5">
+				<description>Settings</description>
+				<width>190</width>
+				<textwidth>164</textwidth>
+				<include>MenuBarBtn</include>
+				<label>[UPPERCASE]$LOCALIZE[10004][/UPPERCASE]</label>
+				<enable>!Skin.HasSetting(EnableKioskMode)</enable>
+			</control>
+			<control type="image" id="123">
+				<include>MenuBarSeparator</include>
+			</control>
+		</control>		
+	</include>
+	
+	<include name="SettingsMenuBar">
+		<control type="grouplist" id="850">
+			<left>2</left>
+			<width>1278</width>
+			<height>MenuBarHeight</height>
+			<itemgap>0</itemgap>
+			<onup>555</onup>
+			<ondown>9001</ondown>
+			<onleft>850</onleft>
+			<onright>850</onright>
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<include>MenuBarBtnOpenCloseAnim</include>
+			<control type="button" id="101">
+				<description>Interface</description>
+				<include>MenuBarSettingsBtn2</include>
+				<label>[UPPERCASE]$LOCALIZE[14206][/UPPERCASE]</label>
+				<onclick>ReplaceWindow(InterfaceSettings)</onclick>	
+			</control>
+			<control type="image" id="116">
+				<include>MenuBarSeparator</include>
+			</control>
+			<control type="button" id="104">
+				<description>Skin</description>
+				<include>MenuBarSettingsBtn2</include>
+				<label>[UPPERCASE]$LOCALIZE[166][/UPPERCASE]</label>
+				<onclick>ReplaceWindow(SkinSettings)</onclick>
+			</control>
+			<control type="image" id="119">
+				<include>MenuBarSeparator</include>
+			</control>
+			<control type="button" id="105">
+				<description>Player</description>
+				<include>MenuBarSettingsBtn2</include>
+				<label>[UPPERCASE]$LOCALIZE[14200][/UPPERCASE]</label>
+				<onclick>ReplaceWindow(PlayerSettings)</onclick>	
+			</control>
+			<control type="image" id="120">
+				<include>MenuBarSeparator</include>
+			</control>
+			<control type="button" id="110">
+				<description>Media</description>
+				<include>MenuBarSettingsBtn2</include>
+				<label>[UPPERCASE]$LOCALIZE[14211][/UPPERCASE]</label>
+				<onclick>ReplaceWindow(MediaSettings)</onclick>	
+			</control>
+			<control type="image" id="124">
+				<include>MenuBarSeparator</include>
+			</control>
+			<control type="button" id="106">
+				<description>Services</description>
+				<include>MenuBarSettingsBtn2</include>
+				<label>[UPPERCASE]$LOCALIZE[14036][/UPPERCASE]</label>
+				<onclick>ReplaceWindow(ServiceSettings)</onclick>	
+			</control>
+			<control type="image" id="121">
+				<include>MenuBarSeparator</include>
+			</control>
+			<control type="button" id="107">
+				<description>System</description>
+				<include>MenuBarSettingsBtn2</include>
+				<label>[UPPERCASE]$LOCALIZE[13000][/UPPERCASE]</label>
+				<onclick>ReplaceWindow(SystemSettings)</onclick>	
+			</control>
+			<control type="image" id="122">
+				<include>MenuBarSeparator</include>
+			</control>
+			<control type="button" id="109">
+				<description>Add-ons</description>
+				<include>MenuBarSettingsBtn2</include>
+				<label>[UPPERCASE]$LOCALIZE[24001][/UPPERCASE]</label>
+				<onclick>ReplaceWindow(AddonBrowser)</onclick>
+			</control>
+		</control>
+	</include>
+	
+	<include name="EventLogMenuBar">
+		<control type="group" id="505">
+			<description>Menu Bar Area</description>
+			<depth>DepthMenuBar</depth>
+			<top>MenuBarOffsetY</top>
+			<include>MenuBarImage</include>
+			<include>MenuBarOpenCloseAnim</include>
+			<include>DefaultEventLogMenuBar</include>
+			<visible allowhiddenfocus="true">ControlGroup(505).HasFocus | !Skin.HasSetting(HideMenuBar)</visible>
+		</control>
+	</include>
+
+	<include name="DefaultEventLogMenuBar">
+		<control type="group" id="850">
+			<control type="grouplist" id="563">
+				<description>Menu Bar Icon Buttons</description>
+				<left>5</left>
+				<width>150</width>
+				<height>MenuBarHeight</height>
+				<orientation>horizontal</orientation>
+				<itemgap>0</itemgap>
+				<onup>555</onup>
+				<ondown>570</ondown>
+				<onleft>212</onleft>
+				<onright>212</onright>
+				<control type="button" id="346">
+					<description>Favourites</description>
+					<include>MenuBarIconBtn</include>
+					<texturefocus>gui/menu-bar-favourites-focus.png</texturefocus>
+					<texturenofocus>gui/menu-bar-favourites-nofocus.png</texturenofocus>
+					<onclick>ActivateWindow(Favourites)</onclick>
+				</control>
+				<control type="togglebutton" id="347">
+					<description>Extra Options</description>
+					<include>MenuBarIconBtn</include>
+					<texturefocus>gui/menu-bar-options-focus.png</texturefocus>
+					<texturenofocus>gui/menu-bar-options-nofocus.png</texturenofocus>
+					<alttexturefocus>gui/menu-bar-options-focus2.png</alttexturefocus>
+					<alttexturenofocus>gui/menu-bar-options-nofocus2.png</alttexturenofocus>
+					<usealttexture>Skin.HasSetting(EventLogMenuBarExtraOptions)</usealttexture>
+					<onclick>noop</onclick>
+					<enable>false</enable>
+				</control>
+			</control>
+
+			<control type="grouplist" id="212">
+				<left>99</left>
+				<width>ScreenWidth</width>
+				<height>MenuBarHeight</height>
+				<itemgap>0</itemgap>
+				<onup>555</onup>
+				<ondown>570</ondown>
+				<onleft>347</onleft>
+				<onright>345</onright>
+				<orientation>horizontal</orientation>
+				<usecontrolcoords>true</usecontrolcoords>
+				<include>MenuBarBtnOpenCloseAnim</include>
+				<visible>ControlGroup(505).HasFocus | !Skin.HasSetting(HideMenuBar)</visible>
+				<control type="image" id="350">
+					<include>MenuBarSeparator</include>
+				</control>
+				<control type="togglebutton" id="4">
+					<description>Sort asc</description>
+					<width>230</width>
+					<textwidth>204</textwidth>
+					<include>MenuBarBigBtn</include>
+					<label>[UPPERCASE]$LOCALIZE[31110][/UPPERCASE]</label>
+					<altlabel>[UPPERCASE]$LOCALIZE[31109][/UPPERCASE]</altlabel>
+					<usealttexture>Container.SortDirection(Ascending)</usealttexture>
+				</control>
+				<control type="image" id="351">
+					<include>MenuBarSeparator</include>
+				</control>
+				<control type="button" id="21">
+					<description>Level button</description>
+					<width>230</width>
+					<textwidth>204</textwidth>
+					<include>MenuBarBigBtn</include>
+					<label>[UPPERCASE]-[/UPPERCASE]</label>
+				</control>
+				<control type="image" id="352">
+					<include>MenuBarSeparator</include>
+				</control>
+				<control type="radiobutton" id="22">
+					<description>Only show current level</description>
+					<width>230</width>
+					<textwidth>155</textwidth>
+					<include>MenuBarRadioBtn</include>
+					<label>[UPPERCASE]-[/UPPERCASE]</label>
+				</control>
+				<control type="image" id="353">
+					<include>MenuBarSeparator</include>
+				</control>
+				<control type="button" id="20">
+					<description>Clear button</description>
+					<width>230</width>
+					<textwidth>204</textwidth>
+					<include>MenuBarBigBtn</include>
+					<label>[UPPERCASE]$LOCALIZE[192][/UPPERCASE]</label>
+				</control>
+				<control type="image" id="354">
+					<include>MenuBarSeparator</include>
+				</control>
+				<control type="button" id="355">
+					<description>Settings button</description>
+					<width>230</width>
+					<textwidth>204</textwidth>
+					<include>MenuBarBigBtn</include>
+					<onclick>ActivateWindow(systemsettings,logging)</onclick>
+					<label>[UPPERCASE]$LOCALIZE[5][/UPPERCASE]</label>
+				</control>
+				<control type="image" id="356">
+					<include>MenuBarSeparator</include>
+				</control>
+			</control>
+		</control>
+	</include>	
+		
+	<include name="VideoInfoTime">
+		<control type="label">
+			<width min="25" max="135">auto</width>
+			<height>43</height>
+			<font>AlphabetFocus</font>
+			<textcolor>BreadCrumbColor</textcolor>
+			<label>[UPPERCASE]$INFO[System.Time(hh)] H $INFO[System.Time(mm)][/UPPERCASE]</label>
+			<aligny>center</aligny>
+		</control>
+	</include>
+
+	<include name="VideoInfoMenuBar">
+		<control type="grouplist" id="987">
+			<left>2</left>
+			<width>1275</width>
+			<height>MenuBarPlayerHeight</height>
+			<itemgap>0</itemgap>
+			<align>left</align>
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<onup>555</onup>
+			<ondown>901</ondown>
+			<onleft>987</onleft>
+			<onright>987</onright>
+			<include>MenuBarBtnOpenCloseAnim</include>
+			<control type="button" id="200">
+				<description>Home</description>
+				<include>MenuBarIcone</include>
+				<texturefocus colordiffuse="ButtonSelectedColor">gui/IconHome.png</texturefocus>
+				<texturenofocus>gui/IconHome.png</texturenofocus>
+				<onclick>Dialog.Close(all,true)</onclick>
+				<onclick>ActivateWindow(Home)</onclick>
+			</control>
+			<control type="button" id="201">
+				<description>Show Fanart</description>
+				<include>MenuBarIcone</include>
+				<texturefocus colordiffuse="ButtonSelectedColor">gui/IconImages.png</texturefocus>
+				<texturenofocus>gui/IconImages.png</texturenofocus>
+				<onclick>Skin.ToggleSetting(ShowFanart)</onclick>
+			</control>
+			<control type="button" id="8">
+				<description>Play / Open</description>
+				<include>MenuBarIcone</include>
+				<texturefocus colordiffuse="ButtonSelectedColor">gui/IconPlay.png</texturefocus>
+				<texturenofocus>gui/IconPlay.png</texturenofocus>
+			</control>
+			<control type="button" id="206">
+				<description>Refresh</description>
+				<include>MenuBarIcone</include>
+				<texturefocus colordiffuse="ButtonSelectedColor">gui/IconRefresh.png</texturefocus>
+				<texturenofocus>gui/IconRefresh.png</texturenofocus>
+				<onclick>SendClick(2003,6)</onclick>
+			</control>
+			<control type="button" id="11">
+				<description>Play Trailer</description>
+				<include>MenuBarIcone</include>
+				<texturefocus colordiffuse="ButtonSelectedColor">gui/IconTrailer.png</texturefocus>
+				<texturenofocus>gui/IconTrailer.png</texturenofocus>
+				<visible>!System.hasAddon(script.extendedinfo) + !String.IsEmpty(ListItem.Trailer)</visible>
+			</control>
+			<control type="button" id="209">
+				<description>Play Trailer</description>
+				<include>MenuBarIcone</include>
+				<texturefocus colordiffuse="ButtonSelectedColor">gui/IconTrailer.png</texturefocus>
+				<texturenofocus>gui/IconTrailer.png</texturenofocus>
+				<onclick>RunScript(script.extendedinfo,info=playtrailer,id=$INFO[ListItem.IMDBNumber])</onclick>
+				<onclick>Notification($VAR[TrailerButtonLabelVar],$INFO[ListItem.Title],3000,)</onclick>
+				<visible>System.hasAddon(script.extendedinfo) + [Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes)]</visible>
+			</control>
+			<control type="button" id="210">
+				<description>Search Trailer</description>
+				<include>MenuBarIcone</include>
+				<texturefocus colordiffuse="ButtonSelectedColor">gui/IconTrailerSearch.png</texturefocus>
+				<texturenofocus>gui/IconTrailerSearch.png</texturenofocus>
+				<onclick>Dialog.Close(movieinformation)</onclick>
+				<onclick condition="System.HasAddon(script.extendedinfo) + ![String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,season)]">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Label] trailer)</onclick>
+				<onclick condition="!System.HasAddon(script.extendedinfo)">InstallAddon(script.extendedinfo)</onclick>
+				<visible>Container.Content(Movies) | Container.Content(TVShows)</visible>
+			</control>
+		</control>
+		<control type="group">
+			<left>130r</left>
+			<top>5</top>
+			<include>VideoInfoTime</include>
+		</control>			
+	</include>
+	
+	<include name="AddonInfoMenuBar">	
+		<control type="grouplist" id="987">
+			<width>ScreenWidth</width>
+			<height>MenuBarHeight</height>
+			<itemgap>0</itemgap>
+			<align>center</align>
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<onup>555</onup>
+			<ondown>901</ondown>
+			<onleft>987</onleft>
+			<onright>987</onright>
+			<include>MenuBarBtnOpenCloseAnim</include>
+			<control type="image" id="115">
+				<include>MenuBarSeparator</include>
+			</control>
+			<control type="button" id="9">
+				<description>Add-on Settings</description>
+				<width>179</width>
+				<textwidth>165</textwidth>
+				<include>MenuBarSettingsBtn</include>
+				<label>[UPPERCASE]$LOCALIZE[24020][/UPPERCASE]</label>
+				<enable>!Skin.HasSetting(EnableKioskMode)</enable>
+			</control>
+			<control type="image" id="116">
+				<include>MenuBarSeparator</include>
+			</control>
+			<control type="button" id="6">
+				<description>Install/UnInstall Add-on</description>
+				<width>179</width>
+				<textwidth>165</textwidth>
+				<include>MenuBarSettingsBtn</include>
+				<label>[UPPERCASE]$LOCALIZE[24022][/UPPERCASE]</label>
+				<enable>!Skin.HasSetting(EnableKioskMode)</enable>
+			</control>	
+			<control type="image" id="117">
+				<include>MenuBarSeparator</include>
+			</control>
+			<control type="button" id="7">
+				<description>Enable/Disable Add-on</description>
+				<width>179</width>
+				<textwidth>165</textwidth>
+				<include>MenuBarSettingsBtn</include>
+				<label>[UPPERCASE]$LOCALIZE[24021][/UPPERCASE]</label>
+				<enable>!Skin.HasSetting(EnableKioskMode)</enable>
+			</control>
+			<control type="image" id="118">
+				<include>MenuBarSeparator</include>
+			</control>
+			<control type="button" id="12">
+				<description>Launch Add-on</description>
+				<width>179</width>
+				<textwidth>165</textwidth>
+				<include>MenuBarSettingsBtn</include>
+				<label>[UPPERCASE]$LOCALIZE[518][/UPPERCASE]</label>	
+			</control>
+			<control type="image" id="119">
+				<include>MenuBarSeparator</include>
+			</control>
+			<control type="button" id="8">
+				<description>Update Add-on</description>
+				<width>179</width>
+				<textwidth>165</textwidth>
+				<include>MenuBarSettingsBtn</include>
+				<label>[UPPERCASE]$LOCALIZE[24069][/UPPERCASE]</label>
+				<enable>!Skin.HasSetting(EnableKioskMode)</enable>
+			</control>
+			<control type="image" id="120">
+				<include>MenuBarSeparator</include>
+			</control>
+			<control type="radiobutton" id="13">
+				<description>Auto-Update Add-on</description>
+				<width>179</width>
+				<textwidth>104</textwidth>
+				<include>MenuBarRadioBtn</include>
+				<label>[UPPERCASE]$LOCALIZE[21340][/UPPERCASE]</label>
+				<enable>!Skin.HasSetting(EnableKioskMode)</enable>
+			</control>
+			<control type="image" id="121">
+				<include>MenuBarSeparator</include>
+			</control>
+			<control type="button" id="122">
+				<description>Description / News / Screenshots</description>
+				<alttexturefocus border="4">gui/menu-bar-button-focus.png</alttexturefocus>
+				<alttexturenofocus />
+				<width>179</width>
+				<textwidth>165</textwidth>
+				<include>MenuBarSettingsBtn</include>
+				<label>[UPPERCASE]$LOCALIZE[21821][/UPPERCASE]</label>
+				<onclick>Skin.SetString(AddonInfoContentToggle,description)</onclick>
+				<visible>![String.IsEmpty(ListItem.AddonNews) + Integer.IsEqual(Container(50).NumItems,0)]</visible>
+			</control>
+			<control type="image" id="123">
+				<include>MenuBarSeparator</include>
+				<visible>![String.IsEmpty(ListItem.AddonNews) + Integer.IsEqual(Container(50).NumItems,0)]</visible>
+			</control>
+		</control>		
+	</include>
+	
+	<include name="ProgramsInfoMenuBar">	
+		<control type="grouplist" id="987">
+			<width>ScreenWidth</width>
+			<height>MenuBarHeight</height>
+			<itemgap>0</itemgap>
+			<align>center</align>
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<onup>555</onup>
+			<ondown>901</ondown>
+			<onleft>987</onleft>
+			<onright>987</onright>
+			<include>MenuBarBtnOpenCloseAnim</include>
+			<control type="image" id="115">
+				<include>MenuBarSeparator</include>
+			</control>
+			<control type="button" id="8">
+				<description>Play</description>
+				<include>MenuBarSettingsBtn</include>
+				<onclick>Close</onclick>
+				<onclick>RunPlugin($INFO[ListItem.FileNameAndPath])</onclick>
+				<label>[UPPERCASE]$LOCALIZE[208][/UPPERCASE]</label>
+			</control>
+			<control type="image" id="117">
+				<include>MenuBarSeparator</include>
+			</control>
+			<control type="button" id="5">
+				<description>Get Info</description>
+				<include>MenuBarSettingsBtn</include>
+				<onclick>RunPlugin($INFO[ListItem.FileNameAndPath]/%%GET_INFO%%)</onclick>
+				<label>[UPPERCASE]$LOCALIZE[32029][/UPPERCASE]</label>
+				<enable>!Skin.HasSetting(EnableKioskMode)</enable>
+			</control>	
+			<control type="image" id="116">
+				<include>MenuBarSeparator</include>
+			</control>
+			<control type="button" id="10">
+				<description>Get Thumb</description>
+				<include>MenuBarSettingsBtn</include>
+				<onclick>RunPlugin($INFO[ListItem.FileNameAndPath]/%%GET_THUMB%%)</onclick>
+				<label>[UPPERCASE]$LOCALIZE[13405][/UPPERCASE]</label>	
+				<enable>!Skin.HasSetting(EnableKioskMode)</enable>
+			</control>
+			<control type="image" id="119">
+				<include>MenuBarSeparator</include>
+			</control>
+			<control type="button" id="12">
+				<description>Get Fanart</description>
+				<include>MenuBarSettingsBtn</include>
+				<onclick>RunPlugin($INFO[ListItem.FileNameAndPath]/%%GET_FANART%%)</onclick>
+				<label>[UPPERCASE]$LOCALIZE[20413][/UPPERCASE]</label>
+				<enable>!Skin.HasSetting(EnableKioskMode)</enable>
+			</control>
+			<control type="image" id="120">
+				<include>MenuBarSeparator</include>
+			</control>
+		</control>		
+	</include>
+	
+	<include name="GlobalSearchInfoDialogMenuBar">
+		<control type="grouplist" id="190">
+			<width>ScreenWidth</width>
+			<height>MenuBarHeight</height>
+			<itemgap>0</itemgap>
+			<align>center</align>
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<onup>555</onup>
+			<onleft>190</onleft>
+			<onright>190</onright>
+			<ondown condition="System.HasAddon(script.extendedinfo) + Control.IsVisible(110)">110</ondown>
+			<ondown condition="System.HasAddon(script.extendedinfo) + Control.IsVisible(140)">140</ondown>
+			<ondown condition="System.HasAddon(script.extendedinfo) + Control.IsVisible(150)">150</ondown>
+			<ondown condition="System.HasAddon(script.extendedinfo) + Control.IsVisible(170)">170</ondown>
+			<ondown condition="System.HasAddon(script.extendedinfo) + Control.IsVisible(180)">180</ondown>
+			<ondown condition="[!System.HasAddon(script.extendedinfo) | Control.IsVisible(120) | Control.IsVisible(130) | Control.IsVisible(160) | Control.IsVisible(200)] + Control.IsVisible(195)">195</ondown>
+			<include>MenuBarBtnOpenCloseAnim</include>
+			<control type="image" id="102">
+				<include>MenuBarSeparator</include>
+			</control>
+			<control type="button" id="108">
+				<description>Close</description>
+				<include>MenuBarSettingsBtn</include>
+				<label>[UPPERCASE]$LOCALIZE[31937][/UPPERCASE]</label>
+				<onclick>back</onclick>
+			</control>
+			<control type="image" id="103">
+				<include>MenuBarSeparator</include>
+			</control>
+			<control type="button" id="192">
+				<include>MenuBarSettingsBtn</include>
+			</control>
+			<control type="image" id="104">
+				<include>MenuBarSeparator</include>
+			</control>
+			<control type="button" id="193">
+				<include>MenuBarSettingsBtn</include>
+			</control>			
+			<control type="image" id="105">
+				<include>MenuBarSeparator</include>
+				<visible>Control.IsVisible(193)</visible>
+			</control>
+			<control type="button" id="106">
+				<include>MenuBarSettingsBtn</include>
+				<label>$LOCALIZE[31038]</label>
+				<onclick condition="System.HasAddon(script.extendedinfo) + Control.IsVisible(110)">RunScript(script.extendedinfo,info=extendedinfo,name=$INFO[Container(100).ListItem.Label])</onclick>
+				<onclick condition="System.HasAddon(script.extendedinfo) + Control.IsVisible(120)">RunScript(script.extendedinfo,info=extendedtvinfo,name=$INFO[Container(100).ListItem.Label])</onclick>
+				<onclick condition="System.HasAddon(script.extendedinfo) + Control.IsVisible(130) | Control.IsVisible(140)">RunScript(script.extendedinfo,info=extendedtvinfo,name=$INFO[Container(100).ListItem.Property(TvShowTitle)])</onclick>
+				<onclick condition="System.HasAddon(script.extendedinfo) + Control.IsVisible(150) | Control.IsVisible(170) | Control.IsVisible(180)">RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(100).ListItem.Property(Artist)])</onclick>
+				<onclick condition="System.HasAddon(script.extendedinfo) + Control.IsVisible(160)">RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(100).ListItem.Label])</onclick>
+				<onclick condition="!System.HasAddon(script.extendedinfo)">InstallAddon(script.extendedinfo)</onclick>
+				<visible>!Control.IsVisible(200)</visible>
+			</control>			
+			<control type="image" id="107">
+				<include>MenuBarSeparator</include>
+				<visible>Control.IsVisible(106)</visible>
+			</control>
+		</control>		
+	</include>
+	
+	<include name="ExtendedInfoActorInfoMenuBar">
+		<control type="grouplist" id="987">
+			<left>2</left>
+			<width>1275</width>
+			<height>MenuBarPlayerHeight</height>
+			<itemgap>0</itemgap>
+			<align>left</align>
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<onup>555</onup>
+			<ondown>901</ondown>
+			<onleft>987</onleft>
+			<onright>987</onright>
+			<include>MenuBarBtnOpenCloseAnim</include>
+			<control type="togglebutton" id="210">
+				<description>Biography</description>
+				<include>MenuBarIcone</include>
+				<texturefocus colordiffuse="ButtonSelectedColor">gui/iconbiography.png</texturefocus>
+				<texturenofocus>gui/iconbiography.png</texturenofocus>
+				<onfocus>Skin.SetString(ExtendedInfo,1)</onfocus>
+			</control>
+			<control type="togglebutton" id="211">
+				<description>Movies</description>
+				<ondown>150</ondown>
+				<include>MenuBarIcone</include>
+				<texturefocus colordiffuse="ButtonSelectedColor">gui/iconmovie.png</texturefocus>
+				<texturenofocus>gui/iconmovie.png</texturenofocus>
+				<onfocus>Skin.SetString(ExtendedInfo,2)</onfocus>
+				<visible>Integer.IsGreater(Container(150).NumItems,0)</visible>
+			</control>			
+			<control type="togglebutton" id="212">
+				<description>TV Shows</description>
+				<ondown>250</ondown>
+				<include>MenuBarIcone</include>
+				<texturefocus colordiffuse="ButtonSelectedColor">gui/icontvshow.png</texturefocus>
+				<texturenofocus>gui/icontvshow.png</texturenofocus>
+				<onfocus>Skin.SetString(ExtendedInfo,3)</onfocus>
+				<visible>Integer.IsGreater(Container(250).NumItems,0)</visible>
+			</control>
+			<control type="togglebutton" id="213">
+				<description>Poster</description>
+				<ondown>450</ondown>
+				<include>MenuBarIcone</include>
+				<texturefocus colordiffuse="ButtonSelectedColor">gui/iconfolder.png</texturefocus>
+				<texturenofocus>gui/iconfolder.png</texturenofocus>
+				<onfocus>Skin.SetString(ExtendedInfo,4)</onfocus>
+				<visible>Integer.IsGreater(Container(450).NumItems,0)</visible>
+			</control>			
+			<control type="togglebutton" id="214">
+				<description>Fanart</description>
+				<ondown>750</ondown>
+				<include>MenuBarIcone</include>
+				<texturefocus colordiffuse="ButtonSelectedColor">gui/iconfanart.png</texturefocus>
+				<texturenofocus>gui/iconfanart.png</texturenofocus>
+				<onfocus>Skin.SetString(ExtendedInfo,5)</onfocus>
+				<visible>Integer.IsGreater(Container(750).NumItems,0)</visible>
+			</control>
+			<control type="togglebutton" id="215">
+				<description>Youtube Videos</description>
+				<ondown>350</ondown>
+				<include>MenuBarIcone</include>
+				<texturefocus colordiffuse="ButtonSelectedColor">gui/iconyoutube.png</texturefocus>
+				<texturenofocus>gui/iconyoutube.png</texturenofocus>
+				<onfocus>Skin.SetString(ExtendedInfo,6)</onfocus>
+				<visible>Integer.IsGreater(Container(350).NumItems,0)</visible>
+			</control>
+		</control>		
+	</include>
+	
+	<include name="ExtendedInfoVideoInfoMenuBar">
+		<control type="grouplist" id="987">
+			<left>2</left>
+			<width>1275</width>
+			<height>MenuBarPlayerHeight</height>
+			<itemgap>0</itemgap>
+			<align>left</align>
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<onup>555</onup>
+			<ondown>901</ondown>
+			<onleft>987</onleft>
+			<onright>987</onright>
+			<include>MenuBarBtnOpenCloseAnim</include>
+			<ondown condition="Skin.String(ExtendedVideoInfo,2)">1250</ondown>
+			<ondown condition="Skin.String(ExtendedVideoInfo,3)">1350</ondown>
+			<ondown condition="Skin.String(ExtendedVideoInfo,4)">1150</ondown>
+			<ondown condition="Skin.String(ExtendedVideoInfo,5)">350</ondown>
+			<ondown condition="Skin.String(ExtendedVideoInfo,13)">250</ondown>
+			<ondown condition="Skin.String(ExtendedVideoInfo,15)">2000</ondown>
+			<ondown condition="Control.IsVisible(901)">901</ondown>	
+			<control type="togglebutton" id="211">
+				<description>Movies</description>
+				<include>MenuBarIcone</include>
+				<texturefocus>gui/IconMovieFocus.png</texturefocus>
+				<texturenofocus>gui/IconMovie.png</texturenofocus>
+				<alttexturefocus>gui/IconMovie.png</alttexturefocus>
+				<alttexturenofocus>gui/IconMovieFocus.png</alttexturenofocus>
+				<usealttexture>Skin.String(ExtendedVideoInfo,1)</usealttexture>
+				<onclick>Skin.SetString(ExtendedVideoInfo,1)</onclick>
+				<onclick>Control.SetFocus(1000)</onclick>				
+				<visible>Integer.IsGreater(Container(1000).NumItems,0)</visible>
+			</control>
+			<control type="togglebutton" id="212">
+				<description>Poster</description>
+				<include>MenuBarIcone</include>
+				<texturefocus>gui/IconFolderFocus.png</texturefocus>
+				<texturenofocus>gui/IconFolder.png</texturenofocus>
+				<alttexturefocus>gui/IconFolder.png</alttexturefocus>
+				<alttexturenofocus>gui/IconFolderFocus.png</alttexturenofocus>
+				<usealttexture>Skin.String(ExtendedVideoInfo,2)</usealttexture>
+				<onclick>Skin.SetString(ExtendedVideoInfo,2)</onclick>
+				<onclick>Control.SetFocus(1250)</onclick>				
+				<visible>Integer.IsGreater(Container(1250).NumItems,0)</visible>
+			</control>
+			<control type="togglebutton" id="213">
+				<description>Fanart</description>
+				<include>MenuBarIcone</include>
+				<texturefocus>gui/IconFanartFocus.png</texturefocus>
+				<texturenofocus>gui/IconFanart.png</texturenofocus>
+				<alttexturefocus>gui/IconFanart.png</alttexturefocus>
+				<alttexturenofocus>gui/IconFanartFocus.png</alttexturenofocus>
+				<usealttexture>Skin.String(ExtendedVideoInfo,3)</usealttexture>
+				<onclick>Skin.SetString(ExtendedVideoInfo,3)</onclick>
+				<onclick>Control.SetFocus(1350)</onclick>				
+				<visible>Integer.IsGreater(Container(1350).NumItems,0)</visible>
+			</control>
+			<control type="togglebutton" id="214">
+				<description>Official Videos</description>
+				<include>MenuBarIcone</include>
+				<texturefocus>gui/IconTrailerFocus.png</texturefocus>
+				<texturenofocus>gui/IconTrailer.png</texturenofocus>
+				<alttexturefocus>gui/IconTrailer.png</alttexturefocus>
+				<alttexturenofocus>gui/IconTrailerFocus.png</alttexturenofocus>
+				<usealttexture>Skin.String(ExtendedVideoInfo,4)</usealttexture>
+				<onclick>Skin.SetString(ExtendedVideoInfo,4)</onclick>
+				<onclick>Control.SetFocus(1150)</onclick>				
+				<visible>Integer.IsGreater(Container(1150).NumItems,0)</visible>
+			</control>	
+			<control type="togglebutton" id="215">
+				<description>Youtube Videos</description>
+				<include>MenuBarIcone</include>
+				<texturefocus>gui/IconYoutubeFocus.png</texturefocus>
+				<texturenofocus>gui/IconYoutube.png</texturenofocus>
+				<alttexturefocus>gui/IconYoutube.png</alttexturefocus>
+				<alttexturenofocus>gui/IconYoutubeFocus.png</alttexturenofocus>
+				<usealttexture>Skin.String(ExtendedVideoInfo,5)</usealttexture>
+				<onclick>Skin.SetString(ExtendedVideoInfo,5)</onclick>
+				<onclick>Control.SetFocus(350)</onclick>				
+				<visible>Integer.IsGreater(Container(350).NumItems,0)</visible>
+			</control>			
+			<control type="button" id="216">
+				<description>Seasons</description>
+				<include>MenuBarIcone</include>
+				<texturefocus>gui/IconSeasonFocus.png</texturefocus>
+				<texturenofocus>gui/IconSeason.png</texturenofocus>
+				<onclick>Skin.Reset(ExtendedInfoDialog)</onclick>
+				<onclick>Skin.SetString(ExtendedVideoInfo,13)</onclick>
+				<visible>ListItem.IsCollection | Container.Content(Tvshows)</visible>
+			</control>
+			<control type="button" id="217">
+				<description>Episodes</description>
+				<include>MenuBarIcone</include>
+				<texturefocus>gui/IconEpisodesFocus.png</texturefocus>
+				<texturenofocus>gui/IconEpisodes.png</texturenofocus>
+				<onclick>Skin.Reset(ExtendedInfoDialog)</onclick>
+				<onclick>Skin.SetString(ExtendedVideoInfo,15)</onclick>
+				<visible>Container.Content(Seasons)</visible>
+			</control>
+			<control type="button" id="220">
+				<description>Manage</description>
+				<ondown>150</ondown>
+				<include>MenuBarIcone</include>
+				<texturefocus>gui/IconSettingsFocus.png</texturefocus>
+				<texturenofocus>gui/IconSettings.png</texturenofocus>
+				<enable>!Skin.HasSetting(EnableKioskMode)</enable>
+			</control>		
+		</control>		
+	</include>
+	
+	<include name="ExtendedInfoVideoListMenuBar">
+		<control type="grouplist" id="987">
+			<width>ScreenWidth</width>
+			<height>MenuBarHeight</height>
+			<itemgap>0</itemgap>
+			<align>center</align>
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<onup>555</onup>
+			<ondown>500</ondown>
+			<include>MenuBarBtnOpenCloseAnim</include>
+			<control type="image" id="115">
+				<include>MenuBarSeparator</include>
+			</control>
+			<control type="button" id="6000">
+				<description>Search</description>
+				<width>179</width>
+				<textwidth>165</textwidth>
+				<include>MenuBarSettingsBtn</include>
+				<label>[UPPERCASE]$LOCALIZE[19140][/UPPERCASE]</label>
+			</control>
+			<control type="image" id="118">
+				<include>MenuBarSeparator</include>
+			</control>
+			<control type="button" id="7000">
+				<description>My Account</description>
+				<width>179</width>
+				<textwidth>165</textwidth>
+				<include>MenuBarSettingsBtn</include>
+				<label>[UPPERCASE]$ADDON[script.extendedinfo 32024][/UPPERCASE]</label>
+				<enable>!Skin.HasSetting(EnableKioskMode)</enable>
+			</control>
+			<control type="image" id="119">
+				<include>MenuBarSeparator</include>
+			</control>
+			<control type="button" id="5007">
+				<description>Type</description>
+				<width>179</width>
+				<textwidth>165</textwidth>
+				<include>MenuBarBigBtn</include>
+				<label>[UPPERCASE]$LOCALIZE[467]:$INFO[Window.Property(Type), ,][/UPPERCASE]</label>
+			</control>
+			<control type="image" id="120">
+				<include>MenuBarSeparator</include>
+			</control>
+			<control type="button" id="5001">
+				<description>Sort By</description>
+				<width>179</width>
+				<textwidth>165</textwidth>
+				<include>MenuBarSettingsBtn</include>
+				<label>[UPPERCASE]$ADDON[script.extendedinfo 32104]$INFO[Window.Property(Sort_Label),: ,][/UPPERCASE]</label>
+			</control>
+			<control type="image" id="121">
+				<include>MenuBarSeparator</include>
+			</control>
+			<control type="button" id="5004">
+				<description>Order</description>
+				<width>179</width>
+				<textwidth>165</textwidth>
+				<include>MenuBarSettingsBtn</include>
+				<label>[UPPERCASE]$ADDON[script.extendedinfo 32128]$INFO[Window.Property(Order_Label),: ,][/UPPERCASE]</label>
+				<visible>Window.IsActive(script-script.extendedinfo-VideoList.xml)</visible>
+			</control>
+			<control type="image" id="122">
+				<include>MenuBarSeparator</include>
+				<visible>Control.IsVisible(5004)</visible>
+			</control>
+		</control>		
+	</include>
+</includes>

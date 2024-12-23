@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="CustomPanelInCinemas">
+		<content target="video" sortorder="descending" sortby="year">plugin://plugin.video.themoviedb.helper?info=now_playing&amp;type=movie&amp;nextpage=False</content>
+	</include>
+	
+	<include name="CustomPanelUpcomingMovies">
+		<content target="video" sortorder="descending" sortby="year">plugin://plugin.video.themoviedb.helper?info=upcoming&amp;type=movie&amp;nextpage=False</content>
+	</include>
+</includes>

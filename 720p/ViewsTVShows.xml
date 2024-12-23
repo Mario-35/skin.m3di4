@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+	<include name="TvShowssWallIcon">
+		<param name="MyFocused">false</param>
+		<definition>
+			<include content="MoviesWallViewLayout">
+				<param name="focused" value="$PARAM[MyFocused]" />	
+				<param name="Case_Width" value="115" />
+				<param name="Case_Height" value="155" />
+				<param name="Case_Border_Left" value="5" />
+				<param name="Case_Border_Top" value="8" />
+				<param name="Watched_Left" value="95" />
+				<param name="Icons_Bottom_Top" value="132" />
+				<param name="Icons_Bottom_Width" value="15" />
+				<param name="Icons_Bottom_Border" value="2" />
+				<param name="Icons_Bottom_Left" value="10" />
+				<param name="Icons_Top_Large_Width" value="50" />
+				<param name="Icons_Top_Height" value="25" />
+				<param name="Icons_Top_Height" value="25" />
+			</include>
+		</definition>			
+	</include>
+
+	<include name="TVShowsView">	
+		<control type="group" id="500">	
+	        <defaultcontrol always="true">100</defaultcontrol>
+			<visible>Control.IsVisible(100)</visible>
+			<include>Animation_Left</include>
+			<control type="image">
+				<left>30</left>
+				<top>46</top>
+				<width>1230</width>
+				<height>625</height>
+				<texture border="7">panels/content-panel.png</texture>
+				<include>PanelFadeAnim</include>
+				<include>ControlsOpenCloseAnim</include>
+			</control>
+
+			<control type="group">
+				<control type="group">
+					<left>34</left>
+					<top>55</top>
+					<control type="image">
+						<description>Content Background</description>
+						<top>-5</top>
+						<width>416</width>
+						<height>612</height>
+						<texture border="4">panels/panel-content-border2.png</texture>
+						<include>ListInfoViewContentBackgroundFadeAnim</include>
+					</control>					
+
+					<control type="image">
+						<description>Infos Background</description>
+						<left>6</left>
+						<top>235</top>
+						<width>404</width>
+						<height>28</height>
+						<texture border="4">panels/panel3.png</texture>
+						<include>ListInfoViewMediaInfoBackgroundFadeAnim</include>
+					</control>
+
+					<control type="image">
+						<description>Plot Background</description>
+						<left>6</left>
+						<top>267</top>
+						<width>404</width>
+						<height>235</height>
+						<texture border="4">panels/panel3.png</texture>
+						<include>ListInfoViewMediaInfoBackgroundFadeAnim</include>
+						<visible>Container.Content(TVShows) | Container.Content(Episodes)</visible>
+					</control>
+				</control>
+
+				<control type="group">
+					<description>Infos Details</description>
+					<control type="image">
+						<description>TV Shows Banner</description>
+						<top>570</top>
+						<left>40</left>
+						<width>402</width>
+						<height>90</height>
+						<texture background="true">$INFO[ListItem.Art(banner)]</texture>
+						<bordertexture border="4">covers/cover-case2.png</bordertexture>
+						<bordersize>4</bordersize>
+						<aspectratio align="left" aligny="top">stretch</aspectratio>
+						<visible>!String.IsEmpty(ListItem.Art(banner))</visible>
+					</control>
+
+					<control type="image">
+						<left>40</left>
+						<top>60</top>
+						<width>404</width>
+						<height>228</height>
+						<texture background="true" diffuse="covers/list-info-3-fanart-diffuse.png" fallback="background-default.png">$INFO[ListItem.Art(fanart)]</texture>
+						<aspectratio scalediffuse="false" align="center">scale</aspectratio>
+						<fadetime>FanartCrossfadeTime</fadetime>
+					</control>
+					
+					<control type="image">
+						<left>40</left>
+						<top>60</top>
+						<width>404</width>
+						<height>228</height>
+						<texture background="true">home-tvshows-icon.png</texture>
+						<aspectratio align="center" aligny="center">keep</aspectratio>
+						<include>BackgroundVisibleAnim</include>
+						<visible>String.IsEmpty(ListItem.Art(fanart)) + [Container.Content(TVShows) | Container.Content(Episodes)]</visible>
+					</control>
+				</control>
+
+				<control type="group">
+					<description>Media Info Area</description>
+					<left>38</left>
+					<top>290</top>
+					<control type="grouplist">
+						<description>Saisons</description>
+						<left>10</left>
+						<top>0</top>
+						<width>200</width>
+						<orientation>horizontal</orientation>
+						<control type="label">
+							<width min="0" max="110">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$LOCALIZE[33054]:</label>
+						</control>
+						<control type="label">
+							<width min="0" max="110">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor2</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label fallback="-">$INFO[ListItem.Property(TotalSeasons)]</label>
+						</control>
+					</control>
+				
+					<control type="grouplist">
+						<description>Episodes</description>
+						<left>125</left>
+						<top>0</top>
+						<width>200</width>
+						<orientation>horizontal</orientation>
+						<control type="label">
+							<width min="0" max="110">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$LOCALIZE[20360]:</label>
+						</control>
+						<control type="label">
+							<width min="0" max="110">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor2</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label fallback="-">$INFO[ListItem.Episode]</label>
+						</control>
+					</control>
+
+					<control type="grouplist">
+						<description>Episodes Non Vus</description>
+						<left>250</left>
+						<top>0</top>
+						<width>200</width>
+						<orientation>horizontal</orientation>
+						<control type="label">
+							<width min="0" max="100">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$LOCALIZE[16101]:</label>
+						</control>
+						<control type="label">
+							<width min="0" max="110">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor2</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$INFO[ListItem.Property(UnWatchedEpisodes)]</label>
+						</control>
+					</control>
+				</control>
+				
+				<control type="textbox">
+					<description>Plot</description>
+					<left>48</left>
+					<top>320</top>
+					<width>388</width>
+					<height>235</height>
+					<font>MediaInfoDescFont</font>
+					<textcolor>MediaInfoColor</textcolor>
+					<shadowcolor>ShadowColor</shadowcolor>
+					<align>justify</align>
+					<label fallback="31203">$INFO[ListItem.Plot]</label>
+					<wrapmultiline>true</wrapmultiline>
+					<autoscroll time="2000" delay="6000" repeat="10000"></autoscroll>
+					<include>ControlsOpenCloseAnim</include>
+					<visible>!Container.OnNext + !Container.OnPrevious</visible>
+				</control>
+			</control>
+
+			<control type="panel" id="100">
+				<viewtype label="31116">TVShowsView</viewtype>
+				<visible>Container.Content(TVShows)</visible>
+				<left>450</left>
+				<top>45</top>
+				<width>830</width>
+				<height>620</height>
+				<preloaditems>2</preloaditems>
+				<scrolltime tween="sine" easing="inout">250</scrolltime>
+				<orientation>vertical</orientation>
+				<preloaditems>2</preloaditems>
+				<onleft>505</onleft>
+				<onright>150</onright>
+				<onup>100</onup>
+				<ondown>100</ondown>
+				<itemlayout height="155" width="115">
+					<include content="TvShowssWallIcon">
+						<param name="MyFocused" value="false" />							
+					</include>	
+				</itemlayout>
+
+
+				<focusedlayout height="95" width="70" condition="Container.column(0) | Container.column(1) | Container.column(2)">
+					<control type="group">
+						<animation condition="Container.row(0)">
+							<effect type="zoom" start="100" end="125" time="500" tween="sine" easing="inout" center="35,0" />
+						</animation>
+
+						<animation condition="Container.row(1) | Container.row(2)">
+							<effect type="zoom" start="100" end="125" time="500" tween="sine" easing="inout" center="35,60" />
+						</animation>
+
+						<animation condition="Container.row(3)">
+							<effect type="zoom" start="100" end="125" time="500" tween="sine" easing="inout" center="35,90" />
+						</animation>
+
+						<include content="TvShowssWallIcon">
+							<param name="MyFocused" value="true" />							
+						</include>
+					</control>	
+				</focusedlayout>	
+
+				<focusedlayout height="95" width="70" condition="Container.column(3)">
+					<control type="group">
+
+						<animation condition="Container.row(0)">
+							<effect type="zoom" start="100" end="125" time="500" tween="sine" easing="inout" center="65,0" />
+						</animation>
+
+						<animation condition="Container.row(1) | Container.row(2)">
+							<effect type="zoom" start="100" end="125" time="500" tween="sine" easing="inout" center="65,60" />
+						</animation>
+
+						<animation condition="Container.row(3)">
+							<effect type="zoom" start="100" end="125" time="500" tween="sine" easing="inout" center="65,90" />
+						</animation>
+
+						<include content="TvShowssWallIcon">
+							<param name="MyFocused" value="true" />							
+						</include>
+					</control>	
+				</focusedlayout>			
+
+				<focusedlayout height="95" width="70" condition="Container.column(4) | Container.column(5) | Container.column(6)">
+					<control type="group">
+						<animation condition="Container.row(0)">
+							<effect type="zoom" start="100" end="125" time="500" tween="sine" easing="inout" center="95,0" />
+						</animation>
+
+						<animation condition="Container.row(1) | Container.row(2)">
+							<effect type="zoom" start="100" end="125" time="500" tween="sine" easing="inout" center="95,60" />
+						</animation>
+
+						<animation condition="Container.row(3)">
+							<effect type="zoom" start="100" end="125" time="500" tween="sine" easing="inout" center="95,90" />
+						</animation>
+						<include content="TvShowssWallIcon">
+							<param name="MyFocused" value="true" />							
+						</include>
+					</control>	
+				</focusedlayout>	
+
+			</control>
+			<control type="group">
+				<top>SortLetterOffsetY</top>
+				<include>SortLetterNotification</include>
+			</control>	
+			<include>InfoPaneDetails</include>			
+			<include>ViewsDialogPopUpScreenDim</include>
+		</control>		
+	</include>
+
+	<!--//// START TV Shows Episodes VIEW ///////////////////////////////////////////////////////////////////-->
+	<include name="TVShowsEpisodesView">
+		<control type="group" id="500">	
+	      <defaultcontrol always="true">68</defaultcontrol>
+			<visible>Control.IsVisible(68)</visible>
+			<include>Animation_Episodes</include>
+			<control type="group">
+				<left>30</left>
+				<top>50</top>
+				<control type="image">
+					<width>1220</width>
+					<height>615</height>
+					<texture border="7">panels/content-panel.png</texture>
+					<include>PanelFadeAnim</include>
+					<include>ControlsOpenCloseAnim</include>
+				</control>
+				<control type="label">
+					<left>5</left>
+					<top>5</top>
+					<width min="0" max="545">auto</width>
+					<font>FullMediaInfoTitleFont3</font>
+					<textcolor>MediaInfoTitleColor</textcolor>
+					<shadowcolor>ShadowColor</shadowcolor>
+					<label fallback="31000">[UPPERCASE]$INFO[ListItem.TVShowTitle][/UPPERCASE]</label>
+					<scroll>true</scroll>
+					<scrollsuffix> - </scrollsuffix>
+					<include>InfoPaneLabelFadeAnim</include>
+					<align>center</align>
+				</control>
+
+				<control type="image">
+					<description>Content Background</description>
+					<left>5</left>
+					<top>5</top>
+					<width>554</width>
+					<height>605</height>
+					<texture border="4">panels/panel-content-border2.png</texture>
+					<include>ListInfoViewContentBackgroundFadeAnim</include>
+				</control>
+				
+				<control type="image">
+					<description>Media Info Background</description>
+					<left>10</left>
+					<top>374</top>
+					<width>542</width>
+					<height>230</height>
+					<texture border="4">panels/panel3.png</texture>
+					<include>ListInfoViewMediaInfoBackgroundFadeAnim</include>
+				</control>
+			</control>	
+
+			<control type="group">
+				<control type="image">
+					<left>40</left>
+					<top>116</top>
+					<width>542</width>
+					<height>304</height>
+					<texture background="true">$INFO[ListItem.Thumb]</texture>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<fadetime>FanartCrossfadeTime</fadetime>
+					<scrolltime tween="sine" easing="inout">300</scrolltime>
+				</control>
+
+				<control type="textbox">
+					<description>Plot</description>
+					<left>48</left>
+					<top>430</top>
+					<width>526</width>
+					<height>190</height>
+					<font>MediaInfoDescFont</font>
+					<textcolor>MediaInfoColor</textcolor>
+					<shadowcolor>ShadowColor</shadowcolor>
+					<align>justify</align>
+					<label fallback="31203">$INFO[ListItem.Plot]</label>
+					<wrapmultiline>true</wrapmultiline>
+					<autoscroll time="2000" delay="6000" repeat="10000"></autoscroll>
+					<visible>!Container.OnNext + !Container.OnPrevious</visible>
+					<include>ControlsOpenCloseAnim</include>
+				</control>
+			</control>
+			
+			<control type="list" id="68">	
+				<viewtype label="31112">TVShowsEpisodesView</viewtype>
+				<left>595</left>
+				<top>60</top>
+				<width>630</width>
+				<height>600</height>
+				<pagecontrol>906</pagecontrol>
+				<preloaditems>2</preloaditems>
+				<scrolltime tween="sine" easing="inout">300</scrolltime>
+				<onup>68</onup>
+				<ondown>68</ondown>
+				<onleft>850</onleft>
+				<onright>150</onright>
+				<visible>Container.Content(Episodes)</visible>
+				<itemlayout height="74">
+					<control type="image">
+						<left>0</left>
+						<width>630</width>
+						<height>74</height>	
+						<texture border="0,0,10,2">views/list-separator.png</texture>
+						<aspectratio>stretch</aspectratio>
+					</control>
+					<control type="image">
+						<description>Cover</description>
+						<left>0</left>
+						<top>4</top>
+						<width>97</width>
+						<height>65</height>
+						<bordertexture border="7">covers/cover-case-nofocus.png</bordertexture>
+						<bordersize>5</bordersize>
+						<texture background="true">$INFO[ListItem.Thumb]</texture>
+						<aspectratio>scale</aspectratio>
+					</control>
+					<control type="image">
+						<description>Dim</description>
+						<left>0</left>
+						<top>4</top>
+						<width>97</width>
+						<height>65</height>
+						<bordersize>5</bordersize>
+						<include>CoverDim</include>
+						<aspectratio>stretch</aspectratio>
+						<visible>!String.IsEmpty(ListItem.Thumb)</visible>
+					</control>
+					<control type="image">
+						<description>Default Cover</description>
+						<left>0</left>
+						<top>4</top>
+						<width>97</width>
+						<height>65</height>
+						<bordersize>5</bordersize>
+						<texture background="true">$INFO[ListItem.ActualIcon]</texture>
+						<aspectratio>keep</aspectratio>
+						<visible>String.IsEmpty(ListItem.Thumb)</visible>
+						<animation effect="fade" end="40" condition="true">Conditional</animation>
+					</control>								
+					<control type="label">
+						<description>Label</description>
+						<left>104</left>
+						<top>12</top>
+						<width>411</width>
+						<font>DefaultFontB</font>
+						<textcolor>ListColor</textcolor>
+						<shadowcolor>ShadowColor</shadowcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>String.IsEmpty(ListItem.Title)</visible>
+					</control>
+					<control type="label">
+						<description>Label2</description>
+						<left>104</left>
+						<top>38</top>
+						<width>411</width>
+						<font>DefaultFont</font>
+						<textcolor>ListColor2</textcolor>
+						<shadowcolor>ShadowColor</shadowcolor>	
+						<label>$INFO[ListItem.Season,$LOCALIZE[20373] ,]$INFO[ListItem.Episode,  -  $LOCALIZE[20359] ,]</label>
+					</control>
+					<control type="group">
+						<visible>!String.IsEmpty(ListItem.Title)</visible>
+						<control type="label">
+							<description>Label</description>
+							<left>104</left>
+							<top>12</top>
+							<width>411</width>
+							<font>DefaultFontB</font>
+							<textcolor>ListColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$INFO[ListItem.Title]</label>
+						</control>
+						<control type="label">
+							<description>Runtime</description>
+							<left>500</left>
+							<top>12</top>
+							<width>100</width>
+							<font>DefaultFontB</font>
+							<textcolor>ListColor3</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$VAR[DurationVarWithMins]</label>
+							<align>Left</align>
+						</control>
+						<control type="label">
+							<description>Rating</description>
+							<left>600</left>
+							<top>12</top>
+							<width>50</width>
+							<font>DefaultFontB</font>
+							<textcolor>ListColor3</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$INFO[ListItem.Rating]</label>
+							<align>Left</align>
+						</control>
+						<control type="group">	
+							<control type="image">
+								<description>Watched</description>
+								<left>596</left>
+								<top>39</top>
+								<width>24</width>
+								<height>24</height>
+								<texture background="true">overlays/episodewatched.png</texture>
+								<aspectratio>keep</aspectratio>
+								<visible>String.IsEqual(ListItem.Overlay,OverlayWatched.png)</visible>
+								<include>ListViewOverlayFadeAnim</include>
+							</control>
+							<control type="image">
+								<description>Language 1</description>
+								<left>500</left>
+								<top>39</top>
+								<width>24</width>
+								<height>24</height>
+								<texture background="true">$INFO[ListItem.Property(AudioLanguage.1),flagging/lang/,.png]</texture>
+								<aspectratio>keep</aspectratio>
+							</control>	
+							<control type="image">
+								<description>Language 2</description>
+								<left>530</left>
+								<top>39</top>
+								<width>24</width>
+								<height>24</height>
+								<texture background="true">$INFO[ListItem.Property(AudioLanguage.2),flagging/lang/,.png]</texture>
+								<aspectratio>keep</aspectratio>
+							</control>	
+							<control type="image">
+								<description>Sub</description>
+								<left>560</left>
+								<top>39</top>
+								<width>24</width>
+								<height>24</height>
+								<texture>flagging/lang/sub.png</texture>
+								<aspectratio>keep</aspectratio>
+								<visible>!String.IsEmpty(ListItem.SubtitleLanguage)</visible>
+							</control>					
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout height="74">	
+					<control type="image">
+						<left>0</left>
+						<width>630</width>
+						<height>74</height>	
+						<texture border="0,0,10,2">views/list-separator.png</texture>
+						<aspectratio>stretch</aspectratio>
+					</control>
+					<control type="image">
+						<left>0</left>
+						<width>630</width>
+						<height>73</height>
+						<texture border="4">views/list-focus.png</texture>
+						<aspectratio>stretch</aspectratio>
+						<visible>Control.HasFocus(68)</visible>
+						<include>ListViewSelectFadeAnim</include>
+						<include>ListViewScrollAnim2</include>
+					</control>
+					<control type="image">
+						<left>0</left>
+						<width>630</width>
+						<height>73</height>
+						<texture border="4">views/list-alt-focus.png</texture>
+						<aspectratio>stretch</aspectratio>
+						<visible>!Control.HasFocus(68)</visible>
+						<include>ListViewSelectFadeAnim2</include>
+					</control>
+					<control type="image">
+						<description>Cover</description>
+						<left>0</left>
+						<top>4</top>
+						<width>97</width>
+						<height>65</height>
+						<bordertexture border="7">covers/cover-case-nofocus.png</bordertexture>
+						<bordersize>5</bordersize>
+						<texture background="true">$INFO[ListItem.Thumb]</texture>
+						<aspectratio>scale</aspectratio>
+						<include>ListViewCoverFocusAnim</include>
+					</control>
+					<control type="image">
+						<description>Default Cover</description>
+						<left>0</left>
+						<top>4</top>
+						<width>97</width>
+						<height>65</height>
+						<bordersize>5</bordersize>
+						<texture background="true">$INFO[ListItem.ActualIcon]</texture>
+						<aspectratio>keep</aspectratio>
+						<visible>String.IsEmpty(ListItem.Thumb)</visible>
+						<include>ListViewCoverFocusAnim</include>
+					</control>	
+					<control type="group">
+						<include>ListViewFocusAnim</include>
+						<control type="label">
+							<description>Label</description>
+							<left>104</left>
+							<top>12</top>
+							<width>411</width>
+							<font>DefaultFontB</font>
+							<textcolor>SelectedColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$INFO[ListItem.Label]</label>
+							<scroll>true</scroll>
+							<visible>String.IsEmpty(ListItem.Title)</visible>
+						</control>
+						<control type="label">
+							<description>Label2</description>
+							<left>104</left>
+							<top>38</top>
+							<width>411</width>
+							<font>DefaultFont</font>
+							<textcolor>ListColor2</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>	
+							<label>$INFO[ListItem.Season,$LOCALIZE[20373] ,]$INFO[ListItem.Episode,  -  $LOCALIZE[20359] ,]</label>
+						</control>
+						<control type="group">
+							<visible>!String.IsEmpty(ListItem.Title)</visible>
+							<control type="label">
+								<description>Label</description>
+								<left>104</left>
+								<top>12</top>
+								<width>411</width>
+								<font>DefaultFontB</font>
+								<textcolor>SelectedColor</textcolor>
+								<shadowcolor>ShadowColor</shadowcolor>
+								<label>$INFO[ListItem.Title]</label>
+								<scroll>true</scroll>
+							</control>
+						<control type="label">
+							<description>Runtime</description>
+							<left>500</left>
+							<top>12</top>
+							<width>100</width>
+							<font>DefaultFontB</font>
+							<textcolor>ListColor3</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$VAR[DurationVarWithMins]</label>
+							<align>Left</align>
+						</control>
+						<control type="label">
+							<description>Rating</description>
+							<left>600</left>
+							<top>12</top>
+							<width>50</width>
+							<font>DefaultFontB</font>
+							<textcolor>ListColor3</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$INFO[ListItem.Rating]</label>
+							<align>Left</align>
+						</control>
+						<control type="group">
+							<control type="image">
+								<description>Watched</description>
+								<left>596</left>
+								<top>39</top>
+								<width>24</width>
+								<height>24</height>
+								<texture background="true">overlays/episodewatched.png</texture>
+								<aspectratio>keep</aspectratio>
+								<visible>String.IsEqual(ListItem.Overlay,OverlayWatched.png)</visible>
+							</control>	
+							<control type="image">
+								<description>Language 1</description>
+								<left>500</left>
+								<top>39</top>
+								<width>24</width>
+								<height>24</height>
+								<texture background="true">$INFO[ListItem.Property(AudioLanguage.1),flagging/lang/,.png]</texture>
+								<aspectratio>keep</aspectratio>
+							</control>	
+							<control type="image">
+								<description>Language 2</description>
+								<left>530</left>
+								<top>39</top>
+								<width>24</width>
+								<height>24</height>
+								<texture background="true">$INFO[ListItem.Property(AudioLanguage.2),flagging/lang/,.png]</texture>
+								<aspectratio>keep</aspectratio>
+							</control>	
+							<control type="image">
+								<description>Sub</description>
+								<left>560</left>
+								<top>39</top>
+								<width>24</width>
+								<height>24</height>
+								<texture>flagging/lang/sub.png</texture>
+								<aspectratio>keep</aspectratio>
+								<visible>!String.IsEmpty(ListItem.SubtitleLanguage)</visible>
+							</control>											
+							</control>
+						</control>
+					</control>
+				</focusedlayout>					
+			</control>	
+			<include>InfoPaneDetails</include>
+			<include>ViewsDialogPopUpScreenDim</include>
+		</control>		
+	</include>
+	<!--//// END TV Shows Episodes VIEW /////////////////////////////////////////////////////////////////////-->	
+
+</includes>

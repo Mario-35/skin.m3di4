@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">850</defaultcontrol>
+	<onload>SetProperty(RefreshList,1,Home)</onload>
+	<onload condition="Skin.HasSetting(ShowDebugButton)">Skin.ToggleDebug</onload>
+	<controls>		
+		<control type="group">
+			<depth>DepthBackground</depth>
+		
+			<control type="group">
+				<visible>!Player.HasMedia</visible>
+				<control type="image">
+					<include>BackgroundSize</include>
+					<texture>background/home.png</texture>
+					<aspectratio>scale</aspectratio>
+					<animation effect="fade" start="100" end="0" time="600">Hidden</animation>
+				</control>
+			</control>
+			<include>BackgroundVideoPlaying</include>
+			<include>WindowOpenFadeInOut</include>	
+		</control>
+		<include>HomePanelFanart</include>
+		
+		<control type="group">
+			<visible>![Window.IsActive(script-script.extendedinfo-DialogInfo.xml) | Window.IsActive(script-script.extendedinfo-DialogVideoInfo.xml)]</visible>
+			<include>BackgroundVisibleAnim</include>			
+			<control type="group">
+				<depth>DepthContent</depth>
+				<include>RecentlyAddedPanel</include>				
+				<include>VideosHomeWidget</include>
+				<include>NowPlayingPanel</include>
+				<include>SystemInfoPanel</include>
+				<include>HomeCategoryIcons</include>
+				<include>DialogPopUpScreenDim</include>
+			</control>
+						
+			<control type="group" id="510">	
+				<description>Menu Area</description>
+				<depth>DepthHomeMenu</depth>
+				<top>606</top>
+				<include>HomeMenuPaneOpenCloseAnim</include>
+				<include>HomeMenuPanelImage</include>
+				<include>HomeMenu</include>
+				<include>HomeMenuPaneOverlay</include>
+				<include>HomeSubMenus</include>
+				<include>HomeSystemSubMenus</include>
+				<include>HomeNavButtons</include>
+			</control>
+			
+			<control type="group">
+				<description>Top Bar Area</description>
+				<visible>![System.IdleTime(3) + Skin.HasSetting(HideTopBar) + !Control.HasFocus(555)]</visible>
+				<depth>DepthTopBar</depth>
+				<include>HomeTopBarImage</include>
+				<include>TopBarOpenCloseAnim</include>
+				<include>HomeTopBarOverlay</include>
+				<include>KodiLogo</include>
+				<include>Notifications</include>
+			</control>
+		</control>
+	</controls>		
+</window>

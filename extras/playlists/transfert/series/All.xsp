@@ -1,0 +1,8 @@
+<smartplaylist type="tvshows">
+    <name>Series Transfert All</name>
+    <match>all</match>
+    <rule field="path" operator="contains">
+        <value>ransfert/</value>
+    </rule>
+    <order direction="ascending">sorttitle</order>
+</smartplaylist>

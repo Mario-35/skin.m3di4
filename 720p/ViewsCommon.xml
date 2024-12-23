@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<!--//// START ICON VIEW //////////////////////////////////////////////////////////////////////////-->
+	<include name="IconView">
+		<control type="group" id="500">	
+		    <defaultcontrol always="true">50</defaultcontrol>
+			<visible>Control.IsVisible(50)</visible>	
+			<include>MediaViewOpenCloseAnim</include>
+			<include>IconViewScrollbar</include>
+
+			<control type="panel" id="50">
+				<viewtype label="31103">icon</viewtype>
+				<left>5</left>
+				<width>1300</width>
+				<top>50</top>
+				<height>620</height>
+				<pagecontrol>901</pagecontrol>	
+				<preloaditems>2</preloaditems>
+				<scrolltime tween="sine" easing="inout">404</scrolltime>
+				<onup>50</onup>
+				<ondown>50</ondown>
+				<onleft>850</onleft>
+				<onright>150</onright>
+				<oninfo condition="System.HasAddon(script.extendedinfo) + [Container.Content(Actors) | Container.Content(Directors)]">RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[ListItem.Label])</oninfo>
+				<visible>![Container.Content(Movies) | Container.Content(Sets) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Albums) | Container.Content(Songs) | Container.Content(Addons) | Window.IsActive(Videos)]</visible>
+				<itemlayout height="185" width="203" condition="Container.Content(Countries)">
+					<control type="image">
+						<description>Cover Case</description>
+						<left>20</left>
+						<width>162</width>
+						<height>162</height>
+						<texture background="true" border="4,5,4,5">covers/cover-case-thumbnail2-nofocus.png</texture>
+						<aspectratio>stretch</aspectratio>
+					</control>
+					<control type="image">
+						<description>Default Cover</description>
+						<left>24</left> 
+						<top>5</top>
+						<width>154</width>
+						<height>153</height>
+						<texture background="true">$INFO[ListItem.ActualIcon]</texture>
+						<bordersize>10</bordersize>
+						<aspectratio>keep</aspectratio>
+						<visible>ListItem.IsParentFolder</visible>
+					</control>
+					<control type="image">
+						<description>Countries Cover</description>
+						<left>24</left> 
+						<top>5</top>
+						<width>154</width>
+						<height>153</height>
+						<texture background="true" fallback="studios/default-studio.png">$INFO[ListItem.Label,flagging/countries/,.png]</texture>
+						<bordersize>6</bordersize>
+						<aspectratio>scale</aspectratio>
+						<visible>!ListItem.IsParentFolder</visible>
+					</control>
+					<control type="label">
+						<description>Label</description>
+						<left>19</left>
+						<top>160</top>
+						<width>165</width>
+						<font>IconFont</font>
+						<textcolor>GreyColor</textcolor>
+						<shadowcolor>ShadowColor</shadowcolor>
+						<align>center</align>
+						<info>ListItem.Label</info>
+					</control>
+				</itemlayout>
+				<itemlayout height="155" width="115" condition="[String.Contains(Container.FolderPath,$LOCALIZE[342]/) | String.Contains(Container.FolderPath,$LOCALIZE[36902]/) | String.Contains(Container.FolderPath,series/) | String.Contains(Container.FolderPath,mangas/)] + Container.HasFolders">
+					<control type="image">						
+						<description>Default Cover</description>
+						<left>6</left>
+						<top>8</top>
+						<width>103</width>
+						<height>139</height>
+						<texture background="true">$INFO[ListItem.ActualIcon]</texture>
+						<aspectratio>stretch</aspectratio>
+						<animation effect="fade" end="60" condition="true">Conditional</animation>
+						<visible>String.IsEmpty(ListItem.Thumb)</visible>
+					</control>
+					<control type="image">
+						<description>Cover</description>
+						<left>6</left>
+						<top>8</top>
+						<width>103</width>
+						<height>139</height>
+						<texture background="true">$VAR[PosterThumb]</texture>
+						<aspectratio>stretch</aspectratio>
+					</control>
+					<control type="image">
+						<description>Cover Dim</description>
+						<left>6</left>
+						<top>8</top>
+						<width>103</width>
+						<height>139</height>
+						<include>CoverDim</include>
+						<aspectratio>stretch</aspectratio>
+					</control>					
+					<control type="image">
+						<description>Cover Case</description>
+						<width>115</width>
+						<height>155</height>
+						<texture background="true">covers/case.png</texture>
+						<aspectratio>stretch</aspectratio>	
+						<visible>![ListItem.IsCollection + Container.Content(movies) + !String.IsEqual(ListItem.Label,..)]</visible>					
+					</control>
+				</itemlayout>
+				<itemlayout height="185" width="203">
+					<control type="image">
+						<description>Cover Case</description>
+						<width>204</width>
+						<height>162</height>
+						<texture background="true" border="4,5,4,5">covers/cover-case-thumbnail2-nofocus.png</texture>
+						<aspectratio>stretch</aspectratio>
+					</control>
+					<control type="image">
+						<description>Default Cover</description>
+						<left>6</left> 
+						<top>5</top>
+						<width>192</width>
+						<height>153</height>
+						<texture background="true" fallback="DefaultVideo.png">$VAR[MovieGenreIconsAddonContainerVar]</texture>
+						<bordersize>6</bordersize>
+						<aspectratio>keep</aspectratio>
+						<visible>Window.IsActive(Videos) + Container.Content(Genres) + String.IsEmpty(ListItem.Thumb) + !ListItem.IsParentFolder + !String.IsEmpty(Skin.String(MovieGenreIconsAddon.path))</visible>
+					</control>
+					<control type="image">
+						<description>Default Cover</description>
+						<left>6</left> 
+						<top>5</top>
+						<width>192</width>
+						<height>153</height>
+						<texture background="true">$INFO[ListItem.ActualIcon]</texture>
+						<bordersize>10</bordersize>
+						<aspectratio>keep</aspectratio>
+						<visible>String.IsEmpty(ListItem.Thumb) + ![Container.Content(Genres) + !ListItem.IsParentFolder]</visible>
+					</control>
+					<control type="image">
+						<description>Cover</description>
+						<left>6</left> 
+						<top>5</top>
+						<width>192</width>
+						<height>153</height>
+						<texture background="true">$VAR[PosterThumb]</texture>
+						<aspectratio>keep</aspectratio>
+						<bordersize>6</bordersize>
+					</control>
+					<control type="image">
+						<description>Overlay</description>
+						<left>161</left>
+						<top>123</top>
+						<width>24</width>
+						<height>24</height>
+						<texture>$INFO[ListItem.Overlay]</texture>
+						<aspectratio>keep</aspectratio>
+						<animation effect="fade" end="70" condition="true">Conditional</animation>
+						<visible>String.IsEqual(ListItem.Overlay,OverlayWatched.png) + !Skin.HasSetting(HideEpisodesIconOverlay)</visible>
+					</control>
+				</itemlayout>
+
+				<focusedlayout height="185" width="203" condition="Container.Content(Countries)">
+					<control type="image">
+						<description>Cover Case</description>
+						<left>20</left>
+						<width>162</width>
+						<height>162</height>
+						<texture background="true" border="4,5,4,5">covers/cover-case-thumbnail2-focus.png</texture>
+						<aspectratio>stretch</aspectratio>
+					</control>
+					<control type="image">
+						<description>Default Cover</description>
+						<left>24</left> 
+						<top>5</top>
+						<width>154</width>
+						<height>153</height>
+						<texture background="true">$INFO[ListItem.ActualIcon]</texture>
+						<bordersize>10</bordersize>
+						<aspectratio>keep</aspectratio>
+						<visible>ListItem.IsParentFolder</visible>
+					</control>
+					<control type="image">
+						<description>Countries Cover</description>
+						<left>24</left> 
+						<top>5</top>
+						<width>154</width>
+						<height>153</height>
+						<texture background="true" fallback="studios/default-studio.png">$INFO[ListItem.Label,flagging/countries/,.png]</texture>
+						<bordersize>6</bordersize>
+						<aspectratio>scale</aspectratio>
+						<visible>!ListItem.IsParentFolder</visible>
+					</control>
+					<control type="label">
+						<description>Label</description>
+						<left>19</left>
+						<top>160</top>
+						<width>165</width>
+						<font>IconFont</font>
+						<textcolor>SelectedColor</textcolor>
+						<shadowcolor>ShadowColor</shadowcolor>
+						<align>center</align>
+						<info>ListItem.Label</info>
+					</control>
+				</focusedlayout>
+				<focusedlayout height="160" width="120" condition="[String.Contains(Container.FolderPath,$LOCALIZE[342]/) | String.Contains(Container.FolderPath,$LOCALIZE[36902]/) | String.Contains(Container.FolderPath,series/) | String.Contains(Container.FolderPath,mangas/)] + Container.HasFolders">
+					<control type="group">
+						<top>-5</top>
+						<left>-5</left>
+						<control type="image">
+							<description>Cover Image</description>
+							<bordersize>BorderImage</bordersize>
+							<texture background="true">$VAR[PosterThumb]</texture>			
+							<aspectratio>stretch</aspectratio>
+						</control>	
+						<control type="image">
+							<description>Cover Image Case Focus</description>
+							<texture colordiffuse="CaseSelectedColor">covers/case-diffuse.png</texture>
+							<texture background="true" border="3">covers/Select.png</texture>		
+							<aspectratio>stretch</aspectratio>
+							<visible>!ListItem.IsCollection</visible>
+						</control>
+						<control type="image"> <!-- Default Cover Default -->
+							<bordersize>BorderImage</bordersize>
+							<texture background="true">dummy/dummy.jpg</texture>
+							<visible>String.IsEmpty(ListItem.Thumb)</visible>
+							<aspectratio>stretch</aspectratio>
+						</control>	
+					</control>	
+				</focusedlayout>
+
+				<focusedlayout height="185" width="203"> 
+					<control type="image">
+						<description>Cover Case</description>
+						<width>204</width>
+						<height>162</height>
+						<texture background="true" border="4,5,4,5">covers/cover-case-thumbnail2-focus.png</texture>
+						<aspectratio>stretch</aspectratio>
+					</control>
+					<control type="image">
+						<description>Default Cover</description>
+						<left>6</left> 
+						<top>5</top>
+						<width>192</width>
+						<height>153</height>
+						<texture background="true" fallback="DefaultVideo.png">$VAR[MovieGenreIconsAddonContainerVar]</texture>
+						<bordersize>6</bordersize>
+						<aspectratio>keep</aspectratio>
+						<visible>Window.IsActive(Videos) + Container.Content(Genres) + String.IsEmpty(ListItem.Thumb) + !ListItem.IsParentFolder + !String.IsEmpty(Skin.String(MovieGenreIconsAddon.path))</visible>
+					</control>
+					<control type="image">
+						<description>Default Cover</description>
+						<left>6</left> 
+						<top>5</top>
+						<width>192</width>
+						<height>153</height>
+						<texture background="true">$INFO[ListItem.ActualIcon]</texture>
+						<bordersize>10</bordersize>
+						<aspectratio>keep</aspectratio>
+						<visible>String.IsEmpty(ListItem.Thumb) + ![Container.Content(Genres) + !ListItem.IsParentFolder]</visible>
+					</control>
+					<control type="image">
+						<description>Cover</description>
+						<left>6</left> 
+						<top>5</top>
+						<width>192</width>
+						<height>153</height>
+						<texture>$VAR[PosterThumb]</texture>
+						<bordersize>6</bordersize>
+						<aspectratio>keep</aspectratio>
+					</control>
+					<control type="image">
+						<description>Overlay</description>
+						<left>161</left>
+						<top>123</top>
+						<width>24</width>
+						<height>24</height>
+						<texture>$INFO[ListItem.Overlay]</texture>
+						<aspectratio>keep</aspectratio>
+						<animation effect="fade" end="70" condition="true">Conditional</animation>
+						<visible>String.IsEqual(ListItem.Overlay,OverlayWatched.png) + !Skin.HasSetting(HideEpisodesIconOverlay)</visible>
+					</control>
+					<control type="label">
+						<description>Label</description>
+						<left>19</left>
+						<top>160</top>
+						<width>165</width>
+						<font>IconFont</font>
+						<textcolor>SelectedColor</textcolor>
+						<shadowcolor>ShadowColor</shadowcolor>
+						<align>center</align>
+						<info>ListItem.Label</info>
+					</control>
+				</focusedlayout>
+			</control>
+			
+			<include>InfoPaneMediaDetails</include>
+			<include>InfoPaneDetails</include>			
+			
+			<include>ViewsDialogPopUpScreenDim</include>
+		</control>		
+	</include>
+	<!--//// END ICON VIEW ////////////////////////////////////////////////////////////////////////////-->
+	
+	<!--//// START LIST VIEW //////////////////////////////////////////////////////////////////////////-->
+	<include name="ListView">
+		<control type="group" id="500">			    
+			<defaultcontrol always="true">52</defaultcontrol>
+			<visible>Control.IsVisible(52)</visible>
+			<include>MediaViewOpenCloseAnim</include>	
+			
+			<control type="image">
+				<left>30</left>
+				<top>106</top>
+				<width>755</width>
+				<height>525</height>
+				<texture border="7">panels/content-panel.png</texture>
+				<include>PanelFadeAnim</include>
+			</control> 
+
+			<control type="group">
+				<description>Cover</description>
+				<left>840</left>
+				<top>150</top>
+				<visible>![Container.Content(Movies) | Container.Content(Seasons) | Container.Content(Episodes) | Container.Content(TVShows)]</visible>
+
+				<control type="group">
+					
+					<control type="image">
+						<description>Cover</description>
+						<width>400</width>
+						<height>400</height>
+						<texture background="true">$INFO[ListItem.Thumb]</texture>
+						<bordertexture border="11">covers/cover-case-curved-big-focus.png</bordertexture>
+						<bordersize>14</bordersize>
+						<aspectratio aligny="bottom">keep</aspectratio>
+						<fadetime>IconCrossfadeTime</fadetime>	
+						<visible>!String.IsEmpty(ListItem.Thumb) + !Container.Content(Seasons)</visible>
+					</control>
+					
+					<control type="image">
+						<description>Cover Reflection</description>
+						<top>395</top>
+						<width>400</width>
+						<height>400</height>
+						<texture background="true" flipy="true" diffuse="views/reflection.png">$INFO[ListItem.Thumb]</texture>
+						<bordertexture flipy="true" border="11" diffuse="views/reflection.png">covers/cover-case-curved-big-focus.png</bordertexture>
+						<bordersize>14</bordersize>
+						<aspectratio aligny="top">keep</aspectratio>
+						<fadetime>IconCrossfadeTime</fadetime>
+						<visible>!String.IsEmpty(ListItem.Thumb) + !Container.Content(Seasons)</visible>
+					</control>
+					
+					<control type="image">
+						<description>Cover Video Library</description>
+						<width>400</width>
+						<height>400</height>
+						<texture background="true" fallback="DefaultVideo.png">$VAR[MovieGenreIconsAddonVar]</texture>
+						<bordertexture border="11">covers/cover-case-curved-big-focus.png</bordertexture>
+						<bordersize>50</bordersize>
+						<aspectratio aligny="bottom">keep</aspectratio>
+						<fadetime>IconCrossfadeTime</fadetime>
+						<include>NotificationsOpenCloseAnim</include>
+						<visible>Window.IsActive(Videos) + Container.Content(Genres) + String.IsEmpty(ListItem.Thumb) + !ListItem.IsParentFolder + !String.IsEmpty(Skin.String(MovieGenreIconsAddon.path))</visible>
+					</control>
+					
+					
+					<control type="image">
+						<description>Cover Default</description>
+						<width>400</width>
+						<height>400</height>
+						<texture background="true">$INFO[ListItem.ActualIcon]</texture>
+						<bordertexture border="11">covers/cover-case-curved-big-focus.png</bordertexture>
+						<bordersize>50</bordersize>
+						<aspectratio aligny="bottom">keep</aspectratio>
+						<fadetime>IconCrossfadeTime</fadetime>
+						<include>NotificationsOpenCloseAnim</include>
+						<visible>String.IsEmpty(ListItem.Thumb) + String.IsEmpty(Container.Art(tvshow.poster)) + ![[Container.Content(Genres) | Container.Content(Countries)] + !ListItem.IsParentFolder]</visible>
+					</control>
+					
+					<control type="image">
+						<description>Cover Reflection Video Library</description>
+						<top>395</top>
+						<width>400</width>
+						<height>400</height>
+						<texture background="true" fallback="DefaultVideo.png" flipy="true" diffuse="views/reflection.png">$VAR[MovieGenreIconsAddonVar]</texture>
+						<bordertexture flipy="true" border="11" diffuse="views/reflection.png">covers/cover-case-curved-big-focus.png</bordertexture>
+						<bordersize>50</bordersize>
+						<aspectratio aligny="top">keep</aspectratio>
+						<fadetime>IconCrossfadeTime</fadetime>
+						<include>NotificationsOpenCloseAnim</include>
+						<visible>Window.IsActive(Videos) + Container.Content(Genres) + String.IsEmpty(ListItem.Thumb) + !ListItem.IsParentFolder + !String.IsEmpty(Skin.String(MovieGenreIconsAddon.path))</visible>
+					</control>
+					
+					<control type="image">
+						<description>Cover Reflection Default</description>
+						<top>395</top>
+						<width>400</width>
+						<height>400</height>
+						<texture background="true" flipy="true" diffuse="views/reflection.png">$INFO[ListItem.ActualIcon]</texture>
+						<bordertexture flipy="true" border="11" diffuse="views/reflection.png">covers/cover-case-curved-big-focus.png</bordertexture>
+						<bordersize>50</bordersize>
+						<aspectratio aligny="top">keep</aspectratio>
+						<fadetime>IconCrossfadeTime</fadetime>
+						<include>NotificationsOpenCloseAnim</include>
+						<visible>String.IsEmpty(ListItem.Thumb) + String.IsEmpty(Container.Art(tvshow.poster)) + ![[Container.Content(Genres) | Container.Content(Countries)] + !ListItem.IsParentFolder]</visible>
+					</control>
+					
+					<control type="image">
+						<description>Cover</description>
+						<width>400</width>
+						<height>400</height>
+						<texture background="true" fallback="studios/default-studio.png">$INFO[ListItem.Label,flagging/countries/,.png]</texture>
+						<bordertexture border="11">covers/cover-case-curved-big-focus.png</bordertexture>
+						<bordersize>14</bordersize>
+						<aspectratio>scale</aspectratio>
+						<fadetime>IconCrossfadeTime</fadetime>	
+						<visible>Container.Content(Countries) + !ListItem.IsParentFolder</visible>
+					</control>
+					
+					<control type="image">
+						<description>Cover Reflection</description>
+						<top>395</top>
+						<width>400</width>
+						<height>400</height>
+						<texture background="true" flipy="true" diffuse="views/reflection.png" fallback="studios/default-studio.png">$INFO[ListItem.Label,flagging/countries/,.png]</texture>
+						<bordertexture flipy="true" border="11" diffuse="views/reflection.png">covers/cover-case-curved-big-focus.png</bordertexture>
+						<bordersize>14</bordersize>
+						<aspectratio>scale</aspectratio>
+						<fadetime>IconCrossfadeTime</fadetime>
+						<visible>Container.Content(Countries) + !ListItem.IsParentFolder</visible>
+					</control>
+				</control>
+			</control>
+			
+			<control type="list" id="52">	
+				<viewtype label="31105">list</viewtype>
+				<left>40</left>
+				<top>110</top>
+				<width>720</width>
+				<height>518</height>
+				<pagecontrol>903</pagecontrol>
+				<preloaditems>2</preloaditems>
+				<scrolltime tween="sine" easing="inout">300</scrolltime>
+				<onup>52</onup>
+				<ondown>52</ondown>
+				<onleft>850</onleft>
+				<onright>150</onright>
+				<oninfo condition="System.HasAddon(script.extendedinfo) + [Container.Content(Actors) | Container.Content(Directors)]">RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[ListItem.Label])</oninfo>	
+				<itemlayout height="37">
+					<control type="image">
+						<width>720</width>
+						<height>37</height>	
+						<texture border="0,0,10,2">views/list-separator.png</texture>
+						<aspectratio>stretch</aspectratio>
+					</control>
+					<control type="image">
+						<description>Icon</description>
+						<left>5</left>
+						<top>6</top>
+						<width>24</width>
+						<height>24</height>
+						<texture background="true">$INFO[ListItem.ActualIcon].png</texture>
+						<aspectratio>stretch</aspectratio>
+						<visible>String.IsEmpty(ListItem.Overlay) | !String.IsEqual(ListItem.Overlay,OverlayWatched.png)</visible>
+						<include>ListViewOverlayFadeAnim</include>
+					</control>
+					<control type="label">
+						<description>Label</description>
+						<left>35</left>
+						<width>580</width>
+						<height>37</height>
+						<font>ListFont</font>
+						<textcolor>ListColor</textcolor>
+						<shadowcolor>ShadowColor</shadowcolor>
+						<aligny>center</aligny>				
+						<info>ListItem.Label</info>
+					</control>
+					<control type="label">
+						<description>Label2</description>
+						<left>510</left>
+						<width>200</width>
+						<height>37</height>
+						<font>DefaultFont</font>
+						<textcolor>ListColor3</textcolor>
+						<shadowcolor>ShadowColor</shadowcolor>
+						<align>right</align>
+						<aligny>center</aligny>				
+						<info>ListItem.Label2</info>
+						<visible>![[Container.Content(Albums) | Container.Content(Songs)]]</visible>
+					</control>
+					<control type="image">
+						<description>Overlay</description>
+						<left>5</left>
+						<top>6</top>
+						<width>24</width>
+						<height>24</height>
+						<texture background="true">$INFO[ListItem.Overlay]</texture>
+						<aspectratio>keep</aspectratio>
+						<include>ListViewOverlayFadeAnim</include>
+					</control>
+				</itemlayout>		
+				<focusedlayout height="37">	
+					<control type="image">
+						<width>720</width>
+						<height>37</height>	
+						<texture border="0,0,10,2">views/list-separator.png</texture>
+						<aspectratio>stretch</aspectratio>
+					</control>
+					<control type="image">
+						<width>720</width>
+						<height>36</height>	
+						<texture border="4">views/list-focus.png</texture>
+						<aspectratio>stretch</aspectratio>
+						<visible>Control.HasFocus(52)</visible>
+						<include>ListViewSelectFadeAnim</include>
+						<include>ListViewScrollAnim</include>
+					</control>
+					<control type="image">
+						<width>720</width>
+						<height>36</height>	
+						<texture border="4">views/list-alt-focus.png</texture>
+						<aspectratio>stretch</aspectratio>
+						<visible>!Control.HasFocus(52)</visible>
+						<include>ListViewSelectFadeAnim2</include>
+					</control>
+					<control type="group">
+						<include>ListViewFocusAnim</include>
+						<control type="image">
+							<description>Icon</description>
+							<left>5</left>
+							<top>6</top>
+							<width>24</width>
+							<height>24</height>
+							<texture background="true">$INFO[ListItem.ActualIcon].png</texture>
+							<visible>!String.IsEqual(ListItem.Overlay,OverlayWatched.png)</visible>
+							<aspectratio>stretch</aspectratio>
+						</control>
+						<control type="label">
+							<description>Label</description>
+							<left>35</left>
+							<width>580</width>
+							<height>37</height>
+							<font>ListFont</font>
+							<textcolor>SelectedColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<aligny>center</aligny>
+							<info>ListItem.Label</info>
+							<scroll>true</scroll>
+						</control>
+						<control type="label">
+							<description>Label2</description>
+							<left>510</left>
+							<width>200</width>
+							<height>37</height>
+							<font>DefaultFont</font>
+							<textcolor>ListColor3</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<align>right</align>
+							<aligny>center</aligny>				
+							<info>ListItem.Label2</info>
+							<visible>![[Container.Content(Albums) | Container.Content(Songs)]]</visible>
+						</control>
+						<control type="image">
+							<description>Overlay</description>
+							<left>5</left>
+							<top>6</top>
+							<width>24</width>
+							<height>24</height>
+							<texture background="true">$INFO[ListItem.Overlay]</texture>
+							<aspectratio>keep</aspectratio>
+						</control>
+					</control>
+				</focusedlayout>
+			</control>
+
+			<include>ListViewScrollbar</include>
+			
+			<control type="group">
+				<description>Bottom Bar Area</description>
+				<top>BottomPaneOffsetY</top>	
+				<!--<include>InfoPaneImage</include>-->
+				<include>InfoPaneMediaDetails</include>
+				<include>BottomPaneOpenCloseAnim</include>
+			</control>
+			
+			<include>ViewsDialogPopUpScreenDim</include>
+		</control>
+	</include>
+	<!--//// END LIST VIEW ////////////////////////////////////////////////////////////////////////////-->
+</includes>

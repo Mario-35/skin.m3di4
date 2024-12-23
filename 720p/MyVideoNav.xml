@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="25">
+	<defaultcontrol always="true">500</defaultcontrol>
+	<menucontrol>850</menucontrol>
+	<views>50,52,100,68,69,63,585,587</views>
+	<onload>Skin.Reset(ShowExtraOptions)</onload>
+	<include>OnloadViews</include>
+	<controls>
+		<control type="group">
+		<include >M3di4Background</include>
+<include>ListInfoViewMediaInfoBackgroundFadeAnim</include>
+			
+			<include>BackgroundVideoPlaying</include>
+			<include>WindowOpenFadeInOut</include>
+		</control>		
+		<control type="group">
+			<visible>![Window.IsActive(3008) | Window.IsActive(script-ExtendedInfo Script-DialogVideoInfo.xml) | Window.IsActive(script-ExtendedInfo Script-DialogInfo.xml)]</visible>
+			<control type="group">
+				<visible>!Window.IsActive(MovieInformation) + !Window.IsActive(AddonInformation)</visible>
+				<depth>DepthContent</depth>
+				<include>MediaInfoOpenCloseAnim</include>
+				<include>IconView</include> <!-- 50 -->
+				<include>ListView</include> <!-- 52 -->				
+				<include>TVShowsView</include> <!-- 100 -->
+				<include>TVShowsEpisodesView</include> <!-- 68 -->
+				<include>MoviesWallView</include> <!-- 69 -->
+			</control>		
+
+			<include>MediaMenuBar</include>	
+					
+			<control type="group">
+				<description>Top Bar Area</description>
+				<!--  <visible>![System.IdleTime(3) + ![Control.IsVisible(505) | Control.IsVisible(69) | Control.IsVisible(586) | Control.HasFocus(555)]]</visible> -->
+				<depth>DepthTopBar</depth>
+				<include>TopBarImage</include>
+				<include>TopBarOpenCloseAnim</include>
+				<include>BreadCrumbVideoLibrary</include>
+				<include>Notifications</include>
+				<include>SortLetterNotification</include>
+			</control>
+		</control>
+	</controls>		
+</window>

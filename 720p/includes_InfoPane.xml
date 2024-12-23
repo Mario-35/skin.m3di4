@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	
+	<include name="InfoPaneImage">
+		<control type="image">
+			<left>-20</left>
+			<top>0</top>
+			<width>1320</width>
+			<height>55</height>
+			<texture border="8">panels/panel.png</texture>
+			<aspectratio>stretch</aspectratio>
+		</control>
+	</include>
+	
+	<include name="InfoPaneHeadLabel">
+		<left>5</left>
+		<top>2</top>
+		<width>358</width>
+		<font>InfoPaneFont</font>
+		<textcolor>InfoPaneColor</textcolor>
+		<scroll>no</scroll>
+		<scrollsuffix> - </scrollsuffix>
+		<include>InfoPaneLabelFadeAnim</include>
+	</include>
+	
+	<include name="InfoPaneHeadLabel2">
+		<left>5</left>
+		<top>20</top>
+		<width>358</width>
+		<font>InfoPaneFont2</font>
+		<textcolor>InfoPaneColor2</textcolor>
+		<shadowcolor>ShadowColor</shadowcolor>
+		<scroll>no</scroll>
+		<scrollsuffix> - </scrollsuffix>
+		<include>InfoPaneLabelFadeAnim</include>
+	</include>
+	
+	<include name="InfoPaneItemTitle">
+		<left>250</left>
+		<top>4</top>
+		<width>780</width>
+		<font>InfoPaneFont</font>
+		<align>center</align>
+		<textcolor>InfoPaneColor</textcolor>
+		<scroll>true</scroll>
+		<scrollsuffix> - </scrollsuffix>
+		<include>InfoPaneLabelFadeAnim</include>
+	</include>
+
+	<include name="InfoPaneItemBigTitle">
+		<left>210</left>
+		<top>3</top>
+		<width>850</width>
+		<font>InfoPaneItemBigFont</font>
+		<align>center</align>
+		<textcolor>InfoPaneColor</textcolor>
+		<scroll>true</scroll>
+		<scrollsuffix> - </scrollsuffix>
+		<include>InfoPaneLabelFadeAnim</include>
+	</include>
+	
+	<include name="InfoPaneItemVeryBigTitle">
+		<left>10</left>
+		<top>3</top>
+		<width>1270</width>
+		<font>InfoPaneItemBigFont</font>
+		<align>center</align>
+		<textcolor>VeryVigTitleColor</textcolor>
+		<scroll>true</scroll>
+		<scrollsuffix> - </scrollsuffix>
+		<include>InfoPaneLabelFadeAnim</include>
+	</include>	
+	
+	<include name="InfoPaneItemTitle2">
+		<left>250</left>
+		<top>23</top>
+		<width>780</width>
+		<font>InfoPaneFont2</font>
+		<align>center</align>
+		<textcolor>InfoPaneColor2</textcolor>
+		<scroll>no</scroll>
+		<scrollsuffix> - </scrollsuffix>
+		<include>InfoPaneLabelFadeAnim</include>
+	</include>
+
+	<include name="InfoPaneItemYear">
+		<left>250</left>
+		<top>28</top>
+		<width>780</width>
+		<font>InfoPaneFontYear</font>
+		<align>center</align>
+		<textcolor>InfoPaneColor2</textcolor>
+		<scroll>no</scroll>
+		<scrollsuffix> - </scrollsuffix>
+		<include>InfoPaneLabelFadeAnim</include>
+	</include>
+
+	<variable name="PanelInformation">
+		<value condition="ListItem.IsCollection">$LOCALIZE[20457]</value>
+		<value condition="[Container.Content(movies) | Container.Content(tvshows)] + !ListItem.IsCollection">$INFO[ListItem.Year]</value>
+	</variable>
+
+	<variable name="PanelTitle">
+		<value condition="!Skin.HasSetting(ExtendedVideoInfo)">$INFO[ListItem.Label]</value>
+		<value>$INFO[ListItem.Label]</value>
+	</variable>	
+
+	<include name="InfoPaneDetails">	
+		<control type="group">
+			<description>Bottom Bar Area</description>
+			<visible>[Container.Content(movies)   + !Skin.HasSetting(HideMoviesWallInfoPanel)]
+				   | [Container.Content(episodes) + !Skin.HasSetting(HideEpisodesWallInfoPanel)]
+				   | [Container.Content(tvshows)  + !Skin.HasSetting(HideTVShowsWallInfoPanel)]
+				   | Window.IsActive(Videos)</visible>
+			<depth>DepthContent+</depth>
+			<top>BottomPaneOffsetY</top>
+			<include>InfoPaneImage</include>
+			<include >InfoPaneMediaDetails</include>
+			<include>BottomPaneOpenCloseAnim</include>
+
+			<control type="label">
+				<include>InfoPaneItemYear</include>
+				<label>$VAR[PanelInformation]</label>
+			</control>
+
+			<control type="label">
+				<include>InfoPaneItemBigTitle</include>
+				<label>[B]$VAR[PanelTitle][/B]</label>
+			</control>			
+
+			<control type="group">
+				<animation effect="slide" end="0,-6" condition="true">Conditional</animation>
+			</control>
+		</control>
+		<control type="group">
+			<description>Bottom Bar Area</description>
+			<visible>Container.Content(Seasons)</visible>
+			<depth>DepthContent+</depth>
+			<top>BottomPaneOffsetY</top>
+			<include>InfoPaneImage</include>
+			<include >InfoPaneMediaDetails</include>
+			<include>BottomPaneOpenCloseAnim</include>
+
+			<control type="label">
+				<include>InfoPaneItemBigTitle</include>
+				<label>[B]$INFO[ListItem.Label][/B]</label>
+			</control>
+
+
+			<control type="grouplist">
+				<description>Episodes</description>
+				<left>65r</left>
+				<top>5</top>
+				<width>55</width>
+				<orientation>horizontal</orientation>
+				<control type="label">
+					<width min="0" max="110">auto</width>
+					<font>InfoPaneItemBigFont</font>
+					<textcolor>InfoPaneColor</textcolor>
+					<shadowcolor>ShadowColor</shadowcolor>
+					<label fallback="-">[B]$INFO[ListItem.Year][/B]</label>
+				</control>
+			</control>	
+
+
+			<control type="grouplist">
+				<description>Episodes</description>
+				<left>5</left>
+				<top>5</top>
+				<width>200</width>
+				<orientation>horizontal</orientation>
+				<control type="label">
+					<width min="0" max="110">auto</width>
+					<font>MediaInfoFont</font>
+					<textcolor>MediaInfoItemColor</textcolor>
+					<shadowcolor>ShadowColor</shadowcolor>
+					<label>$LOCALIZE[20360]:</label>
+				</control>
+				<control type="label">
+					<width min="0" max="110">auto</width>
+					<font>MediaInfoFont</font>
+					<textcolor>MediaInfoItemColor2</textcolor>
+					<shadowcolor>ShadowColor</shadowcolor>
+					<label fallback="-">$INFO[ListItem.Episode]</label>
+				</control>
+			</control>		
+
+			<control type="grouplist">
+				<description>Episodes Non Vus</description>
+				<left>5</left>
+				<top>22</top>
+				<width>400</width>
+				<orientation>horizontal</orientation>
+				<control type="label">
+					<width min="0" max="200">auto</width>
+					<font>MediaInfoFont</font>
+					<textcolor>MediaInfoItemColor</textcolor>
+					<shadowcolor>ShadowColor</shadowcolor>
+					<label>$LOCALIZE[20360], $LOCALIZE[16101]:</label>
+				</control>
+				<control type="label">
+					<width min="0" max="110">auto</width>
+					<font>MediaInfoFont</font>
+					<textcolor>MediaInfoItemColor2</textcolor>
+					<shadowcolor>ShadowColor</shadowcolor>
+					<label>$INFO[ListItem.Property(UnWatchedEpisodes)]</label>
+				</control>
+			</control>
+			
+			<control type="group">
+				<animation effect="slide" end="0,-6" condition="true">Conditional</animation>
+			</control>
+		</control>
+		<control type="group">
+			<visible>Container.Content(Albums) | Container.Content(Songs)</visible>
+			<description>Bottom Bar Area</description>
+			<depth>DepthContent+</depth>
+			<top>BottomPaneOffsetY</top>
+			<include>InfoPaneImage</include>
+			<include >InfoPaneMediaDetails</include>
+			<include>BottomPaneOpenCloseAnim</include>
+			
+			<control type="group">
+				<animation effect="slide" end="0,-6" condition="true">Conditional</animation>
+			</control>
+		</control>
+
+
+	</include>
+
+
+	<include name="InfoPaneMediaDetails">	
+		<control type="group">		
+			<include condition="Window.IsActive(Videos) | Window.IsActive(VideoPlaylist)">VideoImdb</include>
+			<include condition="Window.IsActive(Videos) | Window.IsActive(VideoPlaylist)">VideoDuration</include>
+		</control>
+	</include>
+	
+	<include name="VideoImdb">	
+		<control type="grouplist">			
+			<left>1200</left>
+			<width>500</width>
+			<itemgap>5</itemgap>
+			<align>left</align>
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<control type="image">
+				<description>IMDB Image</description>
+				<top>8</top>
+				<height>30</height>
+				<width>30</width>
+				<texture background="true">overlays/imdb.png</texture>
+				<visible>Window.IsActive(Videos) 
+					+ !String.IsEmpty(ListItem.Rating) 
+					+ [[Container.Content(movies) + !ListItem.IsFolder] 
+					| Container.Content(episodes)
+					| Container.Content(tvshows)]</visible>	
+			</control>
+			<control type="label">
+				<description>IMDB value</description>
+				<width min="5" max="50">auto</width>
+				<top>5</top>
+				<font>InfoPaneItemBigFont</font>
+				<textcolor>InfoPaneColor</textcolor>
+				<shadowcolor>ShadowColor</shadowcolor>
+				<label>$VAR[MyImdb]</label>
+				
+				<visible>Window.IsActive(Videos) 
+					+ !String.IsEmpty(ListItem.Rating) 
+					+ [[Container.Content(movies) + !ListItem.IsFolder] 
+					| Container.Content(episodes)
+					| Container.Content(tvshows)]</visible>	
+			</control>
+		</control>
+	</include>
+
+
+	<include name="VideoDuration">	
+		<control type="grouplist">			
+			<left>2</left>
+			<width>500</width>
+			<itemgap>5</itemgap>
+			<align>left</align>
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<control type="image">
+				<description>Duration Image</description>
+				<top>9</top>
+				<height>24</height>
+				<width>28</width>
+				<texture background="true">overlays/clock.png</texture>
+				<visible>Window.IsActive(Videos) + !String.IsEmpty(ListItem.Duration) + [[Container.Content(movies) + !ListItem.IsFolder] | [Container.Content(episodes)]]</visible>
+			</control>
+			<control type="label">
+				<description>Duration value</description>
+				<top>5</top>
+				<font>InfoPaneItemBigFont</font>
+				<textcolor>InfoPaneColor</textcolor>
+				<shadowcolor>ShadowColor</shadowcolor>
+				<label>$VAR[DurationVarWithMins]</label> 	
+				<visible>Window.IsActive(Videos) + !String.IsEmpty(ListItem.Duration) + [[Container.Content(movies) + !ListItem.IsFolder] | [Container.Content(episodes)]]</visible>
+			</control>	
+
+			<control type="label">
+				<description>Duration value</description>
+				<top>5</top>
+				<font>InfoPaneItemBigFont</font>
+				<textcolor>InfoPaneColor</textcolor>
+				<shadowcolor>ShadowColor</shadowcolor>
+				<label>$VAR[DurationVarWithMins]</label> 
+				<visible>Window.IsActive(Videos) + String.IsEmpty(ListItem.Duration) + !String.IsEmpty(ListItem.Duration)</visible>
+			</control>	
+
+
+
+			<control type="image">
+				<description>Duration Image</description>
+				<top>9</top>
+				<height>24</height>
+				<width>60</width>
+				<texture background="true">flagging/video/set.png</texture>
+				<visible>ListItem.IsCollection</visible>
+			</control>			
+
+			<control type="label">
+				<description>Duration value</description>
+				<top>5</top>
+				<font>InfoPaneItemBigFont</font>
+				<textcolor>InfoPaneColor</textcolor>
+				<shadowcolor>ShadowColor</shadowcolor>
+				<label>[B]$INFO[Window(Home).Property(SkinHelper.ListItem.Count)] $LOCALIZE[342][/B]</label>
+				<visible>ListItem.IsCollection</visible>
+			</control>
+		</control>
+	</include>
+
+	<include name="InfoPaneFileManagerDetails">	
+		<control type="label">
+			<include>InfoPaneHeadLabel</include>
+			<label>[B]$INFO[Container(20).NumItems,, $LOCALIZE[31202]][/B]</label>
+			<visible>Control.HasFocus(20)</visible>
+		</control>
+		
+		<control type="label">
+			<include>InfoPaneHeadLabel2</include>
+			<label>[UPPERCASE]$INFO[Container(20).ListItem.Label2][/UPPERCASE]</label>
+			<visible>Control.HasFocus(20)</visible>
+		</control>
+		
+		<control type="label">
+			<left>750</left>
+			<include>InfoPaneHeadLabel</include>
+			<label>[B]$INFO[Container(21).NumItems,, $LOCALIZE[31202]][/B]</label>
+			<visible>Control.HasFocus(21)</visible>
+		</control>
+				
+		<control type="label">
+			<left>750</left>
+			<include>InfoPaneHeadLabel2</include>
+			<label>[UPPERCASE]$INFO[Container(21).ListItem.Label2][/UPPERCASE]</label>
+			<visible>Control.HasFocus(21)</visible>
+		</control>				
+	</include>
+	
+	<include name="InfoPaneSystemInfoDetails">	
+		<control type="label">
+			<width>550</width>
+			<include>InfoPaneHeadLabel</include>
+			<label>[UPPERCASE][B]$INFO[System.BuildVersion][/B][/UPPERCASE]</label>
+		</control>
+		
+		<control type="label">
+			<width>550</width>
+			<include>InfoPaneHeadLabel2</include>
+			<label>[UPPERCASE]$INFO[System.BuildDate][/UPPERCASE]</label>
+		</control>
+		
+		<control type="group">
+			<left>410</left>
+			
+			<control type="progress">
+				<width>840</width>
+				<height>17</height>
+				<info>System.CpuUsage</info>
+			</control>
+			
+			<control type="label">
+				<font>SettingsContentFont</font>
+				<textcolor>SettingsContentColor</textcolor>
+				<shadowcolor>ShadowColor</shadowcolor>
+				<width>840</width>
+				<height>17</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$LOCALIZE[13271] $INFO[System.CPUUsage]</label>
+			</control>
+			
+			<control type="progress">
+				<top>23</top>
+				<width>840</width>
+				<height>17</height>
+				<info>system.memory(used)</info>
+			</control>
+			
+			<control type="label">
+				<top>23</top>
+				<font>SettingsContentFont</font>
+				<textcolor>SettingsContentColor</textcolor>
+				<shadowcolor>ShadowColor</shadowcolor>
+				<width>840</width>
+				<height>17</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$LOCALIZE[31126]: $INFO[system.memory(used)] / $INFO[system.memory(total)] ($INFO[system.memory(used.percent)])</label>
+			</control>
+		</control>
+	</include>
+	
+	<include name="InfoPaneEventLogDetails">	
+		<control type="group">
+			<control type="label">
+				<include>InfoPaneHeadLabel</include>
+				<label>[B]$INFO[Container(570).NumItems,, $LOCALIZE[31202]][/B]</label>
+			</control>
+		</control>
+	</include>
+</includes>

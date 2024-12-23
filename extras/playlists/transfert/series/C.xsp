@@ -1,0 +1,15 @@
+﻿  <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+  <smartplaylist type="tvshows">
+      <name>C</name>
+      <match>all</match>
+    <rule field="path" operator="contains">
+      <value>ransfert/</value>
+    </rule>
+      <rule field="title" operator="startswith">
+          <value>C</value>
+      </rule>
+      <rule field="path" operator="doesnotcontain">
+         <value>/Mangas/</value>
+      </rule>
+      <order direction="ascending">sorttitle</order>
+  </smartplaylist>

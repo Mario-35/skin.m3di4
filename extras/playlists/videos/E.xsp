@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<smartplaylist type="movies">
+    <name>E</name>
+    <match>one</match>
+    <rule field="title" operator="startswith">
+        <value>E</value>
+    </rule>
+    <rule field="set" operator="startswith">
+        <value>E</value>
+    </rule>
+    <order direction="ascending">sorttitle</order>
+</smartplaylist>

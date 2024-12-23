@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<colors>
+	<color name="WhiteColor">fff3f3f3</color>   <!-- #f3f3f3 -->
+	<color name="BlackColor">ff000000</color>   <!-- #000000 -->
+	<color name="GreyColor">ffcecece</color>   <!-- #cecece -->
+	<color name="GreyColor2">ffc0c0c0</color>   <!-- #c0c0c0 -->
+	<color name="GreyColor3">ff5e5e5e</color>   <!-- #5e5e5e -->
+	<color name="DefaultColor">ff1573d4</color>   <!-- #1573d4 -->
+	<color name="DefaultColor2">ff7993b0</color>   <!-- #7993b0 -->
+	<color name="DefaultColor3">ffcce4fe</color>   <!-- #cce4fe -->
+	<color name="SelectedColor">ffffffff</color>   <!-- #ffffff -->
+	<color name="SelectedColor2">ff1573d4</color>   <!-- #1573d4 -->
+	<color name="ButtonSelectedColor">ff57A5FF</color>   <!-- #57A5FF -->
+	<color name="DisabledColor">ff8e8e8e</color>   <!-- #8e8e8e -->
+	<color name="ShadowColor">ff000000</color>   <!-- #000000 -->
+	<color name="ButtonColor">ffcecece</color>   <!-- #cecece -->
+	<color name="ButtonFocusColor">ffffffff</color>   <!-- #ffffff -->
+	<color name="MenuItemColor">ffcecece</color>   <!-- #cecece -->
+	<color name="MenuItemFocusColor">ffffffff</color>   <!-- #ffffff -->
+	<color name="HomeSubMenuColor">ff8e8e8e</color>   <!-- #8e8e8e -->
+	<color name="BreadCrumbColor">ffc0c0c0</color>   <!-- #c0c0c0 -->
+	<color name="InfoPaneColor">ffcce4fe</color>   <!-- #cce4fe -->
+	<color name="InfoPaneColor2">ff7993b0</color>   <!-- #7993b0 -->
+	<color name="ListColor">ffcecece</color>   <!-- #cecece -->
+	<color name="ListColor2">ffc0c0c0</color>   <!-- #c0c0c0 -->
+	<color name="ListColor3">ff7993b0</color>   <!-- #7993b0 -->
+	<color name="MediaInfoColor">ffd2d2d2</color>   <!-- #d2d2d2 -->
+	<color name="MediaInfoTitleColor">ff1573d4</color>   <!-- #1573d4 -->
+	<color name="MediaInfoTitleColor2">ffc0c0c0</color>   <!-- #c0c0c0 -->
+	<color name="MediaInfoItemColor">ff7993b0</color>   <!-- #7993b0 -->
+	<color name="MediaInfoItemColor2">ffcecece</color>   <!-- #cecece -->
+	<color name="LiveTVColumnColor">dd0c2134</color>   <!-- dd0c2134 -->
+	<color name="LiveTVColumnColor2">ff2d5a83</color>   <!-- #2d5a83 -->
+	<color name="LiveTVColumnColor3">ff000000</color>   <!-- #000000 -->
+	<color name="DialogTitleColor">ff1573d4</color>   <!-- #1573d4 -->
+	<color name="StatusBarColor">ffcce4fe</color>   <!-- #cce4fe -->
+	<color name="StatusBarColor2">ff7993b0</color>   <!-- #7993b0 -->
+	<color name="ProgressColor">ffb8b8b8</color>   <!-- #b8b8b8 -->
+	<color name="ProgressColor2">ff7993b0</color>   <!-- #7993b0 -->
+	<color name="SettingsCatColor">ff1573d4</color>   <!-- #1573d4 -->
+	<color name="SettingsContentColor">ffcecece</color>   <!-- #cecece -->
+	<color name="ContentTitleColor">ff7993b0</color>   <!-- #7993b0 -->
+	<color name="WeatherHighTemperatureColor">FFCE4421</color>   <!-- #CE4421 -->
+	<color name="HomeCategoryNoFocusImageColor">ff57a7ff</color>   <!-- #57a7ff -->
+	<color name="VeryVigTitleColor">ffEEF533</color>   <!-- #EEF533 -->
+	<color name="CaseSelectedColor">ffEEF533</color>   <!-- #EEF533 -->
+	<color name="CaseSelectedTvShow">ff334AF5</color>   <!-- #334AF5 -->
+	<color name="CaseSelectedAnime">ffF34009</color>   <!-- #F34009 -->	
+	<color name="CaseCollection">ff0DCA1F</color>   <!-- #0DCA1F -->
+	
+
+<color name="button_focus">FF12A0C7</color>
+
+</colors>

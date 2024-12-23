@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">7001</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+	<onunload>Skin.Reset(ExpandedSettings)</onunload>	
+	<controls>	
+		<control type="group">					
+    		<include>BackgroundDefault</include>
+			<include>WindowOpenFadeInOut</include>
+		</control>
+		
+		<control type="group" id="9001">
+			<include>ControlsOpenCloseAnim</include>						
+			<control type="group" id="851">
+				<description>Content Area</description>
+				<left>400</left>
+				<top>110</top>			
+				<control type="grouplist" id="900">		
+					<description>General Content Area</description>
+					<width>755</width>
+					<height>500</height>
+					<pagecontrol>911</pagecontrol>
+					<itemgap>0</itemgap>
+					<onup>900</onup>
+					<ondown>900</ondown>
+					<onleft>850</onleft>
+					<onright>911</onright>
+					<include>ContentSettingsOpenCloseAnim</include>
+					<control type="button" id="1000">
+						<description>General Label</description>
+						<include>SettingsHeaderBtn</include>
+						<label>$LOCALIZE[128]</label>
+					</control>
+					<control type="radiobutton" id="1005">
+						<description>Enable Animes</description>
+						<include>SettingsContentRadioBtn</include>
+						<label>$LOCALIZE[20079]</label>
+						<selected>Skin.HasSetting(UseAnimes)</selected>
+						<onclick>Skin.ToggleSetting(UseAnimes)</onclick>
+					</control>
+					<control type="button" id="2330">
+						<description>Animes Label</description>
+						<include>ExpandedSettingsListBtn</include>
+						<label>$LOCALIZE[21899] - [COLOR=DefaultColor2]$INFO[Skin.String(AnimeName)][/COLOR]</label>
+						<onclick>Skin.SetString(AnimeName)</onclick>
+						<visible>Skin.HasSetting(UseAnimes)</visible>
+					</control>
+					<control type="radiobutton" id="1006">
+						<description>Hide Watched</description>
+						<include>SettingsContentRadioBtn</include>
+						<label>$LOCALIZE[20367] / $LOCALIZE[16101]</label>
+						<selected>Skin.HasSetting(HideThumbnailOverlay)</selected>
+						<onclick>Skin.ToggleSetting(HideThumbnailOverlay)</onclick>
+					</control>
+					<control type="button" id="2331">
+						<description>z Label</description>
+						<include>ExpandedSettingsListBtn</include>
+						<label>$LOCALIZE[21899] - [COLOR=DefaultColor2]$INFO[Skin.String(TransfertName)][/COLOR]</label>
+						<onclick>Skin.SetString(TransfertName)</onclick>
+						<visible>Skin.HasSetting(UseTransferts)</visible>
+					</control>
+					<control type="radiobutton" id="1008">
+						<description>Enable Shortcuts</description>
+						<include>SettingsContentRadioBtn</include>
+						<label>$LOCALIZE[1035]</label>
+						<selected>Skin.HasSetting(ShowShortcuts)</selected>
+						<onclick>Skin.ToggleSetting(ShowShortcuts)</onclick>
+					</control>
+					<control type="button" id="1007">
+						<description>General Label</description>
+						<include>SettingsHeaderBtn</include>
+						<label>$LOCALIZE[10146]</label>
+					</control>
+					<control type="button" id="7001">
+						<description>skin.m3di4</description>
+						<include>SettingsContentBtn</include>
+						<label>$LOCALIZE[166]: $INFO[System.AddonTitle(skin.m3di4)]</label>
+						<label2>$INFO[System.AddonVersion(skin.m3di4)] $LOCALIZE[31437]</label2>						
+					</control>
+					<control type="button" id="7003">
+						<description>script.image.resource.select</description>
+						<include>SettingsContentBtn</include>
+						<label>Image Resource Select Add-on</label>
+						<label2>$VAR[StatusImageResourceSelectVar]</label2>
+						<onclick condition="System.HasAddon(script.image.resource.select)">Addon.OpenSettings(script.image.resource.select)</onclick>
+						<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
+					</control>
+					<control type="button" id="7005">
+						<description>script.skin.helper.service</description>
+						<include>SettingsContentBtn</include>
+						<label>Skin Helper Service</label>
+						<label2>$VAR[StatusSkinHelperServiceVar]</label2>
+						<onclick condition="System.AddonIsEnabled(script.skin.helper.service)">Addon.OpenSettings(script.skin.helper.service)</onclick>
+						<onclick condition="!System.HasAddon(script.skin.helper.service)">InstallAddon(script.skin.helper.service)</onclick>
+						<onclick condition="System.HasAddon(script.skin.helper.service) + !System.AddonIsEnabled(script.skin.helper.service)">EnableAddon(script.skin.helper.service)</onclick>
+					</control>
+					<control type="button" id="7012">
+						<description>script.globalsearch</description>
+						<include>SettingsContentBtn</include>
+						<label>Global Search</label>
+						<label2>$VAR[StatusGlobalSearchVar]</label2>
+						<onclick condition="System.HasAddon(script.globalsearch)">Addon.OpenSettings(script.globalsearch)</onclick>
+						<onclick condition="!System.HasAddon(script.globalsearch)">InstallAddon(script.globalsearch)</onclick>
+					</control>
+					<control type="button" id="7013">
+						<description>script.extendedinfo</description>
+						<include>SettingsContentBtn</include>
+						<label>ExtendedInfo Script</label>
+						<label2>$VAR[StatusExtendedInfoVar]</label2>
+						<onclick condition="System.HasAddon(script.extendedinfo)">Addon.OpenSettings(script.extendedinfo)</onclick>
+						<onclick condition="!System.HasAddon(script.extendedinfo)">InstallAddon(script.extendedinfo)</onclick>
+					</control>
+					<control type="button" id="7017">
+						<description>plugin.video.themoviedb.helper</description>
+						<include>SettingsContentBtn</include>
+						<label>TheMovieDb Helper</label>
+						<label2>$VAR[StatusTheMovieDbHelperVar]</label2>
+						<onclick condition="System.AddonIsEnabled(plugin.video.themoviedb.helper)">Addon.OpenSettings(plugin.video.themoviedb.helper)</onclick>
+						<onclick condition="!System.HasAddon(plugin.video.themoviedb.helper)">InstallAddon(plugin.video.themoviedb.helper)</onclick>
+						<onclick condition="System.HasAddon(plugin.video.themoviedb.helper) + !System.AddonIsEnabled(plugin.video.themoviedb.helper)">EnableAddon(plugin.video.themoviedb.helper)</onclick>
+					</control>
+					<control type="button" id="7018">
+						<description>plugin.video.youtube</description>
+						<include>SettingsContentBtn</include>
+						<label>Youtube</label>
+						<label2>$VAR[StatusYoutubeVar]</label2>
+						<onclick condition="!System.HasAddon(plugin.video.youtube)">InstallAddon(plugin.video.youtube)</onclick>
+					</control>
+					<control type="button" id="7022">
+						<description>plugin.program.autocompletion</description>
+						<include>SettingsContentBtn</include>
+						<label>AutoCompletion for virtual keyboard</label>
+						<label2>$VAR[StatusAutoCompletionVar]</label2>
+						<onclick condition="System.HasAddon(plugin.program.autocompletion)">Addon.OpenSettings(plugin.program.autocompletion)</onclick>
+						<onclick condition="!System.HasAddon(plugin.program.autocompletion)">InstallAddon(plugin.program.autocompletion)</onclick>
+					</control>
+					<control type="button" id="7027">
+						<description>Manual installation Label</description>
+						<include>SettingsHeaderBtn</include>
+						<label>$LOCALIZE[24041]</label>
+					</control>
+					<control type="button" id="7030">
+						<description>script.imdbupdate</description>
+						<include>SettingsContentBtn</include>
+						<label>IMDB Update</label>
+						<label2>$VAR[StatusIMDBUpdateVar]</label2>
+						<onclick condition="System.HasAddon(script.imdbupdate)">Addon.OpenSettings(script.imdbupdate)</onclick>
+						<onclick condition="!System.HasAddon(script.imdbupdate)">Notification(IMDB Update,$LOCALIZE[31498],4500,)</onclick>
+					</control>
+					<control type="button" id="7031">
+						<description>script.moviesetart</description>
+						<include>SettingsContentBtn</include>
+						<label>script.moviesetart</label>
+						<label2>$VAR[StatusArtworkVar]</label2>
+						<onclick condition="System.HasAddon(script.moviesetart)">Addon.OpenSettings(script.moviesetart)</onclick>
+						<onclick condition="!System.HasAddon(script.moviesetart)">Notification(Youtube Browser,$LOCALIZE[31498],4500,)</onclick>
+					</control>						
+					<control type="button" id="7032">
+						<description>script.youtube.browser</description>
+						<include>SettingsContentBtn</include>
+						<label>Youtube Browser</label>
+						<label2>$VAR[StatusYoutubeBrowserVar]</label2>
+						<onclick condition="System.HasAddon(script.youtube.browser)">Addon.OpenSettings(script.youtube.browser)</onclick>
+						<onclick condition="!System.HasAddon(script.youtube.browser)">Notification(Youtube Browser,$LOCALIZE[31498],4500,)</onclick>
+					</control>
+				</control>
+			</control>			
+			<include>SettingsScrollbar</include>
+		</control>	
+			
+		<control type="group" id="505">
+			<top>MenuBarOffsetY</top>
+			<include>MenuBarImage</include>
+			<include>MenuBarOpenCloseAnim2</include>	
+			<include>SettingsMenuBar</include>
+		</control>
+		
+		<control type="group">
+			<description>Top Bar Area</description>
+			<include>TopBarImage</include>
+			<include>TopBarOpenCloseAnim</include>
+			<include>BreadCrumbSettings</include>
+			<include>Notifications</include>	
+		</control>
+	</controls> 
+</window>

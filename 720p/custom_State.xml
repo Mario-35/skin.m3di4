@@ -1,0 +1,1795 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="1117" type="dialog">
+	<defaultcontrol always="true">901</defaultcontrol>
+	<menucontrol>987</menucontrol>
+	<onunload>SetFocus(500)</onunload>
+	<include>ControlsOpenCloseAnim</include>
+
+	<controls>
+		<control type="group">
+			<depth>DepthBackground</depth>
+			<include>FSMediaInfoBackgroundDim</include>
+			<include>BackgroundDefault</include>
+		</control>
+
+		<control type="group">
+			<depth>DepthContent</depth>
+
+			<control type="group">
+				<control type="list" id="901">
+					<left>50</left>
+					<top>55</top>
+					<width>1155</width>
+					<height>550</height>
+					<onup>505</onup>
+					<ondown>962</ondown>
+					<onleft>505</onleft>
+					<onright>961</onright>
+					<itemlayout width="1000" height="31">
+						<control type="image">
+							<top>29</top>
+							<left>5</left>
+							<width>1100</width>
+							<height>2</height>
+							<animation effect="fade" end="30" condition="true">Conditional</animation>
+							<texture>views/videoinfo-separator.png</texture>
+						</control>
+						<control type="label">
+							<left>5</left>
+							<width>350</width>
+							<height>31</height>
+							<font>MenuItemFont</font>
+							<aligny>center</aligny>
+							<textcolor>MediaInfoItemColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<left>450</left>
+							<width>685</width>
+							<height>31</height>
+							<font>MenuItemFont</font>
+							<aligny>left</aligny>
+							<textcolor>MediaInfoItemColor2</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label fallback="31000">$INFO[ListItem.Label2]</label>
+						</control>
+					</itemlayout>	
+					<focusedlayout width="720" height="31">
+						<control type="image">
+							<top>29</top>
+							<left>5</left>
+							<width>1100</width>
+							<height>2</height>
+							<animation effect="fade" end="30" condition="true">Conditional</animation>
+							<texture>views/videoinfo-separator.png</texture>
+						</control>
+						<control type="image">
+							<width>1120</width>
+							<height>31</height>	
+							<texture border="4">views/list-focus.png</texture>
+							<aspectratio>stretch</aspectratio>
+							<visible>Control.HasFocus(901)</visible>
+							<include>ListViewSelectFadeAnim</include>
+							<include>MediaInfoListScrollAnim2</include>
+						</control>
+						<control type="label">
+							<left>5</left>
+							<width>350</width>
+							<height>31</height>
+							<font>MenuItemFont</font>
+							<aligny>center</aligny>
+							<textcolor>MediaInfoItemColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<left>450</left>
+							<width>685</width>
+							<height>31</height>
+							<font>FullMediaInfoFont2</font>
+							<aligny>center</aligny>
+							<textcolor>MediaInfoItemColor2</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label fallback="31000">$INFO[ListItem.Label2]</label>
+						</control>
+					</focusedlayout>
+					<content>
+						<item id="1">
+							<label>Container.Content</label>
+							<label2>$INFO[Container.Content]</label2>
+							
+						</item>
+						<item id="2">
+							<label>Container.FolderPath</label>
+							<label2>$INFO[Container.FolderPath]</label2>
+							
+							<visible>!String.IsEmpty(Container.FolderPath)</visible>
+
+						</item>
+						<item id="3">
+							<label>Container.FolderName</label>
+							<label2>$INFO[Container.FolderName]</label2>
+							
+						</item>
+						<item id="4">
+							<label>Container.Viewmode</label>
+							<label2>$INFO[Container.Viewmode]</label2>
+							
+						</item>
+						<item id="5">
+							<label>Container.SortMethod</label>
+							<label2>$INFO[Container.SortMethod]</label2>
+							
+						</item>
+						<item id="6">
+							<label>Container.SortOrder</label>
+							<label2>$INFO[Container.SortOrder]</label2>
+							
+						</item>
+						<item id="7">
+							<label>Container.PluginName</label>
+							<label2>$INFO[Container.PluginName]</label2>
+							
+						</item>
+						<item id="8">
+							<label>Container.PluginCategory</label>
+							<label2>$INFO[Container.PluginCategory]</label2>
+							
+						</item>
+						<item id="9">
+							<label>Container.ShowPlot</label>
+							<label2>$INFO[Container.ShowPlot]</label2>
+							
+						</item>
+						<item id="10">
+							<label>Container.ShowTitle</label>
+							<label2>$INFO[Container.ShowTitle]</label2>
+							
+						</item>
+						<item id="11">
+							<label>Container(id).NumPages</label>
+							<label2>$INFO[Container(id).NumPages]</label2>
+							
+						</item>
+						<item id="12">
+							<label>Container(id).NumItems</label>
+							<label2>$INFO[Container(id).NumItems]</label2>
+							
+						</item>
+						<item id="13">
+							<label>Container(id).CurrentPage</label>
+							<label2>$INFO[Container(id).CurrentPage]</label2>
+							
+						</item>
+						<item id="14">
+							<label>Container(id).CurrentItem</label>
+							<label2>$INFO[Container(id).CurrentItem]</label2>
+							
+						</item>
+						<item id="15">
+							<label>Container(id).Position</label>
+							<label2>$INFO[Container(id).Position]</label2>
+							
+						</item>
+						<item id="16">
+							<label>Container(id).Column</label>
+							<label2>$INFO[Container(id).Column]</label2>
+							
+						</item>
+						<item id="17">
+							<label>Container(id).Row</label>
+							<label2>$INFO[Container(id).Row]</label2>
+							
+						</item>
+						<item id="18">
+							<label>Container(id).Totaltime</label>
+							<label2>$INFO[Container(id).Totaltime]</label2>
+							
+						</item>
+						<item id="19">
+							<label>Container(id).TotalWatched</label>
+							<label2>$INFO[Container(id).TotalWatched]</label2>
+							
+						</item>
+						<item id="20">
+							<label>Container(id).TotalUnWatched</label>
+							<label2>$INFO[Container(id).TotalUnWatched]</label2>
+							
+						</item>
+						<item id="21">
+							<label>Container(id).ListItem(offset).Label</label>
+							<label2>$INFO[Container(id).ListItem(offset).Label]</label2>
+							
+						</item>
+						<item id="22">
+							<label>Container(id).ListItem(offset).Label2</label>
+							<label2>$INFO[Container(id).ListItem(offset).Label2]</label2>
+							
+						</item>
+						<item id="23">
+							<label>Container(id).ListItem(offset).Icon</label>
+							<label2>$INFO[Container(id).ListItem(offset).Icon]</label2>
+							
+						</item>
+						<item id="24">
+							<label>Container(id).ListItem(offset).ActualIcon)</label>
+							<label2>$INFO[Container(id).ListItem(offset).ActualIcon)]</label2>
+							
+						</item>
+						<item id="25">
+							<label>Container(id).ListItem(offset).Thumb</label>
+							<label2>$INFO[Container(id).ListItem(offset).Thumb]</label2>
+							
+						</item>
+						<item id="26">
+							<label>Container(id).ListItemNoWrap(offset).Property</label>
+							<label2>$INFO[Container(id).ListItemNoWrap(offset).Property]</label2>
+							
+						</item>
+						<item id="27">
+							<label>Container(id).ListItemPosition(id).[infolabel]</label>
+							<label2>$INFO[Container(id).ListItemPosition(id).[infolabel]]</label2>
+							
+						</item>
+						<item id="28">
+							<label>Container(id).ListItemAbsolute(id).[infolabel]</label>
+							<label2>$INFO[Container(id).ListItemAbsolute(id).[infolabel]]</label2>
+							
+						</item>
+						<item id="29">
+							<label>Container.Property(addoncategory)</label>
+							<label2>$INFO[Container.Property(addoncategory)]</label2>
+							
+						</item>
+						<item id="30">
+							<label>Container.Property(reponame)</label>
+							<label2>$INFO[Container.Property(reponame)]</label2>
+							
+						</item>
+						<item id="31">
+							<label>Container.ViewCount</label>
+							<label2>$INFO[Container.ViewCount]</label2>
+							
+						</item>
+						<item id="32">
+							<label>ListItem.Label</label>
+							<label2>$INFO[ListItem.Label]</label2>
+							
+						</item>
+						<item id="33">
+							<label>ListItem.Label2</label>
+							<label2>$INFO[ListItem.Label2]</label2>
+							
+						</item>
+						<item id="34">
+							<label>ListItem.Title</label>
+							<label2>$INFO[ListItem.Title]</label2>
+							
+						</item>
+						<item id="35">
+							<label>ListItem.OriginalTitle</label>
+							<label2>$INFO[ListItem.OriginalTitle]</label2>
+							
+						</item>
+						<item id="36">
+							<label>ListItem.SortLetter</label>
+							<label2>$INFO[ListItem.SortLetter]</label2>
+							
+						</item>
+						<item id="37">
+							<label>ListItem.TrackNumber</label>
+							<label2>$INFO[ListItem.TrackNumber]</label2>
+							
+						</item>
+						<item id="38">
+							<label>ListItem.Artist</label>
+							<label2>$INFO[ListItem.Artist]</label2>
+							
+						</item>
+						<item id="39">
+							<label>ListItem.AlbumArtist</label>
+							<label2>$INFO[ListItem.AlbumArtist]</label2>
+							
+						</item>
+						<item id="40">
+							<label>ListItem.Property(Artist_Born)</label>
+							<label2>$INFO[ListItem.Property(Artist_Born)]</label2>
+							
+						</item>
+						<item id="41">
+							<label>ListItem.Property(Artist_Died)</label>
+							<label2>$INFO[ListItem.Property(Artist_Died)]</label2>
+							
+						</item>
+						<item id="42">
+							<label>ListItem.Property(Artist_Formed)</label>
+							<label2>$INFO[ListItem.Property(Artist_Formed)]</label2>
+							
+						</item>
+						<item id="43">
+							<label>ListItem.Property(Artist_Disbanded)</label>
+							<label2>$INFO[ListItem.Property(Artist_Disbanded)]</label2>
+							
+						</item>
+						<item id="44">
+							<label>ListItem.Property(Artist_YearsActive)</label>
+							<label2>$INFO[ListItem.Property(Artist_YearsActive)]</label2>
+							
+						</item>
+						<item id="45">
+							<label>ListItem.Property(Artist_Instrument)</label>
+							<label2>$INFO[ListItem.Property(Artist_Instrument)]</label2>
+							
+						</item>
+						<item id="46">
+							<label>ListItem.Property(Artist_Description)</label>
+							<label2>$INFO[ListItem.Property(Artist_Description)]</label2>
+							
+						</item>
+						<item id="47">
+							<label>ListItem.Property(Artist_Mood)</label>
+							<label2>$INFO[ListItem.Property(Artist_Mood)]</label2>
+							
+						</item>
+						<item id="48">
+							<label>ListItem.Property(Artist_Style)</label>
+							<label2>$INFO[ListItem.Property(Artist_Style)]</label2>
+							
+						</item>
+						<item id="49">
+							<label>ListItem.Property(Artist_Genre)</label>
+							<label2>$INFO[ListItem.Property(Artist_Genre)]</label2>
+							
+						</item>
+						<item id="50">
+							<label>ListItem.Album</label>
+							<label2>$INFO[ListItem.Album]</label2>
+							
+						</item>
+						<item id="51">
+							<label>ListItem.Property(Album_Mood)</label>
+							<label2>$INFO[ListItem.Property(Album_Mood)]</label2>
+							
+						</item>
+						<item id="52">
+							<label>ListItem.Property(Album_Style)</label>
+							<label2>$INFO[ListItem.Property(Album_Style)]</label2>
+							
+						</item>
+						<item id="53">
+							<label>ListItem.Property(Album_Theme)</label>
+							<label2>$INFO[ListItem.Property(Album_Theme)]</label2>
+							
+						</item>
+						<item id="54">
+							<label>ListItem.Property(Album_Type)</label>
+							<label2>$INFO[ListItem.Property(Album_Type)]</label2>
+							
+						</item>
+						<item id="55">
+							<label>ListItem.Property(Album_Label)</label>
+							<label2>$INFO[ListItem.Property(Album_Label)]</label2>
+							
+						</item>
+						<item id="56">
+							<label>ListItem.Property(Album_Description)</label>
+							<label2>$INFO[ListItem.Property(Album_Description)]</label2>
+							
+						</item>
+						<item id="57">
+							<label>ListItem.DiscNumber</label>
+							<label2>$INFO[ListItem.DiscNumber]</label2>
+							
+						</item>
+						<item id="58">
+							<label>ListItem.Year</label>
+							<label2>$INFO[ListItem.Year]</label2>
+							
+						</item>
+						<item id="59">
+							<label>ListItem.Premiered</label>
+							<label2>$INFO[ListItem.Premiered]</label2>
+							
+						</item>
+						<item id="60">
+							<label>ListItem.Genre</label>
+							<label2>$INFO[ListItem.Genre]</label2>
+							
+						</item>
+						<item id="61">
+							<label>ListItem.Director</label>
+							<label2>$INFO[ListItem.Director]</label2>
+							
+						</item>
+						<item id="62">
+							<label>ListItem.Country</label>
+							<label2>$INFO[ListItem.Country]</label2>
+							
+						</item>
+						<item id="63">
+							<label>ListItem.Episode</label>
+							<label2>$INFO[ListItem.Episode]</label2>
+							
+						</item>
+						<item id="64">
+							<label>ListItem.Season</label>
+							<label2>$INFO[ListItem.Season]</label2>
+							
+						</item>
+						<item id="65">
+							<label>ListItem.TVShowTitle</label>
+							<label2>$INFO[ListItem.TVShowTitle]</label2>
+							
+						</item>
+						<item id="66">
+							<label>ListItem.Property(TotalSeasons)</label>
+							<label2>$INFO[ListItem.Property(TotalSeasons)]</label2>
+							
+						</item>
+						<item id="67">
+							<label>ListItem.Property(TotalEpisodes)</label>
+							<label2>$INFO[ListItem.Property(TotalEpisodes)]</label2>
+							
+						</item>
+						<item id="68">
+							<label>ListItem.Property(WatchedEpisodes)</label>
+							<label2>$INFO[ListItem.Property(WatchedEpisodes)]</label2>
+							
+						</item>
+						<item id="69">
+							<label>ListItem.Property(UnWatchedEpisodes)</label>
+							<label2>$INFO[ListItem.Property(UnWatchedEpisodes)]</label2>
+							
+						</item>
+						<item id="70">
+							<label>ListItem.Property(NumEpisodes)</label>
+							<label2>$INFO[ListItem.Property(NumEpisodes)]</label2>
+							
+						</item>
+						<item id="71">
+							<label>ListItem.PictureAperture</label>
+							<label2>$INFO[ListItem.PictureAperture]</label2>
+							
+						</item>
+						<item id="72">
+							<label>ListItem.PictureAuthor</label>
+							<label2>$INFO[ListItem.PictureAuthor]</label2>
+							
+						</item>
+						<item id="73">
+							<label>ListItem.PictureByline</label>
+							<label2>$INFO[ListItem.PictureByline]</label2>
+							
+						</item>
+						<item id="74">
+							<label>ListItem.PictureBylineTitle</label>
+							<label2>$INFO[ListItem.PictureBylineTitle]</label2>
+							
+						</item>
+						<item id="75">
+							<label>ListItem.PictureCamMake</label>
+							<label2>$INFO[ListItem.PictureCamMake]</label2>
+							
+						</item>
+						<item id="76">
+							<label>ListItem.PictureCamModel</label>
+							<label2>$INFO[ListItem.PictureCamModel]</label2>
+							
+						</item>
+						<item id="77">
+							<label>ListItem.PictureCaption</label>
+							<label2>$INFO[ListItem.PictureCaption]</label2>
+							
+						</item>
+						<item id="78">
+							<label>ListItem.PictureCategory</label>
+							<label2>$INFO[ListItem.PictureCategory]</label2>
+							
+						</item>
+						<item id="79">
+							<label>ListItem.PictureCCDWidth</label>
+							<label2>$INFO[ListItem.PictureCCDWidth]</label2>
+							
+						</item>
+						<item id="80">
+							<label>ListItem.PictureCity</label>
+							<label2>$INFO[ListItem.PictureCity]</label2>
+							
+						</item>
+						<item id="81">
+							<label>ListItem.PictureColour</label>
+							<label2>$INFO[ListItem.PictureColour]</label2>
+							
+						</item>
+						<item id="82">
+							<label>ListItem.PictureComment</label>
+							<label2>$INFO[ListItem.PictureComment]</label2>
+							
+						</item>
+						<item id="83">
+							<label>ListItem.PictureCopyrightNotice</label>
+							<label2>$INFO[ListItem.PictureCopyrightNotice]</label2>
+							
+						</item>
+						<item id="84">
+							<label>ListItem.PictureCountry</label>
+							<label2>$INFO[ListItem.PictureCountry]</label2>
+							
+						</item>
+						<item id="85">
+							<label>ListItem.PictureCountryCode</label>
+							<label2>$INFO[ListItem.PictureCountryCode]</label2>
+							
+						</item>
+						<item id="86">
+							<label>ListItem.PictureCredit</label>
+							<label2>$INFO[ListItem.PictureCredit]</label2>
+							
+						</item>
+						<item id="87">
+							<label>ListItem.PictureDate</label>
+							<label2>$INFO[ListItem.PictureDate]</label2>
+							
+						</item>
+						<item id="88">
+							<label>ListItem.PictureDatetime</label>
+							<label2>$INFO[ListItem.PictureDatetime]</label2>
+							
+						</item>
+						<item id="89">
+							<label>ListItem.PictureDesc</label>
+							<label2>$INFO[ListItem.PictureDesc]</label2>
+							
+						</item>
+						<item id="90">
+							<label>ListItem.PictureDigitalZoom</label>
+							<label2>$INFO[ListItem.PictureDigitalZoom]</label2>
+							
+						</item>
+						<item id="91">
+							<label>ListItem.PictureExpMode</label>
+							<label2>$INFO[ListItem.PictureExpMode]</label2>
+							
+						</item>
+						<item id="92">
+							<label>ListItem.PictureExposure</label>
+							<label2>$INFO[ListItem.PictureExposure]</label2>
+							
+						</item>
+						<item id="93">
+							<label>ListItem.PictureExposureBias</label>
+							<label2>$INFO[ListItem.PictureExposureBias]</label2>
+							
+						</item>
+						<item id="94">
+							<label>ListItem.PictureExpTime</label>
+							<label2>$INFO[ListItem.PictureExpTime]</label2>
+							
+						</item>
+						<item id="95">
+							<label>ListItem.PictureFlashUsed</label>
+							<label2>$INFO[ListItem.PictureFlashUsed]</label2>
+							
+						</item>
+						<item id="96">
+							<label>ListItem.PictureFocalLen</label>
+							<label2>$INFO[ListItem.PictureFocalLen]</label2>
+							
+						</item>
+						<item id="97">
+							<label>ListItem.PictureFocusDist</label>
+							<label2>$INFO[ListItem.PictureFocusDist]</label2>
+							
+						</item>
+						<item id="98">
+							<label>ListItem.PictureGPSLat</label>
+							<label2>$INFO[ListItem.PictureGPSLat]</label2>
+							
+						</item>
+						<item id="99">
+							<label>ListItem.PictureGPSLon</label>
+							<label2>$INFO[ListItem.PictureGPSLon]</label2>
+							
+						</item>
+						<item id="100">
+							<label>ListItem.PictureGPSAlt</label>
+							<label2>$INFO[ListItem.PictureGPSAlt]</label2>
+							
+						</item>
+						<item id="101">
+							<label>ListItem.PictureHeadline</label>
+							<label2>$INFO[ListItem.PictureHeadline]</label2>
+							
+						</item>
+						<item id="102">
+							<label>ListItem.PictureImageType</label>
+							<label2>$INFO[ListItem.PictureImageType]</label2>
+							
+						</item>
+						<item id="103">
+							<label>ListItem.PictureIPTCDate</label>
+							<label2>$INFO[ListItem.PictureIPTCDate]</label2>
+							
+						</item>
+						<item id="104">
+							<label>ListItem.PictureIPTCTime</label>
+							<label2>$INFO[ListItem.PictureIPTCTime]</label2>
+							
+						</item>
+						<item id="105">
+							<label>ListItem.PictureISO</label>
+							<label2>$INFO[ListItem.PictureISO]</label2>
+							
+						</item>
+						<item id="106">
+							<label>ListItem.PictureKeywords</label>
+							<label2>$INFO[ListItem.PictureKeywords]</label2>
+							
+						</item>
+						<item id="107">
+							<label>ListItem.PictureLightSource</label>
+							<label2>$INFO[ListItem.PictureLightSource]</label2>
+							
+						</item>
+						<item id="108">
+							<label>ListItem.PictureLongDate</label>
+							<label2>$INFO[ListItem.PictureLongDate]</label2>
+							
+						</item>
+						<item id="109">
+							<label>ListItem.PictureLongDatetime</label>
+							<label2>$INFO[ListItem.PictureLongDatetime]</label2>
+							
+						</item>
+						<item id="110">
+							<label>ListItem.PictureMeteringMode</label>
+							<label2>$INFO[ListItem.PictureMeteringMode]</label2>
+							
+						</item>
+						<item id="111">
+							<label>ListItem.PictureObjectName</label>
+							<label2>$INFO[ListItem.PictureObjectName]</label2>
+							
+						</item>
+						<item id="112">
+							<label>ListItem.PictureOrientation</label>
+							<label2>$INFO[ListItem.PictureOrientation]</label2>
+							
+						</item>
+						<item id="113">
+							<label>ListItem.PicturePath</label>
+							<label2>$INFO[ListItem.PicturePath]</label2>
+							
+						</item>
+						<item id="114">
+							<label>ListItem.PictureProcess</label>
+							<label2>$INFO[ListItem.PictureProcess]</label2>
+							
+						</item>
+						<item id="115">
+							<label>ListItem.PictureReferenceService</label>
+							<label2>$INFO[ListItem.PictureReferenceService]</label2>
+							
+						</item>
+						<item id="116">
+							<label>ListItem.PictureResolution</label>
+							<label2>$INFO[ListItem.PictureResolution]</label2>
+							
+						</item>
+						<item id="117">
+							<label>ListItem.PictureSource</label>
+							<label2>$INFO[ListItem.PictureSource]</label2>
+							
+						</item>
+						<item id="118">
+							<label>ListItem.PictureSpecialInstructions</label>
+							<label2>$INFO[ListItem.PictureSpecialInstructions]</label2>
+							
+						</item>
+						<item id="119">
+							<label>ListItem.PictureState</label>
+							<label2>$INFO[ListItem.PictureState]</label2>
+							
+						</item>
+						<item id="120">
+							<label>ListItem.PictureSublocation</label>
+							<label2>$INFO[ListItem.PictureSublocation]</label2>
+							
+						</item>
+						<item id="121">
+							<label>ListItem.PictureSupplementalCategories</label>
+							<label2>$INFO[ListItem.PictureSupplementalCategories]</label2>
+							
+						</item>
+						<item id="122">
+							<label>ListItem.PictureTransmissionReference</label>
+							<label2>$INFO[ListItem.PictureTransmissionReference]</label2>
+							
+						</item>
+						<item id="123">
+							<label>ListItem.PictureUrgency</label>
+							<label2>$INFO[ListItem.PictureUrgency]</label2>
+							
+						</item>
+						<item id="124">
+							<label>ListItem.PictureWhiteBalance</label>
+							<label2>$INFO[ListItem.PictureWhiteBalance]</label2>
+							
+						</item>
+						<item id="125">
+							<label>ListItem.FileName</label>
+							<label2>$INFO[ListItem.FileName]</label2>
+							
+						</item>
+						<item id="126">
+							<label>ListItem.Path</label>
+							<label2>$INFO[ListItem.Path]</label2>
+							
+						</item>
+						<item id="127">
+							<label>ListItem.FolderName</label>
+							<label2>$INFO[ListItem.FolderName]</label2>
+							
+						</item>
+						<item id="128">
+							<label>ListItem.FolderPath</label>
+							<label2>$INFO[ListItem.FolderPath]</label2>
+							
+						</item>
+						<item id="129">
+							<label>ListItem.FileNameAndPath</label>
+							<label2>$INFO[ListItem.FileNameAndPath]</label2>
+							
+						</item>
+						<item id="130">
+							<label>ListItem.FileExtension</label>
+							<label2>$INFO[ListItem.FileExtension]</label2>
+							
+						</item>
+						<item id="131">
+							<label>ListItem.Date</label>
+							<label2>$INFO[ListItem.Date]</label2>
+							
+						</item>
+						<item id="132">
+							<label>ListItem.DateAdded</label>
+							<label2>$INFO[ListItem.DateAdded]</label2>
+							
+						</item>
+						<item id="133">
+							<label>ListItem.Size</label>
+							<label2>$INFO[ListItem.Size]</label2>
+							
+						</item>
+						<item id="134">
+							<label>ListItem.Rating[(name)]</label>
+							<label2>$INFO[ListItem.Rating[(name)]]</label2>
+							
+						</item>
+						<item id="135">
+							<label>ListItem.Set</label>
+							<label2>$INFO[ListItem.Set]</label2>
+							
+						</item>
+						<item id="136">
+							<label>ListItem.SetId</label>
+							<label2>$INFO[ListItem.SetId]</label2>
+							
+						</item>
+						<item id="137">
+							<label>ListItem.UserRating</label>
+							<label2>$INFO[ListItem.UserRating]</label2>
+							
+						</item>
+						<item id="138">
+							<label>ListItem.Votes[(name)]</label>
+							<label2>$INFO[ListItem.Votes[(name)]]</label2>
+							
+						</item>
+						<item id="139">
+							<label>ListItem.RatingAndVotes[(name)]</label>
+							<label2>$INFO[ListItem.RatingAndVotes[(name)]]</label2>
+							
+						</item>
+						<item id="140">
+							<label>ListItem.Mpaa</label>
+							<label2>$INFO[ListItem.Mpaa]</label2>
+							
+						</item>
+						<item id="141">
+							<label>ListItem.ProgramCount</label>
+							<label2>$INFO[ListItem.ProgramCount]</label2>
+							
+						</item>
+						<item id="142">
+							<label>ListItem.Duration</label>
+							<label2>$INFO[ListItem.Duration]</label2>
+							
+						</item>
+						<item id="143">
+							<label>ListItem.DBTYPE</label>
+							<label2>$INFO[ListItem.DBTYPE]</label2>
+							
+						</item>
+						<item id="144">
+							<label>ListItem.DBID</label>
+							<label2>$INFO[ListItem.DBID]</label2>
+							
+						</item>
+						<item id="145">
+							<label>ListItem.Cast</label>
+							<label2>$INFO[ListItem.Cast]</label2>
+							
+						</item>
+						<item id="146">
+							<label>ListItem.CastAndRole</label>
+							<label2>$INFO[ListItem.CastAndRole]</label2>
+							
+						</item>
+						<item id="147">
+							<label>ListItem.Studio</label>
+							<label2>$INFO[ListItem.Studio]</label2>
+							
+						</item>
+						<item id="148">
+							<label>ListItem.Top250</label>
+							<label2>$INFO[ListItem.Top250]</label2>
+							
+						</item>
+						<item id="149">
+							<label>ListItem.Trailer</label>
+							<label2>$INFO[ListItem.Trailer]</label2>
+							
+						</item>
+						<item id="150">
+							<label>ListItem.Writer</label>
+							<label2>$INFO[ListItem.Writer]</label2>
+							
+						</item>
+						<item id="151">
+							<label>ListItem.Tagline</label>
+							<label2>$INFO[ListItem.Tagline]</label2>
+							
+						</item>
+						<item id="152">
+							<label>ListItem.PlotOutline</label>
+							<label2>$INFO[ListItem.PlotOutline]</label2>
+							
+						</item>
+						<item id="153">
+							<label>ListItem.Plot</label>
+							<label2>$INFO[ListItem.Plot]</label2>
+							
+						</item>
+						<item id="154">
+							<label>ListItem.IMDBNumber</label>
+							<label2>$INFO[ListItem.IMDBNumber]</label2>
+							
+						</item>
+						<item id="155">
+							<label>ListItem.EpisodeName</label>
+							<label2>$INFO[ListItem.EpisodeName]</label2>
+							
+						</item>
+						<item id="156">
+							<label>ListItem.PercentPlayed</label>
+							<label2>$INFO[ListItem.PercentPlayed]</label2>
+							
+						</item>
+						<item id="157">
+							<label>ListItem.LastPlayed</label>
+							<label2>$INFO[ListItem.LastPlayed]</label2>
+							
+						</item>
+						<item id="158">
+							<label>ListItem.PlayCount</label>
+							<label2>$INFO[ListItem.PlayCount]</label2>
+							
+						</item>
+						<item id="159">
+							<label>ListItem.StartTime</label>
+							<label2>$INFO[ListItem.StartTime]</label2>
+							
+						</item>
+						<item id="160">
+							<label>ListItem.EndTime</label>
+							<label2>$INFO[ListItem.EndTime]</label2>
+							
+						</item>
+						<item id="161">
+							<label>ListItem.StartDate</label>
+							<label2>$INFO[ListItem.StartDate]</label2>
+							
+						</item>
+						<item id="162">
+							<label>ListItem.ChannelNumber</label>
+							<label2>$INFO[ListItem.ChannelNumber]</label2>
+							
+						</item>
+						<item id="163">
+							<label>ListItem.ChannelName</label>
+							<label2>$INFO[ListItem.ChannelName]</label2>
+							
+						</item>
+						<item id="164">
+							<label>ListItem.VideoCodec</label>
+							<label2>$INFO[ListItem.VideoCodec]</label2>
+							
+						</item>
+						<item id="165">
+							<label>ListItem.VideoResolution</label>
+							<label2>$INFO[ListItem.VideoResolution]</label2>
+							
+						</item>
+						<item id="166">
+							<label>ListItem.VideoAspect</label>
+							<label2>$INFO[ListItem.VideoAspect]</label2>
+							
+						</item>
+						<item id="167">
+							<label>ListItem.AudioCodec</label>
+							<label2>$INFO[ListItem.AudioCodec]</label2>
+							
+						</item>
+						<item id="168">
+							<label>ListItem.AudioChannels</label>
+							<label2>$INFO[ListItem.AudioChannels]</label2>
+							
+						</item>
+						<item id="169">
+							<label>ListItem.AudioLanguage</label>
+							<label2>$INFO[ListItem.AudioLanguage]</label2>
+							
+						</item>
+						<item id="170">
+							<label>ListItem.SubtitleLanguage</label>
+							<label2>$INFO[ListItem.SubtitleLanguage]</label2>
+							
+						</item>
+						<item id="171">
+							<label>ListItem.Property(AudioCodec.[n])</label>
+							<label2>$INFO[ListItem.Property(AudioCodec.[n])]</label2>
+							
+						</item>
+						<item id="172">
+							<label>ListItem.Property(AudioChannels.[n])</label>
+							<label2>$INFO[ListItem.Property(AudioChannels.[n])]</label2>
+							
+						</item>
+						<item id="173">
+							<label>ListItem.Property(AudioLanguage.[n])</label>
+							<label2>$INFO[ListItem.Property(AudioLanguage.[n])]</label2>
+							
+						</item>
+						<item id="174">
+							<label>ListItem.Property(SubtitleLanguage.[n])</label>
+							<label2>$INFO[ListItem.Property(SubtitleLanguage.[n])]</label2>
+							
+						</item>
+						<item id="175">
+							<label>ListItem.AddonName</label>
+							<label2>$INFO[ListItem.AddonName]</label2>
+							
+						</item>
+						<item id="176">
+							<label>ListItem.AddonVersion</label>
+							<label2>$INFO[ListItem.AddonVersion]</label2>
+							
+						</item>
+						<item id="177">
+							<label>ListItem.AddonSummary</label>
+							<label2>$INFO[ListItem.AddonSummary]</label2>
+							
+						</item>
+						<item id="178">
+							<label>ListItem.AddonDescription</label>
+							<label2>$INFO[ListItem.AddonDescription]</label2>
+							
+						</item>
+						<item id="179">
+							<label>ListItem.AddonType</label>
+							<label2>$INFO[ListItem.AddonType]</label2>
+							
+						</item>
+						<item id="180">
+							<label>ListItem.AddonCreator</label>
+							<label2>$INFO[ListItem.AddonCreator]</label2>
+							
+						</item>
+						<item id="181">
+							<label>ListItem.AddonDisclaimer</label>
+							<label2>$INFO[ListItem.AddonDisclaimer]</label2>
+							
+						</item>
+						<item id="182">
+							<label>ListItem.AddonBroken</label>
+							<label2>$INFO[ListItem.AddonBroken]</label2>
+							
+						</item>
+						<item id="183">
+							<label>ListItem.Property(Addon.Changelog)</label>
+							<label2>$INFO[ListItem.Property(Addon.Changelog)]</label2>
+							
+						</item>
+						<item id="184">
+							<label>ListItem.Property(Addon.ID)</label>
+							<label2>$INFO[ListItem.Property(Addon.ID)]</label2>
+							
+						</item>
+						<item id="185">
+							<label>ListItem.Property(Addon.Status)</label>
+							<label2>$INFO[ListItem.Property(Addon.Status)]</label2>
+							
+						</item>
+						<item id="186">
+							<label>ListItem.Property(Addon.Path)</label>
+							<label2>$INFO[ListItem.Property(Addon.Path)]</label2>
+							
+						</item>
+						<item id="187">
+							<label>ListItem.StartTime</label>
+							<label2>$INFO[ListItem.StartTime]</label2>
+							
+						</item>
+						<item id="188">
+							<label>ListItem.EndTime</label>
+							<label2>$INFO[ListItem.EndTime]</label2>
+							
+						</item>
+						<item id="189">
+							<label>ListItem.StartDate</label>
+							<label2>$INFO[ListItem.StartDate]</label2>
+							
+						</item>
+						<item id="190">
+							<label>ListItem.EndDate</label>
+							<label2>$INFO[ListItem.EndDate]</label2>
+							
+						</item>
+						<item id="191">
+							<label>ListItem.NextTitle</label>
+							<label2>$INFO[ListItem.NextTitle]</label2>
+							
+						</item>
+						<item id="192">
+							<label>ListItem.NextGenre</label>
+							<label2>$INFO[ListItem.NextGenre]</label2>
+							
+						</item>
+						<item id="193">
+							<label>ListItem.NextPlot</label>
+							<label2>$INFO[ListItem.NextPlot]</label2>
+							
+						</item>
+						<item id="194">
+							<label>ListItem.NextPlotOutline</label>
+							<label2>$INFO[ListItem.NextPlotOutline]</label2>
+							
+						</item>
+						<item id="195">
+							<label>ListItem.NextStartTime</label>
+							<label2>$INFO[ListItem.NextStartTime]</label2>
+							
+						</item>
+						<item id="196">
+							<label>ListItem.NextEndTime</label>
+							<label2>$INFO[ListItem.NextEndTime]</label2>
+							
+						</item>
+						<item id="197">
+							<label>ListItem.NextStartDate</label>
+							<label2>$INFO[ListItem.NextStartDate]</label2>
+							
+						</item>
+						<item id="198">
+							<label>ListItem.NextEndDate</label>
+							<label2>$INFO[ListItem.NextEndDate]</label2>
+							
+						</item>
+						<item id="199">
+							<label>ListItem.ChannelName</label>
+							<label2>$INFO[ListItem.ChannelName]</label2>
+							
+						</item>
+						<item id="200">
+							<label>ListItem.ChannelNumber</label>
+							<label2>$INFO[ListItem.ChannelNumber]</label2>
+							
+						</item>
+						<item id="201">
+							<label>ListItem.SubChannelNumber</label>
+							<label2>$INFO[ListItem.SubChannelNumber]</label2>
+							
+						</item>
+						<item id="202">
+							<label>ListItem.ChannelNumberLabel</label>
+							<label2>$INFO[ListItem.ChannelNumberLabel]</label2>
+							
+						</item>
+						<item id="203">
+							<label>ListItem.Progress</label>
+							<label2>$INFO[ListItem.Progress]</label2>
+							
+						</item>
+						<item id="204">
+							<label>ListItem.StereoscopicMode</label>
+							<label2>$INFO[ListItem.StereoscopicMode]</label2>
+							
+						</item>
+						<item id="205">
+							<label>ListItem.Comment</label>
+							<label2>$INFO[ListItem.Comment]</label2>
+							
+						</item>
+						<item id="206">
+							<label>ListItem.AddonInstallDate</label>
+							<label2>$INFO[ListItem.AddonInstallDate]</label2>
+							
+						</item>
+						<item id="207">
+							<label>ListItem.AddonLastUpdated</label>
+							<label2>$INFO[ListItem.AddonLastUpdated]</label2>
+							
+						</item>
+						<item id="208">
+							<label>ListItem.AddonLastUsed</label>
+							<label2>$INFO[ListItem.AddonLastUsed]</label2>
+							
+						</item>
+						<item id="209">
+							<label>ListItem.AddonNews</label>
+							<label2>$INFO[ListItem.AddonNews]</label2>
+							
+						</item>
+						<item id="210">
+							<label>ListItem.AddonSize</label>
+							<label2>$INFO[ListItem.AddonSize]</label2>
+							
+						</item>
+						<item id="211">
+							<label>ListItem.Contributors</label>
+							<label2>$INFO[ListItem.Contributors]</label2>
+							
+						</item>
+						<item id="212">
+							<label>ListItem.ContributorAndRole</label>
+							<label2>$INFO[ListItem.ContributorAndRole]</label2>
+							
+						</item>
+						<item id="213">
+							<label>ListItem.EndTimeResume</label>
+							<label2>$INFO[ListItem.EndTimeResume]</label2>
+							
+						</item>
+						<item id="214">
+							<label>ListItem.Mood</label>
+							<label2>$INFO[ListItem.Mood]</label2>
+							
+						</item>
+						<item id="215">
+							<label>ListItem.Status</label>
+							<label2>$INFO[ListItem.Status]</label2>
+							
+						</item>
+						<item id="216">
+							<label>ListItem.Tag</label>
+							<label2>$INFO[ListItem.Tag]</label2>
+							
+						</item>
+						<item id="217">
+							<label>ListItem.Property(Role.Arranger)</label>
+							<label2>$INFO[ListItem.Property(Role.Arranger)]</label2>
+							
+						</item>
+						<item id="218">
+							<label>ListItem.Property(Role.Composer)</label>
+							<label2>$INFO[ListItem.Property(Role.Composer)]</label2>
+							
+						</item>
+						<item id="219">
+							<label>ListItem.Property(Role.Conductor)</label>
+							<label2>$INFO[ListItem.Property(Role.Conductor)]</label2>
+							
+						</item>
+						<item id="220">
+							<label>ListItem.Property(Role.DJMixer)</label>
+							<label2>$INFO[ListItem.Property(Role.DJMixer)]</label2>
+							
+						</item>
+						<item id="221">
+							<label>ListItem.Property(Role.Engineer)</label>
+							<label2>$INFO[ListItem.Property(Role.Engineer)]</label2>
+							
+						</item>
+						<item id="222">
+							<label>ListItem.Property(Role.Lyricist)</label>
+							<label2>$INFO[ListItem.Property(Role.Lyricist)]</label2>
+							
+						</item>
+						<item id="223">
+							<label>ListItem.Property(Role.Mixer)</label>
+							<label2>$INFO[ListItem.Property(Role.Mixer)]</label2>
+							
+						</item>
+						<item id="224">
+							<label>ListItem.Property(Role.Orchestra)</label>
+							<label2>$INFO[ListItem.Property(Role.Orchestra)]</label2>
+							
+						</item>
+						<item id="225">
+							<label>ListItem.Property(Role.Producer)</label>
+							<label2>$INFO[ListItem.Property(Role.Producer)]</label2>
+							
+						</item>
+						<item id="226">
+							<label>ListItem.Property(Role.Remixer)</label>
+							<label2>$INFO[ListItem.Property(Role.Remixer)]</label2>
+							
+						</item>
+						<item id="227">
+							<label>ListItem.Appearances</label>
+							<label2>$INFO[ListItem.Appearances]</label2>
+							
+						</item>
+						<item id="228">
+							<label>ListItem.PrivacyPolicy</label>
+							<label2>$INFO[ListItem.PrivacyPolicy]</label2>
+							
+						</item>
+						<item id="229">
+							<label>Skin.CurrentTheme</label>
+							<label2>$INFO[Skin.CurrentTheme]</label2>
+							
+						</item>
+						<item id="230">
+							<label>Skin.CurrentColourTheme</label>
+							<label2>$INFO[Skin.CurrentColourTheme]</label2>
+							
+						</item>
+						<item id="231">
+							<label>Skin.Font</label>
+							<label2>$INFO[Skin.Font]</label2>
+							
+						</item>
+						<item id="232">
+							<label>Skin.String(name)</label>
+							<label2>$INFO[Skin.String(name)]</label2>
+							
+						</item>
+						<item id="233">
+							<label>Skin.debug</label>
+							<label2>$INFO[Skin.debug]</label2>
+							
+						</item>
+						<item id="234">
+							<label>System.Time</label>
+							<label2>$INFO[System.Time]</label2>
+							
+						</item>
+						<item id="235">
+							<label>System.Time(format)</label>
+							<label2>$INFO[System.Time(format)]</label2>
+							
+						</item>
+						<item id="236">
+							<label>System.Date</label>
+							<label2>$INFO[System.Date]</label2>
+							
+						</item>
+						<item id="237">
+							<label>System.Date(format)</label>
+							<label2>$INFO[System.Date(format)]</label2>
+							
+						</item>
+						<item id="238">
+							<label>System.AlarmPos</label>
+							<label2>$INFO[System.AlarmPos]</label2>
+							
+						</item>
+						<item id="239">
+							<label>System.BatteryLevel</label>
+							<label2>$INFO[System.BatteryLevel]</label2>
+							
+						</item>
+						<item id="240">
+							<label>System.FreeSpace</label>
+							<label2>$INFO[System.FreeSpace]</label2>
+							
+						</item>
+						<item id="241">
+							<label>System.UsedSpace</label>
+							<label2>$INFO[System.UsedSpace]</label2>
+							
+						</item>
+						<item id="242">
+							<label>System.TotalSpace</label>
+							<label2>$INFO[System.TotalSpace]</label2>
+							
+						</item>
+						<item id="243">
+							<label>System.UsedSpacePercent</label>
+							<label2>$INFO[System.UsedSpacePercent]</label2>
+							
+						</item>
+						<item id="244">
+							<label>System.FreeSpacePercent</label>
+							<label2>$INFO[System.FreeSpacePercent]</label2>
+							
+						</item>
+						<item id="245">
+							<label>System.CPUTemperature</label>
+							<label2>$INFO[System.CPUTemperature]</label2>
+							
+						</item>
+						<item id="246">
+							<label>System.CpuUsage</label>
+							<label2>$INFO[System.CpuUsage]</label2>
+							
+						</item>
+						<item id="247">
+							<label>System.CoreUsage(id)</label>
+							<label2>$INFO[System.CoreUsage(id)]</label2>
+							
+						</item>
+						<item id="248">
+							<label>System.GPUTemperature</label>
+							<label2>$INFO[System.GPUTemperature]</label2>
+							
+						</item>
+						<item id="249">
+							<label>System.FanSpeed</label>
+							<label2>$INFO[System.FanSpeed]</label2>
+							
+						</item>
+						<item id="250">
+							<label>System.BuildVersion</label>
+							<label2>$INFO[System.BuildVersion]</label2>
+							
+						</item>
+						<item id="251">
+							<label>System.BuildDate</label>
+							<label2>$INFO[System.BuildDate]</label2>
+							
+						</item>
+						<item id="252">
+							<label>System.FriendlyName</label>
+							<label2>$INFO[System.FriendlyName]</label2>
+							
+						</item>
+						<item id="253">
+							<label>System.FPS</label>
+							<label2>$INFO[System.FPS]</label2>
+							
+						</item>
+						<item id="254">
+							<label>System.FreeMemory</label>
+							<label2>$INFO[System.FreeMemory]</label2>
+							
+						</item>
+						<item id="255">
+							<label>System.Memory(format)</label>
+							<label2>$INFO[System.Memory(format)]</label2>
+							
+						</item>
+						<item id="256">
+							<label>System.ScreenMode</label>
+							<label2>$INFO[System.ScreenMode]</label2>
+							
+						</item>
+						<item id="257">
+							<label>System.ScreenWidth</label>
+							<label2>$INFO[System.ScreenWidth]</label2>
+							
+						</item>
+						<item id="258">
+							<label>System.ScreenHeight</label>
+							<label2>$INFO[System.ScreenHeight]</label2>
+							
+						</item>
+						<item id="259">
+							<label>System.StartupWindow</label>
+							<label2>$INFO[System.StartupWindow]</label2>
+							
+						</item>
+						<item id="260">
+							<label>System.CurrentWindow</label>
+							<label2>$INFO[System.CurrentWindow]</label2>
+							
+						</item>
+						<item id="261">
+							<label>System.CurrentControl</label>
+							<label2>$INFO[System.CurrentControl]</label2>
+							
+						</item>
+						<item id="262">
+							<label>System.CurrentControlID</label>
+							<label2>$INFO[System.CurrentControlID]</label2>
+							
+						</item>
+						<item id="263">
+							<label>System.DVDLabel</label>
+							<label2>$INFO[System.DVDLabel]</label2>
+							
+						</item>
+						<item id="264">
+							<label>System.HddTemperature</label>
+							<label2>$INFO[System.HddTemperature]</label2>
+							
+						</item>
+						<item id="265">
+							<label>System.OSVersionInfo</label>
+							<label2>$INFO[System.OSVersionInfo]</label2>
+							
+						</item>
+						<item id="266">
+							<label>System.KernelVersion (deprecated)</label>
+							<label2>$INFO[System.KernelVersion (deprecated)]</label2>
+							
+						</item>
+						<item id="267">
+							<label>System.Uptime</label>
+							<label2>$INFO[System.Uptime]</label2>
+							
+						</item>
+						<item id="268">
+							<label>System.TotalUptime</label>
+							<label2>$INFO[System.TotalUptime]</label2>
+							
+						</item>
+						<item id="269">
+							<label>System.CpuFrequency</label>
+							<label2>$INFO[System.CpuFrequency]</label2>
+							
+						</item>
+						<item id="270">
+							<label>System.ScreenResolution</label>
+							<label2>$INFO[System.ScreenResolution]</label2>
+							
+						</item>
+						<item id="271">
+							<label>System.VideoEncoderInfo</label>
+							<label2>$INFO[System.VideoEncoderInfo]</label2>
+							
+						</item>
+						<item id="272">
+							<label>System.InternetState</label>
+							<label2>$INFO[System.InternetState]</label2>
+							
+						</item>
+						<item id="273">
+							<label>System.Language</label>
+							<label2>$INFO[System.Language]</label2>
+							
+						</item>
+						<item id="274">
+							<label>System.GetBool(boolean)</label>
+							<label2>$INFO[System.GetBool(boolean)]</label2>
+							
+						</item>
+						<item id="275">
+							<label>System.ProfileName</label>
+							<label2>$INFO[System.ProfileName]</label2>
+							
+						</item>
+						<item id="276">
+							<label>System.ProfileCount</label>
+							<label2>$INFO[System.ProfileCount]</label2>
+							
+						</item>
+						<item id="277">
+							<label>System.ProfileAutoLogin</label>
+							<label2>$INFO[System.ProfileAutoLogin]</label2>
+							
+						</item>
+						<item id="278">
+							<label>System.StereoscopicMode</label>
+							<label2>$INFO[System.StereoscopicMode]</label2>
+							
+						</item>
+						<item id="279">
+							<label>System.TemperatureUnits</label>
+							<label2>$INFO[System.TemperatureUnits]</label2>
+							
+						</item>
+						<item id="280">
+							<label>System.AddonTitle(id)</label>
+							<label2>$INFO[System.AddonTitle(id)]</label2>
+							
+						</item>
+						<item id="281">
+							<label>System.AddonVersion(id)</label>
+							<label2>$INFO[System.AddonVersion(id)]</label2>
+							
+						</item>
+						<item id="282">
+							<label>InfoLabels</label>
+							<label2>$INFO[InfoLabels]</label2>
+							
+						</item>
+						<item id="283">
+							<label>Visualisation.Preset</label>
+							<label2>$INFO[Visualisation.Preset]</label2>
+							
+						</item>
+						<item id="284">
+							<label>Visualisation.Name</label>
+							<label2>$INFO[Visualisation.Name]</label2>
+							
+						</item>
+						<item id="285">
+							<label>Window([window]).Property(key)</label>
+							<label2>$INFO[Window([window]).Property(key)]</label2>
+							
+						</item>
+						<item id="286">
+							<label>Window.Property(xmlfile)</label>
+							<label2>$INFO[Window.Property(xmlfile)]</label2>
+							
+						</item>
+						<item id="287">
+							<label>Window(AddonBrowser).Property(Updated)</label>
+							<label2>$INFO[Window(AddonBrowser).Property(Updated)]</label2>
+							
+						</item>
+						<item id="288">
+							<label>Window.Property(Addon.ID)</label>
+							<label2>$INFO[Window.Property(Addon.ID)]</label2>
+							
+						</item>
+						<item id="289">
+							<label>Window(Home).Property(key)</label>
+							<label2>$INFO[Window(Home).Property(key)]</label2>
+							
+						</item>
+						<item id="290">
+							<label>Container.Art(tvshow.fanart)</label>
+							<label2>$INFO[Container.Art(tvshow.fanart)]</label2>
+							
+						</item>
+						<item id="291">
+							<label>Container.Art(season.poster)</label>
+							<label2>$INFO[Container.Art(season.poster)]</label2>
+							
+						</item>
+						<item id="292">
+							<label>Container.Art(artist.fanart)</label>
+							<label2>$INFO[Container.Art(artist.fanart)]</label2>
+							
+						</item>
+						<item id="293">
+							<label>Container.Art(artist.thumb)</label>
+							<label2>$INFO[Container.Art(artist.thumb)]</label2>
+							
+						</item>
+						<item id="294">
+							<label>Fanart.Image</label>
+							<label2>$INFO[Fanart.Image]</label2>
+							
+						</item>
+						<item id="295">
+							<label>ListItem.Thumb</label>
+							<label2>$INFO[ListItem.Thumb]</label2>
+							
+						</item>
+						<item id="296">
+							<label>ListItem.Icon</label>
+							<label2>$INFO[ListItem.Icon]</label2>
+							
+						</item>
+						<item id="297">
+							<label>ListItem.ActualIcon</label>
+							<label2>$INFO[ListItem.ActualIcon]</label2>
+							
+						</item>
+						<item id="298">
+							<label>ListItem.Art(clearart)</label>
+							<label2>$INFO[ListItem.Art(clearart)]</label2>
+							
+						</item>
+						<item id="299">
+							<label>ListItem.Art(clearlogo)</label>
+							<label2>$INFO[ListItem.Art(clearlogo)]</label2>
+							
+						</item>
+						<item id="300">
+							<label>ListItem.Art(landscape)</label>
+							<label2>$INFO[ListItem.Art(landscape)]</label2>
+							
+						</item>
+						<item id="301">
+							<label>ListItem.Art(thumb)</label>
+							<label2>$INFO[ListItem.Art(thumb)]</label2>
+							
+						</item>
+						<item id="302">
+							<label>ListItem.Art(poster)</label>
+							<label2>$INFO[ListItem.Art(poster)]</label2>
+							
+						</item>
+						<item id="303">
+							<label>ListItem.Art(banner)</label>
+							<label2>$INFO[ListItem.Art(banner)]</label2>
+							
+						</item>
+						<item id="304">
+							<label>ListItem.Art(fanart)</label>
+							<label2>$INFO[ListItem.Art(fanart)]</label2>
+							
+						</item>
+						<item id="305">
+							<label>ListItem.Art(set.fanart)</label>
+							<label2>$INFO[ListItem.Art(set.fanart)]</label2>
+							
+						</item>
+						<item id="306">
+							<label>ListItem.Art(landscape)</label>
+							<label2>$INFO[ListItem.Art(landscape)]</label2>
+							
+						</item>
+						<item id="307">
+							<label>ListItem.Art(tvshow.poster)</label>
+							<label2>$INFO[ListItem.Art(tvshow.poster)]</label2>
+							
+						</item>
+						<item id="308">
+							<label>ListItem.Art(tvshow.banner)</label>
+							<label2>$INFO[ListItem.Art(tvshow.banner)]</label2>
+							
+						</item>
+						<item id="309">
+							<label>ListItem.Art(tvshow.clearlogo)</label>
+							<label2>$INFO[ListItem.Art(tvshow.clearlogo)]</label2>
+							
+						</item>
+						<item id="310">
+							<label>ListItem.Art(tvshow.landscape)</label>
+							<label2>$INFO[ListItem.Art(tvshow.landscape)]</label2>
+							
+						</item>
+						<item id="311">
+							<label>ListItem.Art(tvshow.clearart)</label>
+							<label2>$INFO[ListItem.Art(tvshow.clearart)]</label2>
+							
+						</item>
+						<item id="312">
+							<label>ListItem.Art(season.poster)</label>
+							<label2>$INFO[ListItem.Art(season.poster)]</label2>
+							
+						</item>
+						<item id="313">
+							<label>ListItem.Art(season.banner)</label>
+							<label2>$INFO[ListItem.Art(season.banner)]</label2>
+							
+						</item>
+						<item id="314">
+							<label>ListItem.Art(season.fanart)</label>
+							<label2>$INFO[ListItem.Art(season.fanart)]</label2>
+							
+						</item>
+						<item id="315">
+							<label>ListItem.Overlay</label>
+							<label2>$INFO[ListItem.Overlay]</label2>
+							
+						</item>
+						<item id="316">
+							<label>ListItem.Property(ArtistThumb)</label>
+							<label2>$INFO[ListItem.Property(ArtistThumb)]</label2>
+							
+						</item>
+						<item id="317">
+							<label>ListItem.Property(Fanart_Image)</label>
+							<label2>$INFO[ListItem.Property(Fanart_Image)]</label2>
+							
+						</item>
+
+						<item id="320">
+							<label>Player.Art(fanart)</label>
+							<label2>$INFO[Player.Art(fanart)]</label2>
+							
+						</item>
+						<item id="321">
+							<label>Player.Art(thumb)</label>
+							<label2>$INFO[Player.Art(thumb)]</label2>
+							
+						</item>
+						<item id="322">
+							<label>Player.Art(poster)</label>
+							<label2>$INFO[Player.Art(poster)]</label2>
+							
+						</item>
+						<item id="323">
+							<label>Player.Art(clearlogo)</label>
+							<label2>$INFO[Player.Art(clearlogo)]</label2>
+							
+						</item>
+						<item id="324">
+							<label>Player.Art(clearart)</label>
+							<label2>$INFO[Player.Art(clearart)]</label2>
+							
+						</item>
+						<item id="325">
+							<label>Player.Art(landscape)</label>
+							<label2>$INFO[Player.Art(landscape)]</label2>
+							
+						</item>
+						<item id="326">
+							<label>Player.Art(tvshow.poster)</label>
+							<label2>$INFO[Player.Art(tvshow.poster)]</label2>
+							
+						</item>
+						<item id="327">
+							<label>Player.Art(tvshow.banner)</label>
+							<label2>$INFO[Player.Art(tvshow.banner)]</label2>
+							
+						</item>
+						<item id="328">
+							<label>Player.Art(tvshow.landscape)</label>
+							<label2>$INFO[Player.Art(tvshow.landscape)]</label2>
+							
+						</item>
+						<item id="329">
+							<label>Player.Art(tvshow.clearart)</label>
+							<label2>$INFO[Player.Art(tvshow.clearart)]</label2>
+							
+						</item>
+						<item id="330">
+							<label>Player.Art(tvshow.clearlogo)</label>
+							<label2>$INFO[Player.Art(tvshow.clearlogo)]</label2>
+							
+						</item>
+						<item id="331">
+							<label>Player.StarRating</label>
+							<label2>$INFO[Player.StarRating]</label2>
+							
+						</item>
+						<item id="332">
+							<label>Pvr.NowRecordingChannelIcon</label>
+							<label2>$INFO[Pvr.NowRecordingChannelIcon]</label2>
+							
+						</item>
+						<item id="333">
+							<label>Pvr.NextRecordingChannelIcon</label>
+							<label2>$INFO[Pvr.NextRecordingChannelIcon]</label2>
+							
+						</item>
+						<item id="334">
+							<label>Skin.String(name)</label>
+							<label2>$INFO[Skin.String(name)]</label2>
+							
+						</item>
+						<item id="335">
+							<label>System.AddonIcon(id)</label>
+							<label2>$INFO[System.AddonIcon(id)]</label2>
+							
+						</item>
+						<item id="336">
+							<label>System.ProfileThumb</label>
+							<label2>$INFO[System.ProfileThumb]</label2>
+							
+						</item>
+						<item id="337">
+							<label>VideoPlayer.Cover</label>
+							<label2>$INFO[VideoPlayer.Cover]</label2>
+							
+						</item>
+						<item id="338">
+							<label>Weather.Conditions</label>
+							<label2>$INFO[Weather.Conditions]</label2>
+							
+						</item>
+					</content>
+				</control>
+				
+				<control type="image">
+					<left>100</left>
+					<top>640</top>
+					<width>1080</width>
+					<height>2</height>
+					<animation effect="fade" end="30" condition="true">Conditional</animation>
+					<texture>views/videoinfo-separator.png</texture>
+				</control>
+			</control>		
+		</control>
+	</controls>	
+</window>

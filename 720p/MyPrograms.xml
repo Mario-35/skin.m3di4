@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">500</defaultcontrol>
+	<menucontrol>850</menucontrol>
+	<views>50,52,91</views>
+	<onload condition="Container.Content(addons)">Container.SetViewMode(91)</onload>
+
+	<controls>
+		<control type="group">
+			<depth>DepthBackground</depth>
+			<include>BackgroundDefault</include>
+			<include>BackgroundVideoPlaying</include>
+			<include>WindowOpenFadeInOut</include>
+		</control>
+
+		<control type="group">     
+			<visible>!Window.IsActive(AddonInformation)</visible>
+			<depth>DepthContent</depth>
+			<include>IconView</include> <!-- 50 -->
+			<include>ListView</include> <!-- 52 -->
+			<include>AddonsListInfoView</include> <!-- 91 -->
+		</control>
+		
+		<include>MediaMenuBar</include>
+		
+		<control type="group">
+			<description>Top Bar Area</description>
+			<visible>![System.IdleTime(3) + !Control.IsVisible(505) + Skin.HasSetting(HideTopBar) + !Control.HasFocus(555)]</visible>
+			<depth>DepthTopBar</depth>
+			<include>TopBarImage</include>
+			<include>TopBarOpenCloseAnim</include>
+			<include>BreadCrumbPrograms</include>
+			<include>Notifications</include>
+			<include>SortLetterNotification</include>
+		</control>
+	</controls>		
+</window>

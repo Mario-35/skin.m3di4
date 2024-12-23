@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="AddonsListInfoView">
+		<control type="group" id="500">			    
+			<defaultcontrol always="true">91</defaultcontrol>
+			<visible>Control.IsVisible(91)</visible>
+			<include>MediaViewOpenCloseAnim</include>
+			<control type="image">
+				<left>30</left>
+				<top>78</top>
+				<width>690</width>
+				<height>303</height>
+				<texture border="7">panels/content-panel.png</texture>
+				<include>PanelFadeAnim</include>
+				<include>ControlsOpenCloseAnim</include>
+			</control>
+
+			<control type="image">
+				<left>30</left>
+				<top>390</top>
+				<width>690</width>
+				<height>291</height>
+				<texture border="7">panels/content-panel.png</texture>
+				<include>PanelFadeAnim</include>
+				<include>ControlsOpenCloseAnim</include>
+			</control>
+
+			<control type="image">
+				<left>720</left>
+				<top>78</top>
+				<width>540</width>
+				<height>603</height>
+				<texture border="7">panels/content-panel.png</texture>
+				<include>PanelFadeAnim</include>
+				<include>ControlsOpenCloseAnim</include>
+			</control>			
+		
+			<control type="image">
+				<description>Content Background</description>
+				<left>34</left>
+				<top>82</top>
+				<width>681</width>
+				<height>295</height>
+				<texture border="4">panels/panel-content-border2.png</texture>
+				<include>ListInfoViewContentBackgroundFadeAnim</include>
+			</control>
+		
+			<control type="group">
+				<visible>[Window.IsActive(AddonBrowser) | Container.Content(Addons)] + !ListItem.IsParentFolder</visible>
+				<include>BackgroundVisibleAnim</include>
+				
+				<control type="image">
+					<description>Genre Background</description>
+					<left>294</left>
+					<top>87</top>
+					<width>416</width>
+					<height>30</height>
+					<texture border="4">panels/panel3.png</texture>
+					<include>ListInfoViewMediaInfoBackgroundFadeAnim</include>
+				</control>
+				
+				<control type="image">
+					<description>Plot Background</description>
+					<left>294</left>
+					<top>112</top>
+					<width>416</width>
+					<height>225</height>
+					<texture border="4">panels/panel3.png</texture>
+					<include>ListInfoViewMediaInfoBackgroundFadeAnim</include>
+				</control>
+				
+				<control type="image">
+					<description>Media Info Background</description>
+					<left>39</left>
+					<top>342</top>
+					<width>671</width>
+					<height>30</height>
+					<texture border="4">panels/panel3.png</texture>
+					<include>ListInfoViewMediaInfoBackgroundFadeAnim</include>
+				</control>
+			</control>
+			
+			<control type="group">
+				<visible>!String.IsEmpty(ListItem.AddonName)</visible>
+				
+				<control type="image">
+					<description>Cover Background</description>
+					<left>39</left>
+					<top>87</top>
+					<width>250</width>
+					<height>250</height>
+					<texture background="true" border="4">panels/panel3.png</texture>
+					<aspectratio>stretch</aspectratio>
+					<include>ListInfoViewMediaInfoBackgroundFadeAnim</include>
+				</control>
+				
+				<control type="image">
+					<description>Default Cover</description>
+					<left>39</left>
+					<top>87</top>
+					<width>250</width>
+					<height>250</height>
+					<texture background="true">DefaultAddon.png</texture>
+					<bordersize>40</bordersize>	
+					<aspectratio>keep</aspectratio>
+					<fadetime>IconCrossfadeTime</fadetime>
+					<visible>String.IsEmpty(ListItem.Thumb)</visible>
+					<animation effect="fade" end="60" condition="true">Conditional</animation>
+				</control>
+				
+				<control type="image">
+					<description>Cover</description>
+					<left>39</left>
+					<top>87</top>
+					<width>250</width>
+					<height>250</height>
+					<texture background="true" diffuse="covers/list-info-thumb-diffuse.png">$INFO[ListItem.Thumb]</texture>
+					<bordersize>1</bordersize>
+					<aspectratio>stretch</aspectratio>
+					<fadetime>IconCrossfadeTime</fadetime>
+				</control>
+				
+				<control type="label">
+					<description>Type</description>
+					<left>300</left>
+					<top>91</top>
+					<width>403</width>
+					<align>center</align>
+					<font>MediaInfoFont2</font>
+					<textcolor>MediaInfoItemColor2</textcolor>
+					<shadowcolor>ShadowColor</shadowcolor>
+					<label>[UPPERCASE]$INFO[ListItem.AddonType][/UPPERCASE]</label>
+					<scroll>true</scroll>
+				</control>
+				
+				<control type="textbox">
+					<description>Description</description>
+					<left>300</left>
+					<top>126</top>
+					<width>403</width>
+					<height>208</height>
+					<font>MediaInfoDescFont</font>
+					<textcolor>MediaInfoColor</textcolor>
+					<shadowcolor>ShadowColor</shadowcolor>
+					<align>justify</align>
+					<label fallback="31204">$INFO[ListItem.AddonDescription]</label>
+					<wrapmultiline>true</wrapmultiline>
+					<autoscroll time="2000" delay="6000" repeat="10000">true</autoscroll>
+					<visible>!Skin.HasSetting(HideAddonsListInfoDescription) + !Container.OnNext + !Container.OnPrevious</visible> 
+					<include>ControlsOpenCloseAnim</include>
+				</control>
+				
+				<control type="grouplist">
+					<description>Addon Info</description>
+					<left>44</left>
+					<top>335</top>
+					<width>661</width>
+					<align>center</align>
+					<orientation>horizontal</orientation>
+					<usecontrolcoords>true</usecontrolcoords>
+					<visible>!String.IsEmpty(ListItem.AddonName)</visible>
+					<control type="label">
+						<description>Author</description>
+						<width min="0" max="110">auto</width>
+						<include>ListInfoViewCatLabel</include>
+						<label>$LOCALIZE[21863]:</label>
+					</control>
+					<control type="label">
+						<description>Author Value</description>
+						<width min="0" max="250">auto</width>
+						<scroll>true</scroll>
+						<include>ListInfoViewCatValueLabel</include>
+						<label fallback="31001">$INFO[ListItem.AddonCreator]</label>
+					</control>
+					<include>ListInfoViewDot</include>
+					<control type="label">
+						<description>Version</description>
+						<width min="0" max="110">auto</width>
+						<include>ListInfoViewCatLabel</include>
+						<label>$LOCALIZE[24051]</label>
+					</control>
+					<control type="label">
+						<description>Version Value</description>
+						<width min="0" max="110">auto</width>
+						<include>ListInfoViewCatValueLabel</include>
+						<label fallback="31001">$INFO[ListItem.AddonVersion]</label>
+					</control>
+				</control>
+			</control>
+
+			<control type="list" id="91">
+				<visible>[Window.IsActive(AddonBrowser) | Container.Content(Addons)] + !ListItem.IsParentFolder</visible>	
+				<viewtype label="31111">list</viewtype>
+				<left>725</left>
+				<top>82</top>
+				<width>505</width>
+				<height>596</height>
+				<pagecontrol>905</pagecontrol>
+				<preloaditems>2</preloaditems>
+				<scrolltime tween="sine" easing="inout">300</scrolltime>
+				<onup>91</onup>
+				<ondown>91</ondown>
+				<onleft>850</onleft>
+				<onright>150</onright>
+				<itemlayout height="37">
+					<control type="image">
+						<width>505</width>
+						<height>37</height>	
+						<texture border="0,0,10,2">views/list-separator.png</texture>
+						<aspectratio>stretch</aspectratio>
+					</control>
+					<control type="image">
+						<description>Icon</description>
+						<left>5</left>
+						<top>6</top>
+						<width>24</width>
+						<height>24</height>
+						<texture background="true">$INFO[ListItem.ActualIcon].png</texture>
+						<aspectratio>stretch</aspectratio>
+						<include>ListViewOverlayFadeAnim</include>
+					</control>
+					<control type="label">
+						<description>Label</description>
+						<left>35</left>
+						<width>365</width>
+						<height>37</height>
+						<font>ListFont</font>
+						<textcolor>ListColor</textcolor>
+						<shadowcolor>ShadowColor</shadowcolor>
+						<aligny>center</aligny>				
+						<info>ListItem.Label</info>
+					</control>
+					<control type="label">
+						<description>Label2</description>
+						<left>295</left>
+						<width>200</width>
+						<height>37</height>
+						<font>DefaultFont</font>
+						<textcolor>MediaInfoTitleColor2</textcolor>
+						<shadowcolor>ShadowColor</shadowcolor>
+						<align>right</align>
+						<aligny>center</aligny>				
+						<info>ListItem.Label2</info>
+					</control>
+				</itemlayout>		
+				<focusedlayout height="37">	
+					<control type="image">
+						<width>505</width>
+						<height>37</height>	
+						<texture border="0,0,10,2">views/list-separator.png</texture>
+						<aspectratio>stretch</aspectratio>
+					</control>
+					<control type="image">
+						<width>505</width>
+						<height>36</height>	
+						<texture border="4">views/list-focus.png</texture>
+						<aspectratio>stretch</aspectratio>
+						<visible>Control.HasFocus(91)</visible>
+						<include>ListViewSelectFadeAnim</include>
+						<include>ListViewScrollAnim</include>
+					</control>
+					<control type="image">
+						<width>505</width>
+						<height>36</height>	
+						<texture border="4">views/list-alt-focus.png</texture>
+						<aspectratio>stretch</aspectratio>
+						<visible>!Control.HasFocus(91)</visible>
+						<include>ListViewSelectFadeAnim2</include>
+					</control>
+					<control type="group">
+						<include>ListViewFocusAnim</include>
+						<control type="image">
+							<description>Icon</description>
+							<left>5</left>
+							<top>6</top>
+							<width>24</width>
+							<height>24</height>
+							<texture background="true">$INFO[ListItem.ActualIcon].png</texture>
+							<aspectratio>stretch</aspectratio>
+						</control>
+						<control type="label">
+							<description>Label</description>
+							<left>35</left>
+							<width>365</width>
+							<height>37</height>
+							<font>ListFont</font>
+							<textcolor>SelectedColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<info>ListItem.Label</info>
+							<scroll>true</scroll>
+						</control>
+						<control type="label">
+							<description>Label2</description>
+							<left>295</left>
+							<width>200</width>
+							<height>37</height>
+							<font>DefaultFont</font>
+							<textcolor>MediaInfoTitleColor2</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<align>right</align>
+							<aligny>center</aligny>				
+							<info>ListItem.Label2</info>
+						</control>
+					</control>
+				</focusedlayout>		
+			</control>	
+			
+			<control type="group">
+				<description>Bottom Bar Area</description>
+				<top>BottomPaneOffsetY</top>	
+				<!--<include>InfoPaneImage</include>-->
+				<include>InfoPaneMediaDetails</include>
+				<include>BottomPaneOpenCloseAnim</include>
+			</control>
+			
+			<include>ViewsDialogPopUpScreenDim</include>
+		</control>	
+	</include>
+</includes>

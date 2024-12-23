@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<smartplaylist type="tvshows">
+    <name>Séries en cours</name>
+    <match>all</match>
+    <rule field="inprogress" operator="true" />
+    <rule field="path" operator="doesnotcontain">
+        <value>/Mangas/</value>
+    </rule>
+    <limit>20</limit>
+    <order direction="descending">lastplayed</order>
+</smartplaylist>

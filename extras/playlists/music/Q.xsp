@@ -1,0 +1,9 @@
+﻿  <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+  <smartplaylist type="artists">
+      <name>Q</name>
+      <match>all</match>
+      <rule field="artist" operator="startswith">
+          <value>Q</value>
+      </rule>
+      <order direction="ascending">sorttitle</order>
+  </smartplaylist>

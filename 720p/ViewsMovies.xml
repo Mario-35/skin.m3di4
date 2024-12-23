@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<!--//// START WALL VIEW //////////////////////////////////////////////////////////////////////////-->
+
+	<include name="MoviesWallViewLayoutLang">
+		<param name="LangNumber">1</param>
+		<param name="Width">50</param>
+		<param name="Border">5</param>
+		<definition>						
+			<control type="image">
+				<description>Language</description>
+				<width>$PARAM[Width]</width>
+				<height>$PARAM[Width]</height>	
+				<texture fallback="flagging/lang/-.png">$INFO[ListItem.Property(AudioLanguage.$PARAM[LangNumber]),flagging/lang/,.png]</texture>
+				<visible>!String.IsEmpty(ListItem.Property(AudioCodec.$PARAM[LangNumber]))</visible>								
+				<aspectratio>stretch</aspectratio>
+				<bordersize>$PARAM[Border]</bordersize>
+			</control>
+		</definition>
+	</include>
+
+	<include name="MoviesWallViewLayout">
+		<param name="Case_Width">210</param>
+		<param name="Case_Height">300</param>
+		<param name="Case_Border_Left">11</param>
+		<param name="Case_Border_Top">16</param>
+		<param name="Watched_Left">175</param>
+		<param name="Icons_Bottom_Top">255</param>
+		<param name="Icons_Bottom_Width">28</param>
+		<param name="Icons_Bottom_Border">2</param>
+		<param name="Icons_Bottom_Left">20</param>
+		<param name="Icons_Top_Height">55</param>
+		<param name="Icons_Top_Large_Width">105</param>
+		<param name="test">false</param>
+		<param name="Show_Icon">true</param>
+		<definition>
+			<control type="group">	
+				<control type="image">
+					<description>Cover</description>
+					<width>$PARAM[Case_Width]</width>
+					<height>$PARAM[Case_Height]</height>
+					<texture fallback="covers/dummy.jpg" background="true">$VAR[PosterThumb]</texture>
+					<bordersize>$PARAM[Case_Border_Left], $PARAM[Case_Border_Top], $PARAM[Case_Border_Left], $PARAM[Case_Border_Top]</bordersize>
+					<aspectratio>stretch</aspectratio>
+				</control>
+				<control type="image">
+					<description>Cover Dim</description>
+					<width>$PARAM[Case_Width]</width>
+					<height>$PARAM[Case_Height]</height>
+					<include>CoverDim</include>
+					<bordersize>$PARAM[Case_Border_Left], $PARAM[Case_Border_Top], $PARAM[Case_Border_Left], $PARAM[Case_Border_Top]</bordersize>
+					<aspectratio>stretch</aspectratio>
+					<visible>!$PARAM[focused]</visible>
+				</control>
+				<control type="group">	
+					<visible>!$PARAM[focused]</visible>
+					<control type="image">
+						<description>Cover Case</description>
+						<width>$PARAM[Case_Width]</width>
+						<height>$PARAM[Case_Height]</height>
+						<texture background="true">covers/case.png</texture>
+						<visible>![ListItem.IsCollection + Container.Content(movies) + !String.IsEqual(ListItem.Label,..)]</visible>					
+					</control>
+					<control type="image">
+						<description>Cover Case Saga</description>
+						<width>$PARAM[Case_Width]</width>
+						<height>$PARAM[Case_Height]</height>
+						<texture colordiffuse="CaseSelectedAnime">covers/case-diffuse.png</texture>
+						<visible>Container.Content(tvshows) + Integer.IsLessOrEqual(ListItem.Episode,1)</visible>					
+					</control>
+					<control type="image">
+						<description>Cover Case Saga</description>
+						<width>$PARAM[Case_Width]</width>
+						<height>$PARAM[Case_Height]</height>
+						<texture colordiffuse="CaseCollection">covers/case-diffuse.png</texture>
+						<visible>ListItem.IsCollection + Container.Content(movies) + !String.IsEqual(ListItem.Label,..)</visible>					
+					</control>
+				</control>				
+				<control type="image">
+					<visible>$PARAM[focused]</visible>
+					<width>$PARAM[Case_Width]</width>
+					<height>$PARAM[Case_Height]</height>
+					<texture colordiffuse="$VAR[SelectedColor]">covers/case-diffuse.png</texture>
+				</control>
+				<control type="group">
+					<visible>$PARAM[Show_Icon]</visible>
+					<left>$PARAM[Case_Border_Left]</left>
+					<top>$PARAM[Case_Border_Top]</top>			
+					<control type="image">
+						<description>3D</description>
+						<width>$PARAM[Icons_Top_Large_Width]</width>
+						<height>$PARAM[Icons_Top_Height]</height>
+						<texture background="true">overlays/3d.png</texture>
+						<visible>String.Contains(ListItem.FileNameAndPath,3D) | $PARAM[test]</visible>				
+					</control>
+					<control type="image">
+						<description>4K</description>
+						<width>$PARAM[Icons_Top_Large_Width]</width>
+						<height>$PARAM[Icons_Top_Height]</height>						
+						<texture background="true">overlays/4k.png</texture>
+						<visible>String.Contains(ListItem.VideoResolution,4k) | $PARAM[test]</visible>					
+					</control>
+				</control>
+				<control type="group">
+					<visible>$PARAM[Show_Icon]</visible>
+					<top>$PARAM[Icons_Bottom_Top]</top>
+					<control type="group">
+						<left>$PARAM[Watched_Left]</left>
+						<control type="image">						
+							<texture background="true">overlays/infocircle.png</texture>						
+							<width>$PARAM[Icons_Bottom_Width]</width>
+							<height>$PARAM[Icons_Bottom_Width]</height>
+						</control>						
+						<control type="image">
+							<description>Watched</description>
+							<width>$PARAM[Icons_Bottom_Width]</width>
+							<height>$PARAM[Icons_Bottom_Width]</height>
+							<texture background="true">overlays/watched.png</texture>
+						</control>
+						<visible>String.IsEqual(ListItem.Overlay,OverlayWatched.png)</visible>
+					</control>
+					<control type="group">
+						<description>Still watched</description>
+						<left>$PARAM[Watched_Left]</left>
+						<visible>!String.IsEqual(ListItem.Property(UnWatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0)</visible>
+						<control type="image">						
+							<texture background="true">overlays/infocircle.png</texture>						
+							<width>$PARAM[Icons_Bottom_Width]</width>
+							<height>$PARAM[Icons_Bottom_Width]</height>
+						</control>	
+						<control type="label">
+							<top>2</top>
+							<width>$PARAM[Icons_Bottom_Width]</width>
+							<height>$PARAM[Icons_Bottom_Width]</height>						
+							<font>StillWatched</font>
+							<textcolor>white</textcolor>
+							<align>center</align>
+							<label>$INFO[ListItem.Property(UnWatchedEpisodes)]</label>
+							<visible>!Integer.IsLessOrEqual(Container.NumItems,12) + !String.IsEqual(ListItem.Property(UnWatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0)</visible>
+						</control>
+						<control type="label">
+							<top>5</top>
+							<width>$PARAM[Icons_Bottom_Width]</width>
+							<height>$PARAM[Icons_Bottom_Width]</height>						
+							<font>BigStillWatched</font>
+							<textcolor>white</textcolor>
+							<align>center</align>
+							<label>$INFO[ListItem.Property(UnWatchedEpisodes)]</label>
+							<visible>Integer.IsLessOrEqual(Container.NumItems,12) + !String.IsEqual(ListItem.Property(UnWatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0)</visible>
+						</control>						
+					</control>
+					<control type="image">
+						<description>ISO</description>
+						<left>$PARAM[Icons_Bottom_Left]</left>					
+						<width>$PARAM[Icons_Bottom_Width]</width>
+						<height>$PARAM[Icons_Bottom_Width]</height>	
+						<aspectratio>keep</aspectratio>
+						<texture fallback="flagging/lang/-.png">flagging/lang/iso.png</texture>
+						<visible>String.Contains(ListItem.FilenameAndPath,.iso) | $PARAM[test]</visible>
+					</control>	
+					<control type="group">
+						<visible>!String.Contains(ListItem.FilenameAndPath,.iso)</visible>
+						<left>$PARAM[Icons_Bottom_Left]</left>		
+						<include content="MoviesWallViewLayoutLang">
+							<param name="LangNumber" value="1" />
+							<param name="Width" value="$PARAM[Icons_Bottom_Width]" />						
+							<param name="Border" value="$PARAM[Icons_Bottom_Border]" />
+						</include>
+						<control type="group">
+							<left>$PARAM[Icons_Bottom_Width]</left>							
+							<include content="MoviesWallViewLayoutLang">
+								<param name="LangNumber" value="2" />
+								<param name="Width" value="$PARAM[Icons_Bottom_Width]" />						
+								<param name="Border" value="$PARAM[Icons_Bottom_Border]" />
+							</include>
+							<control type="group">
+								<left>$PARAM[Icons_Bottom_Width]</left>							
+								<include content="MoviesWallViewLayoutLang">
+									<param name="LangNumber" value="3" />
+									<param name="Width" value="$PARAM[Icons_Bottom_Width]" />						
+									<param name="Border" value="$PARAM[Icons_Bottom_Border]" />
+								</include>
+								<control type="group">
+									<left>$PARAM[Icons_Bottom_Width]</left>							
+									<include content="MoviesWallViewLayoutLang">
+										<param name="LangNumber" value="4" />
+										<param name="Width" value="$PARAM[Icons_Bottom_Width]" />						
+										<param name="Border" value="$PARAM[Icons_Bottom_Border]" />
+									</include>
+									<control type="group">
+										<left>$PARAM[Icons_Bottom_Width]</left>							
+										<include content="MoviesWallViewLayoutLang">
+											<param name="LangNumber" value="5" />
+											<param name="Width" value="$PARAM[Icons_Bottom_Width]" />						
+											<param name="Border" value="$PARAM[Icons_Bottom_Border]" />
+										</include>
+									</control>									
+								</control>								
+							</control>
+						</control>
+					</control>					
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="MoviesWallSmallIcon">
+		<param name="MyFocused">false</param>
+		<definition>
+			<include content="MoviesWallViewLayout">
+				<param name="focused" value="$PARAM[MyFocused]" />	
+				<param name="Case_Width" value="115" />
+				<param name="Case_Height" value="155" />
+				<param name="Case_Border_Left" value="5" />
+				<param name="Case_Border_Top" value="8" />
+				<param name="Watched_Left" value="95" />
+				<param name="Icons_Bottom_Top" value="132" />
+				<param name="Icons_Bottom_Width" value="15" />
+				<param name="Icons_Bottom_Border" value="2" />
+				<param name="Icons_Bottom_Left" value="10" />
+				<param name="Icons_Top_Large_Width" value="50" />
+				<param name="Icons_Top_Height" value="25" />
+				<param name="Icons_Top_Height" value="25" />
+				<param name="SelectedColor" value="CaseSelectedColor" />
+			</include>
+		</definition>			
+	</include>
+
+	<include name="MoviesWallBigIcon">
+		<param name="MyFocused">false</param>
+		<definition>
+			<include content="MoviesWallViewLayout">
+				<param name="focused" value="$PARAM[MyFocused]" />	
+				<param name="Case_Width" value="210" />
+				<param name="Case_Height" value="300" />
+				<param name="Case_Border_Left" value="11" />
+				<param name="Case_Border_Top" value="16" />
+				<param name="Watched_Left" value="170" />
+				<param name="Icons_Bottom_Top" value="255" />
+				<param name="Icons_Bottom_Width" value="28" />
+				<param name="Icons_Bottom_Border" value="2" />
+				<param name="Icons_Bottom_Left" value="20" />
+				<param name="Icons_Top_Large_Width" value="105" />
+				<param name="Icons_Top_Height" value="55" />
+				<param name="SelectedColor" value="CaseSelectedColor" />
+			</include>
+		</definition>			
+	</include>	
+
+	<include name="MoviesWallView">
+		<control type="group" id="500">	
+		    <defaultcontrol always="true">69</defaultcontrol>
+			<visible>Control.IsVisible(69)</visible>
+			<include>Animation_Right</include>
+			<control type="panel" id="69">
+				<visible>[Container.Content(Movies) | Container.Content(Seasons) | Window.IsActive(Videos)] + !Container.Content(Episodes) + !String.IsEqual(Container.folderpath,SOURCES://VIDEO/) + !String.StartsWith(Container.foldername,SEASON ) </visible>
+				<viewtype label="31113">Wall</viewtype>
+				<left>12</left>
+				<width>1300</width>
+				<pagecontrol>909</pagecontrol>
+				<preloaditems>4</preloaditems>
+				<scrolltime tween="sine" easing="inout">250</scrolltime>
+				<top>50</top>
+				<height>620</height>
+				<orientation>vertical</orientation>
+				<onleft condition="Container.Content(Movies) | Container.Content(tvshows) | Container.Content(Artists)">505</onleft>
+				<onleft>555</onleft>
+				<onright>150</onright>
+				<oninfo condition="ListItem.IsCollection + System.HasAddon(script.skin.helper.service)">ActivateWindow(3008)</oninfo>
+				
+				<itemlayout height="280" width="210" condition="Integer.IsLessOrEqual(Container.NumItems,12)">
+					<include content="MoviesWallBigIcon">
+						<param name="MyFocused" value="false" />							
+					</include>				
+				</itemlayout>
+
+				<itemlayout height="155" width="115" condition="Integer.IsGreater(Container.NumItems,12)">
+					<include content="MoviesWallSmallIcon">
+						<param name="MyFocused" value="false" />							
+					</include>		
+				</itemlayout>
+
+				<focusedlayout height="280" width="210" condition="Integer.IsLessOrEqual(Container.NumItems,12) + Container.Row(0)">
+					<control type="group">
+						<animation type="Focus">
+							<effect type="zoom" start="100" end="115" time="500" tween="sine" easing="inout" center="105,0" />
+						</animation>
+						<include content="MoviesWallBigIcon">
+							<param name="MyFocused" value="true" />							
+						</include>	
+					</control>	
+				</focusedlayout>
+
+				<focusedlayout height="280" width="210" condition="Integer.IsLessOrEqual(Container.NumItems,12) + Container.Row(1)">
+					<control type="group">
+						<animation type="Focus">
+							<effect type="zoom" start="100" end="115" time="500" tween="sine" easing="inout" center="105,280" />
+						</animation>
+						<include content="MoviesWallBigIcon">
+							<param name="MyFocused" value="true" />							
+						</include>	
+					</control>	
+				</focusedlayout>				
+
+				<focusedlayout height="95" width="70" condition="Container.column(0) | Container.column(1) | Container.column(2) | Container.column(3) | Container.column(4)">
+					<control type="group">
+
+						<animation condition="Container.row(0)">
+							<effect type="zoom" start="100" end="125" time="500" tween="sine" easing="inout" center="35,50" />
+						</animation>
+
+						<animation condition="Container.row(1) | Container.row(2)">
+							<effect type="zoom" start="100" end="125" time="500" tween="sine" easing="inout" center="35,60" />
+						</animation>
+
+						<animation condition="Container.row(3)">
+							<effect type="zoom" start="100" end="125" time="500" tween="sine" easing="inout" center="35,110" />
+						</animation>
+
+						<include content="MoviesWallSmallIcon">
+							<param name="MyFocused" value="true" />							
+						</include>
+					</control>	
+				</focusedlayout>	
+
+				<focusedlayout height="95" width="70" condition="Container.column(5)">
+					<control type="group">
+						<animation condition="Container.row(0)">
+							<effect type="zoom" start="100" end="125" time="500" tween="sine" easing="inout" center="65,50" />
+						</animation>
+
+						<animation condition="Container.row(1) | Container.row(2)">
+							<effect type="zoom" start="100" end="125" time="500" tween="sine" easing="inout" center="65,60" />
+						</animation>
+
+						<animation condition="Container.row(3)">
+							<effect type="zoom" start="100" end="125" time="500" tween="sine" easing="inout" center="65,110" />
+						</animation>
+						
+						<include content="MoviesWallSmallIcon">
+							<param name="MyFocused" value="true" />							
+						</include>
+					</control>	
+				</focusedlayout>			
+
+				<focusedlayout height="95" width="70" condition="Container.column(6) | Container.column(7) | Container.column(8) | Container.column(9) | Container.column(10)">
+					<control type="group">
+						<animation condition="Container.row(0)">
+							<effect type="zoom" start="100" end="125" time="500" tween="sine" easing="inout" center="95,50" />
+						</animation>
+
+						<animation condition="Container.row(1) | Container.row(2)">
+							<effect type="zoom" start="100" end="125" time="500" tween="sine" easing="inout" center="95,60" />
+						</animation>
+
+						<animation condition="Container.row(3)">
+							<effect type="zoom" start="100" end="125" time="500" tween="sine" easing="inout" center="95,110" />
+						</animation>
+						<include content="MoviesWallSmallIcon">
+							<param name="MyFocused" value="true" />							
+						</include>
+					</control>	
+				</focusedlayout>		
+
+			</control>					
+			<include>InfoPaneDetails</include>			
+			<include>ViewsDialogPopUpScreenDim</include>			
+		</control>
+	</include>	
+	<!--//// END WALL VIEW ////////////////////////////////////////////////////////////////////////////-->
+</includes>

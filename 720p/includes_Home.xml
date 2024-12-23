@@ -1,0 +1,2101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>	
+<!-- 6888 Recently Added Movies [2] -->	
+<!-- 6889 Recently Added TV Shows [3] -->
+<!-- 6895 Recently Added Animes [4] -->	
+<!-- 6883 Recently Added Pictures [7] -->
+	<variable name="RaspberryPiLabel">
+		<value condition="System.HasAddon(service.openelec.settings)">$LOCALIZE[31129]</value>
+		<value condition="System.HasAddon(service.libreelec.settings)">$LOCALIZE[31190]</value>
+	</variable>
+	
+	<include name="ContainerPosition1">
+		<onback>PageUp</onback>
+		<onback>PageUp</onback>
+		<onback>PageUp</onback>
+		<onback>PageUp</onback>
+	</include>
+	
+	<include name="KodiLogo">
+		<control type="button" id="555">
+			<left>9</left>
+			<top>9</top>
+			<ondown condition="Control.IsVisible(6930)">6930</ondown>
+			<ondown condition="Container(850).HasFocus(2) + Control.IsVisible(6884)">6884</ondown>
+			<ondown condition="Container(850).HasFocus(1) + Control.IsVisible(6880)">6880</ondown>
+			<ondown condition="Container(850).HasFocus(1) + Control.IsVisible(6878)">6878</ondown>
+			<ondown>850</ondown>			
+			<onright condition="Container(850).HasFocus(1) + Control.IsVisible(6878)">6878</onright>
+			<onright condition="Container(850).HasFocus(2) + Control.IsVisible(6888)">6888</onright>
+			<onright condition="Container(850).HasFocus(3) + Control.IsVisible(6889)">6889</onright>
+			<onright condition="Container(850).HasFocus(4) + Control.IsVisible(6895)">6895</onright>
+			<onright condition="Container(850).HasFocus(11) + Control.IsVisible(6902)">6902</onright>
+			<onright condition="Container(850).HasFocus(12) + Control.IsVisible(6904)">6904</onright>
+			<onright condition="Container(850).HasFocus(13) + Control.IsVisible(6906)">6906</onright>
+			<onright condition="Container(850).HasFocus(14) + Control.IsVisible(6908)">6908</onright>
+			<onright condition="Container(850).HasFocus(17) + Control.IsVisible(6910)">6910</onright>
+			<onright condition="Container(850).HasFocus(18) + Control.IsVisible(6912)">6912</onright>
+			<onright condition="Container(850).HasFocus(19) + Control.IsVisible(6914)">6914</onright>
+			<onright condition="Container(850).HasFocus(20) + Control.IsVisible(6916)">6916</onright>
+			<onright condition="Container(850).HasFocus(21) + Control.IsVisible(6918)">6918</onright>
+			<onright condition="Container(850).HasFocus(22) + Control.IsVisible(6920)">6920</onright>
+			<onright condition="Container(850).HasFocus(23) + Control.IsVisible(6922)">6922</onright>
+			<onright condition="Container(850).HasFocus(24) + Control.IsVisible(6924)">6924</onright>
+			<onright>850</onright>
+			<width>78</width>
+			<height>24</height>
+			<hitrect x="-20" y="-20" w="118" h="64"/>
+			<animation effect="fade" end="80" condition="true">Conditional</animation>			
+			<font>-</font>
+			<texturefocus border="0">logos/kodi-logo-blue.png</texturefocus>
+			<texturenofocus border="0">logos/kodi-logo.png</texturenofocus>
+			<pulseonselect>false</pulseonselect>
+			<onclick>ActivateWindow(1101)</onclick>
+		</control>
+	</include>
+
+	<include name="PanelItemlayoutLabel">
+		<left>15</left>
+		<height>24</height>
+		<font>PanelInfoFont</font>
+		<textcolor>MediaInfoItemColor2</textcolor>
+		<shadowcolor>ShadowColor</shadowcolor>
+		<aligny>center</aligny>
+	</include>
+	
+	<include name="PanelFocusedlayoutLabel">
+		<left>15</left>
+		<height>24</height>
+		<font>PanelInfoFont</font>
+		<textcolor>SelectedColor</textcolor>
+		<shadowcolor>ShadowColor</shadowcolor>
+		<aligny>center</aligny>
+	</include>
+
+	<include name="HomeMenuPanelImage">
+		<control type="image">
+			<width>ScreenWidth</width>
+			<height>114</height>
+			<texture border="0,8,0,0">gui/home-menu-bar-background.png</texture>
+			<aspectratio>stretch</aspectratio>
+			<animation effect="fade" end="85" condition="true">Conditional</animation>
+		</control>
+
+		<control type="image">
+			<top>-5</top>
+			<width>ScreenWidth</width>
+			<height>8</height>
+			<texture>gui/bottom-bar-top.png</texture>
+			<animation effect="fade" end="30" condition="true">Conditional</animation> 
+		</control>
+	</include>
+
+	<include name="HomeMenuPaneOverlay">
+		<control type="image">
+			<top>2</top>
+			<width>ScreenWidth</width>
+			<height>112</height>
+			<texture>gui/bottom-bar-overlay.png</texture>
+			<animation effect="fade" end="68" condition="true">Conditional</animation>
+		</control>	
+	</include>
+
+	<include name="HomeMenuIconDim">	
+		<width>256</width>
+		<height>256</height>			
+	</include>
+
+	<include name="HomeNavButtons">
+		<control type="group">
+			<control type="button" id="101">
+				<description>Navigation Move Left</description>
+				<top>15</top>
+				<width>130</width>
+				<height>75</height>
+				<texturefocus flipx="true">controls/home-nav-arrow-right-focus.png</texturefocus>
+				<texturenofocus flipx="true">controls/home-nav-arrow-right-nofocus.png</texturenofocus>
+				<onclick>Control.Message(850,movedown)</onclick>
+			</control>
+
+			<control type="button" id="102">
+				<description>Navigation Move Right</description>
+				<left>1150</left>
+				<top>15</top>
+				<width>130</width>
+				<height>75</height>
+				<texturefocus>controls/home-nav-arrow-right-focus.png</texturefocus>
+				<texturenofocus>controls/home-nav-arrow-right-nofocus.png</texturenofocus>
+				<onclick>Control.Message(850,moveup)</onclick>
+			</control>
+		</control>
+	</include>
+
+	<include name="HomeSubMenuItemLayout">
+		<itemlayout width="180">
+			<control type="label">
+				<left>2</left>
+				<width>176</width>
+				<height>34</height>
+				<font>HomeSubMenuBtnFont</font>
+				<textcolor>HomeSubMenuColor</textcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+			</control>		
+		</itemlayout>
+		<focusedlayout width="180">
+			<control type="label">
+				<left>2</left>
+				<width>176</width>
+				<height>34</height>
+				<font>HomeSubMenuBtnFont</font>
+				<textcolor>SelectedColor2</textcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+				<visible>Control.HasFocus(110)</visible>
+			</control>
+			<control type="label">
+				<left>2</left>
+				<width>176</width>
+				<height>34</height>
+				<font>HomeSubMenuBtnFont</font>
+				<textcolor>HomeSubMenuColor</textcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+				<visible>!Control.HasFocus(110)</visible>
+			</control>							
+		</focusedlayout>
+	</include>
+
+	<include name="HomeCategoryFocusImage">
+		<left>490</left>
+		<top>30</top>
+		<width>300</width>
+		<height>86</height>	
+		<aspectratio>keep</aspectratio>
+		<include>HomeMenuCategoryWithNavBtnFocusAnim</include>
+		<visible>!Container(850).OnNext + !Container(850).OnPrevious</visible>
+	</include>
+
+	<include name="HomeMenu">		
+		<control type="group">
+			<control type="wraplist" id="850">
+				<description>Home Menu</description>
+				<left>130</left>
+				<top>12</top>
+				<width>1020</width>
+				<height>76</height>
+				<focusposition>1</focusposition>
+				<scrolltime>250</scrolltime>
+				<pagecontrol>-</pagecontrol>
+				<orientation>horizontal</orientation>
+				<preloaditems>2</preloaditems>
+				<onup condition="Container(850).HasFocus(1) + Control.IsVisible(6874)">6874</onup>
+				<onup condition="Container(850).HasFocus(1) + Control.IsVisible(6878)">6878</onup>
+				<onup condition="Container(850).HasFocus(2) + Control.IsVisible(6888)">6888</onup>
+				<onup condition="Container(850).HasFocus(3) + Control.IsVisible(6889)">6889</onup>
+				<onup condition="Container(850).HasFocus(4) + Control.IsVisible(6896)">6896</onup>
+				<onup condition="Container(850).HasFocus(4) + Control.IsVisible(6895)">6895</onup>
+				<onup condition="Container(850).HasFocus(11) + Control.IsVisible(6902)">6902</onup>
+				<onup condition="Container(850).HasFocus(12) + Control.IsVisible(6904)">6904</onup>
+				<onup condition="Container(850).HasFocus(13) + Control.IsVisible(6906)">6906</onup>
+				<onup condition="Container(850).HasFocus(14) + Control.IsVisible(6908)">6908</onup>
+				<onup condition="Container(850).HasFocus(18) + Control.IsVisible(6912)">6912</onup>
+				<onup condition="Container(850).HasFocus(19) + Control.IsVisible(6914)">6914</onup>
+				<onup condition="Container(850).HasFocus(20) + Control.IsVisible(6916)">6916</onup>
+				<onup condition="Container(850).HasFocus(21) + Control.IsVisible(6918)">6918</onup>
+				<onup condition="Container(850).HasFocus(22) + Control.IsVisible(6920)">6920</onup>
+				<onup condition="Container(850).HasFocus(23) + Control.IsVisible(6922)">6922</onup>
+				<onup condition="Container(850).HasFocus(24) + Control.IsVisible(6924)">6924</onup>
+				<onup>555</onup>
+				<ondown condition="Control.IsVisible(110)">110</ondown>
+				<include>HomeMenuOpenCloseAnim</include>	
+				<include>HomeMenuFocusAnim</include>
+				<itemlayout width="360">
+					<control type="label">
+						<top>10</top>
+						<width>375</width>
+						<height>40</height>
+						<font>font_MainMenuNotSelect</font>
+						<textcolor>ButtonColor</textcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+						<animation effect="fade" start="100" end="30" time="650" condition="true">Conditional</animation>
+					</control>
+				</itemlayout>
+				<focusedlayout width="360">
+					<control type="label">
+						<top>5</top>
+						<width>350</width>
+						<height>55</height>
+						<font>font_MainMenu</font>
+						<textcolor>ButtonColor</textcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+					</control>					
+				</focusedlayout>	
+				<content>				
+					<item id="1">
+						<description>Videos Category</description>
+						<label>$LOCALIZE[3]</label>
+						<onclick>ActivateWindow(Videos,Return)</onclick>
+					</item>
+					<item id="2">
+						<description>Movies Category</description>
+						<label>$LOCALIZE[342]</label>
+						<onclick>Skin.SetString(MyLetter,News)</onclick>
+	        			<onclick>ActivateWindow(Videos,videodb://4/, return)</onclick>
+	        			<onclick>ActivateWindow(Videos,videodb://recentlyaddedmovies/, return)</onclick>
+						<visible>Library.HasContent(Movies)</visible>
+					</item>					
+					<item id="3">
+						<description>TV Shows Category</description>
+						<label>$LOCALIZE[20343]</label>
+						<onclick>Skin.Reset(SkinAnimeType)</onclick>
+						<onclick>Skin.SetString(MyLetter,-)</onclick>  
+						<onclick condition="!Skin.HasSetting(UseAnimes)">ActivateWindow(Videos,TVShowTitles,Return)</onclick>
+						<onclick condition="Skin.HasSetting(UseAnimes)">ActivateWindow(Videos,special://skin/extras/playlists/series/All.xsp,return)</onclick>
+						<visible>Library.HasContent(TVShows)</visible>
+					</item>
+					<item id="4">
+						<description>Anime Category</description>
+						<label>$INFO[Skin.String(AnimeName)]</label>
+						<onclick>Skin.SetBool(SkinAnimeType)</onclick>
+						<onclick>Skin.SetString(MyLetter,-)</onclick>  
+						<onclick>ActivateWindow(Videos,special://skin/extras/playlists/animes/All.xsp,return)</onclick>
+						<visible>Library.HasContent(TVShows) + Skin.HasSetting(UseAnimes)</visible>
+					</item>		
+					<item id="6">
+						<description>Youtube Category</description>
+						<label>Youtube</label>
+						<onclick>ActivateWindow(video,plugin://plugin.video.youtube/?login=false&path=%2froot%2fexplore, return)</onclick>
+						<visible>System.HasAddon(plugin.video.youtube)</visible>
+					</item>
+					<item id="7">
+						<description>Programs Category</description>
+						<label>$LOCALIZE[0]</label>
+						<onclick>ActivateWindow(1116)</onclick>
+					</item>		
+					<item id="15">
+						<description>General Category</description>
+						<label>$LOCALIZE[128]</label>
+						<onclick>ActivateWindow(Filemanager)</onclick>
+					</item>	
+					<item id="16">
+						<description>System Category</description>
+						<label>$LOCALIZE[13000]</label>
+						<onclick>ActivateWindow(AppearanceSettings)</onclick> 
+					</item>			
+					<item id="25">
+						<description>Power Category</description>
+						<label>$LOCALIZE[33060]</label>
+						<onclick>ActivateWindow(ShutdownMenu)</onclick>
+					</item>				
+				</content>						
+			</control>
+			
+			<control type="group">
+				<depth>DepthHomeMenuCategoryFocus</depth>				
+				<control type="image">
+					<include>HomeCategoryFocusImage</include>
+				</control>
+			</control>
+		</control>
+	</include>
+
+	<include name="HomeCategoryIcons">
+		<control type="group">		
+			<left>512</left>
+			<top>315</top>		
+			<visible>!Window.IsActive(PlayerControls) + !Window.IsActive(ShutdownMenu) + !Window.IsActive(NumericInput)</visible>
+			
+
+			<control type="image">
+				<description>Videos Icon</description>
+				<include>HomeMenuIconDim</include>
+				<texture>home/videos-icon.png</texture>
+				<aspectratio>keep</aspectratio>
+				<visible>Container(850).HasFocus(1)</visible>
+				<include>HomeMenuIconAnim</include>
+			</control>
+
+			<control type="image">
+				<description>Movies Icon</description>
+				<include>HomeMenuIconDim</include>
+				<texture>home/movies-icon.png</texture>
+				<aspectratio>keep</aspectratio>
+				<visible>[![[!String.IsEmpty(Container(6888).ListItem.Art(fanart)) + Control.HasFocus(6888)] | [!String.IsEmpty(Container(6883).ListItem.Art(fanart)) + Control.HasFocus(6883)] | [!String.IsEmpty(Container(6884).ListItem.Art(fanart)) + Control.HasFocus(6884)]] + Container(850).HasFocus(2)] + !Container(110).HasFocus(2)</visible>
+				<include>HomeMenuIconAnim</include>
+			</control>	
+
+			<control type="image">
+				<description>TV Shows Icon</description>
+				<include>HomeMenuIconDim</include>
+				<texture>home/tvshows-icon.png</texture>
+				<aspectratio>keep</aspectratio>
+				<visible>![[!String.IsEmpty(Container(6889).ListItem.Art(fanart)) + Control.HasFocus(6889)] | [!String.IsEmpty(Container(6887).ListItem.Art(fanart)) + Control.HasFocus(6887)]] + Container(850).HasFocus(3)</visible>
+				<include>HomeMenuIconAnim</include>
+			</control>
+
+			<control type="image">
+				<description>Animes Icon</description>
+				<include>HomeMenuIconDim</include>
+				<texture>home/animes-icon.png</texture>
+				<aspectratio>keep</aspectratio>
+				<visible>![[!String.IsEmpty(Container(6895).ListItem.Art(fanart)) + Control.HasFocus(6895)] | [!String.IsEmpty(Container(6896).ListItem.Art(fanart)) + Control.HasFocus(6896)]] + Container(850).HasFocus(4)</visible>
+				<include>HomeMenuIconAnim</include>
+			</control>		
+
+			<control type="image">
+				<description>Youtube Icon</description>
+				<include>HomeMenuIconDim</include>
+				<texture>home/youtube-icon.png</texture>
+				<aspectratio>keep</aspectratio>
+				<visible>Container(850).HasFocus(6)</visible>
+				<include>HomeMenuIconAnim</include>
+			</control>
+
+			<control type="image">
+				<description>Programs Icon</description>
+				<include>HomeMenuIconDim</include>
+				<texture>home/programs-icon.png</texture>
+				<aspectratio>keep</aspectratio>
+				<visible>Container(850).HasFocus(7)</visible>
+				<include>HomeMenuIconAnim</include>
+			</control>
+
+			<control type="image">
+				<description>Pictures Icon</description>
+				<include>HomeMenuIconDim</include>
+				<texture>home/pictures-icon.png</texture>
+				<aspectratio>keep</aspectratio>
+				<visible>Container(850).HasFocus(8)</visible>
+				<include>HomeMenuIconAnim</include>
+			</control>
+
+			<control type="image">
+				<description>General Icon</description>
+				<include>HomeMenuIconDim</include>
+				<texture>home/general-icon.png</texture>
+				<aspectratio>keep</aspectratio>
+				<visible>Container(850).HasFocus(15)</visible>
+				<include>HomeMenuIconAnim</include>
+			</control>
+
+			<control type="image">
+				<description>System Icon</description>
+				<include>HomeMenuIconDim</include>
+				<texture>home/system-icon.png</texture>
+				<aspectratio>keep</aspectratio>
+				<visible>Container(850).HasFocus(16)</visible>
+				<include>HomeMenuIconAnim</include>
+			</control>
+			
+			<control type="image">
+				<description>Power Icon</description>
+				<include>HomeMenuIconDim</include>
+				<texture>home/power-icon.png</texture>
+				<aspectratio>keep</aspectratio>
+				<visible>Container(850).HasFocus(25)</visible>
+				<include>HomeMenuIconAnim</include>
+			</control>
+		</control>
+	</include>
+
+	<include name="HomeSubMenus">
+		<control type="group" id="851">
+			<visible>Skin.HasSetting(ShowShortcuts)</visible>
+			<top>85</top>
+			<animation effect="fade" start="100" end="40" time="400" condition="!ControlGroup(851).HasFocus">Conditional</animation>
+
+			<!-- Films --> 
+			<control type="list" id="110">
+				<description>Movies Menu Bar</description>
+				<left>35</left>
+				<width>1210</width>
+				<height>34</height>
+				<onup>850</onup>
+				<ondown>850</ondown>
+				<orientation>horizontal</orientation>
+				<visible>Container(850).HasFocus(2) + Library.HasContent(Movies)</visible>
+				<include>HomeSubMenuItemOpenCloseAnim</include>
+				<include content="WidgetSubMenutList">
+					<param name="content_all" value="ActivateWindow(Videos,videodb://movies/titles/, return)"/>
+					<param name="content_path" value="ActivateWindow(Videos,special://skin/extras/playlists/videos/"/>
+					<param name="widthNoFocus" value="36"/>
+					<param name="heightNoFocus" value="28"/>
+					<param name="widthFocus" value="52"/>
+					<param name="heightFocus" value="42"/>
+					<param name="itemWidth" value="40"/>
+					<param name="itemWidthFocus" value="50"/>
+					<param name="itemDecalageTopFocus" value="-10"/>
+					<param name="fontNoFocus" value="AlphabetNoFocus"/>
+					<param name="fontFocus" value="AlphabetFocus"/>
+				</include>						
+			</control>
+			<!-- Series -->
+			<control type="list" id="110">
+				<description>Series Menu Bar</description>
+				<left>90</left>
+				<width>1100</width>
+				<height>34</height>
+				<onup>850</onup>
+				<ondown>850</ondown>
+				<orientation>horizontal</orientation>
+				<visible>Container(850).HasFocus(3) + Library.HasContent(tvshows)</visible>
+				<include>HomeSubMenuItemOpenCloseAnim</include>
+				<include condition="!Skin.HasSetting(UseAnimes)" content="WidgetSubMenutList">
+					<param name="content_all" value="ActivateWindow(Videos,special://skin/extras/playlists/series/All.xsp,return)"/>
+					<param name="content_path" value="ActivateWindow(Videos,special://skin/extras/playlists/series/"/>
+					<param name="widthNoFocus" value="36"/>
+					<param name="heightNoFocus" value="28"/>
+					<param name="widthFocus" value="52"/>
+					<param name="heightFocus" value="42"/>
+					<param name="itemWidth" value="40"/>
+					<param name="itemWidthFocus" value="50"/>
+					<param name="itemDecalageTopFocus" value="-10"/>
+					<param name="fontNoFocus" value="AlphabetNoFocus"/>
+					<param name="fontFocus" value="AlphabetFocus"/>
+				</include>	
+				<include condition="Skin.HasSetting(UseAnimes)" content="WidgetSubMenutList">
+					<param name="content_all" value="ActivateWindow(Videos,special://skin/extras/playlists/animes/series/All.xsp,return)"/>
+					<param name="content_path" value="ActivateWindow(Videos,special://skin/extras/playlists/animes/series/"/>
+					<param name="widthNoFocus" value="36"/>
+					<param name="heightNoFocus" value="28"/>
+					<param name="widthFocus" value="52"/>
+					<param name="heightFocus" value="42"/>
+					<param name="itemWidth" value="40"/>
+					<param name="itemWidthFocus" value="50"/>
+					<param name="itemDecalageTopFocus" value="-10"/>
+					<param name="fontNoFocus" value="AlphabetNoFocus"/>
+					<param name="fontFocus" value="AlphabetFocus"/>
+				</include>            
+	      	</control>
+	      	<!-- Animes -->
+			<control type="list" id="110">
+				<description>Movies Menu Bar</description>
+				<left>90</left>
+				<width>1100</width>
+				<height>34</height>
+				<onup>850</onup>
+				<ondown>850</ondown>
+				<orientation>horizontal</orientation>
+				<visible>Container(850).HasFocus(4) + Library.HasContent(tvshows)</visible>
+				<include>HomeSubMenuItemOpenCloseAnim</include>
+				<include content="WidgetSubMenutList">
+					<param name="content_all" value="ActivateWindow(Videos,special://skin/extras/playlists/animes/All.xsp,return)"/>
+					<param name="content_path" value="ActivateWindow(Videos,special://skin/extras/playlists/animes/"/>
+					<param name="widthNoFocus" value="36"/>
+					<param name="heightNoFocus" value="28"/>
+					<param name="widthFocus" value="52"/>
+					<param name="heightFocus" value="42"/>
+					<param name="itemWidth" value="40"/>
+					<param name="itemWidthFocus" value="50"/>
+					<param name="itemDecalageTopFocus" value="-10"/>
+					<param name="fontNoFocus" value="AlphabetNoFocus"/>
+					<param name="fontFocus" value="AlphabetFocus"/>
+				</include>           
+			</control>
+		</control>
+	</include>
+
+	<include name="HomeSystemSubMenus">
+		<control type="group" id="852">
+			<top>85</top>
+			<animation effect="fade" start="100" end="40" time="400" condition="!ControlGroup(852).HasFocus">Conditional</animation>
+			<!-- Général -->
+			<control type="list" id="110">
+				<description>General Menu Bar</description>
+				<left>10</left>
+				<width>1260</width>
+				<height>34</height>
+				<onup>850</onup>
+				<ondown>850</ondown>
+				<orientation>horizontal</orientation>
+				<visible>Container(850).HasFocus(15)</visible>
+				<include>HomeSubMenuItemOpenCloseAnim</include>
+				<include>HomeSubMenuItemsCenterAlignAnim</include>
+				<include>HomeSubMenuItemLayout</include>
+				<content>
+					<item id="1">
+						<description>Favourites</description>
+						<label>$LOCALIZE[1036]</label>
+						<onclick>ActivateWindow(Favourites)</onclick>
+					</item>
+					<item id="2">
+						<description>Filemanager</description>
+						<label>$LOCALIZE[10003]</label>
+						<onclick>ActivateWindow(Filemanager)</onclick>
+					</item>
+					<item id="3">
+						<description>Search</description>
+						<label>$LOCALIZE[137]</label>
+						<onclick condition="System.hasAddon(script.globalsearch)">Dialog.Close(1101)</onclick>
+						<onclick condition="System.hasAddon(script.globalsearch)">RunScript(script.globalsearch)</onclick>
+						<onclick condition="!System.hasAddon(script.globalsearch)">InstallAddon(script.globalsearch)</onclick>
+					</item>
+				</content>						
+			</control>
+			<!-- System -->
+			<control type="list" id="110">
+				<description>System Menu Bar</description>
+				<left>10</left>
+				<width>1260</width>
+				<height>34</height>
+				<onup>850</onup>
+				<ondown>850</ondown>
+				<orientation>horizontal</orientation>
+				<visible>Container(850).HasFocus(16)</visible>
+				<include>HomeSubMenuItemOpenCloseAnim</include>
+				<include>HomeSubMenuItemsCenterAlignAnim</include>
+				<include>HomeSubMenuItemLayout</include>
+				<content>
+					<item id="1">
+						<description>OpenELEC / LibreELEC Settings</description>
+						<label>$VAR[RaspberryPiLabel]</label>
+						<onclick condition="System.HasAddon(service.openelec.settings)">RunAddon(service.openelec.settings)</onclick>
+						<onclick condition="System.HasAddon(service.libreelec.settings)">RunAddon(service.libreelec.settings)</onclick>
+						<visible> [[System.HasAddon(service.openelec.settings) | System.HasAddon(service.libreelec.settings)] + System.Platform.Linux.RaspberryPi]</visible>
+					</item>
+					<item id="2">
+						<description>Add-ons</description>
+						<label>$LOCALIZE[24001]</label>
+						<onclick>ActivateWindow(AddonBrowser)</onclick>
+					</item>
+					<item id="3">
+						<description>System Info</description>
+						<label>$LOCALIZE[130]</label>
+						<onclick>ActivateWindow(SystemInfo)</onclick>
+					</item>
+				</content>						
+			</control>
+			<!-- Power -->
+			<control type="list" id="110">
+				<description>Power Menu Bar</description>
+				<left>10</left>
+				<width>1260</width>
+				<height>34</height>
+				<onup>850</onup>
+				<ondown>850</ondown>
+				<orientation>horizontal</orientation>
+				<visible>Container(850).HasFocus(25)</visible>
+				<include>HomeSubMenuItemOpenCloseAnim</include>
+				<include>HomeSubMenuItemsCenterAlignAnim</include>
+				<include>HomeSubMenuItemLayout</include>
+				<content>
+					<item id="1">
+						<description>Quit Kodi</description>
+						<label>$LOCALIZE[13012]</label>
+						<onclick>Quit()</onclick>
+					</item>
+					<item id="2">
+						<description>Restart Kodi</description>
+						<label>$LOCALIZE[13013]</label>
+						<onclick>RestartApp()</onclick>		
+					</item>
+					<item id="3">
+						<description>Shutdown</description>
+						<label>$LOCALIZE[13016]</label>
+						<onclick>Powerdown()</onclick>
+						<visible>System.CanPowerDown</visible>
+					</item>
+					<item id="4">
+						<description>Reboot</description>
+						<label>$LOCALIZE[13013]</label>
+						<onclick>Reset()</onclick>
+						<visible>System.CanReboot</visible>	
+					</item>
+				</content>						
+			</control>
+		</control>
+	</include>
+
+	<include name="NowPlayingPanel">
+		<control type="group">
+			<visible>Player.HasMedia</visible>
+
+			<control type="group">	
+				<left>5</left>
+				<top>105</top>
+				<visible>Player.HasVideo + !Window.IsActive(PlayerControls) + !Window.IsActive(ShutdownMenu) + !Window.IsActive(NumericInput)</visible>
+				<include>HomeLeftPanelOpenCloseAnim</include>
+
+				<control type="image">
+					<width>490</width>
+					<height>164</height>
+					<texture border="8">panels/panel.png</texture>
+				</control>
+
+				<control type="group">
+					<visible>VideoPlayer.Content(Movies)</visible>
+
+					<control type="image">
+						<description>Cover</description>
+						<left>15</left>
+						<top>15</top>
+						<width>98</width>
+						<height>134</height>
+						<texture diffuse="covers/home-panel-diffuse.png" background="true">$INFO[VideoPlayer.cover]</texture>
+						<aspectratio>stretch</aspectratio>
+					</control>
+
+					<control type="label">
+						<description>Title</description>
+						<left>125</left>
+						<top>9</top>
+						<width>350</width>
+						<font>PanelTitleFont</font>
+						<textcolor>MediaInfoTitleColor</textcolor>
+						<shadowcolor>ShadowColor</shadowcolor>
+						<label>[UPPERCASE]$LOCALIZE[13350][/UPPERCASE]</label>
+					</control>
+
+					<control type="grouplist">
+						<left>125</left>
+						<top>47</top>
+						<itemgap>10</itemgap>
+						<usecontrolcoords>true</usecontrolcoords>
+						<control type="label">
+							<description>Movie Title/Year</description>
+							<width>350</width>
+							<height>12</height>
+							<font>PanelInfoHeadFont</font>
+							<textcolor>WhiteColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$INFO[VideoPlayer.Title] $INFO[VideoPlayer.Year,(,)]</label>
+							<scroll>true</scroll>
+						</control>
+						<control type="label">
+							<description>Elapsed/Duration Time</description>
+							<top>5</top>
+							<width>350</width>
+							<height>12</height>
+							<font>PanelInfoHeadFont</font>
+							<textcolor>WhiteColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<aligny>center</aligny>
+							<label>[COLOR=GreyColor]$INFO[Player.Time][/COLOR] / $INFO[Player.Duration]</label>
+							<visible>!Player.Seeking</visible>
+						</control>
+						<control type="label">
+							<description>Genre</description>
+							<top>9</top>
+							<width>350</width>
+							<height>12</height>
+							<font>PanelInfoFont</font>
+							<textcolor>MediaInfoItemColor2</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$INFO[VideoPlayer.Genre]</label>
+							<scroll>true</scroll>
+						</control>
+						<control type="label">
+							<description>Studio</description>
+							<width>350</width>
+							<height>12</height>
+							<font>PanelInfoFont</font>
+							<textcolor>MediaInfoItemColor2</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$INFO[VideoPlayer.Studio]</label>
+							<scroll>true</scroll>
+						</control>
+					</control>
+				</control>
+
+				<control type="group">
+					<visible>VideoPlayer.Content(LiveTV)</visible>
+					<control type="image">
+						<description>Cover</description>
+						<left>15</left>
+						<top>27</top>
+						<width>176</width>
+						<height>110</height>
+						<texture diffuse="covers/home-panel-diffuse.png" background="true" fallback="DefaultVideo.png">$INFO[VideoPlayer.Cover]</texture>
+						<bordersize>4</bordersize>
+						<aspectratio>keep</aspectratio>
+					</control>
+					<control type="label">
+						<description>Title</description>
+						<left>203</left>
+						<top>9</top>
+						<width>272</width>
+						<font>PanelTitleFont</font>
+						<textcolor>MediaInfoTitleColor</textcolor>
+						<shadowcolor>ShadowColor</shadowcolor>
+						<label>[UPPERCASE]$LOCALIZE[13350][/UPPERCASE]</label>
+					</control>
+					<control type="grouplist">
+						<left>203</left>
+						<top>47</top>
+						<itemgap>10</itemgap>
+						<usecontrolcoords>true</usecontrolcoords>
+						<control type="label">
+							<description>Video Title</description>
+							<width>272</width>
+							<height>12</height>
+							<font>PanelInfoHeadFont</font>
+							<textcolor>WhiteColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$INFO[VideoPlayer.Title]</label>
+							<scroll>true</scroll>
+						</control>
+						<control type="label">
+							<description>Elapsed/Duration Time</description>
+							<top>5</top>
+							<width>272</width>
+							<height>12</height>
+							<font>PanelInfoHeadFont</font>
+							<textcolor>WhiteColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<aligny>center</aligny>
+							<label>[COLOR=GreyColor]$INFO[Player.Time][/COLOR] / $INFO[Player.Duration]</label>
+							<visible>!Player.Seeking</visible>
+						</control>
+						<control type="label">
+							<description>Show/Year</description>
+							<top>9</top>
+							<width>272</width>
+							<height>12</height>
+							<font>PanelInfoFont</font>
+							<textcolor>MediaInfoItemColor2</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$INFO[VideoPlayer.ChannelName]</label>
+							<scroll>true</scroll>
+						</control>
+					</control>
+				</control>
+
+				<control type="group">
+					<visible>VideoPlayer.Content(Episodes) | [!VideoPlayer.Content(Movies) + !VideoPlayer.Content(LiveTV)]</visible>
+
+					<control type="image">
+						<description>Cover</description>
+						<left>15</left>
+						<top>27</top>
+						<width>176</width>
+						<height>110</height>
+						<texture diffuse="covers/home-panel-diffuse.png" background="true">$INFO[VideoPlayer.cover]</texture>
+						<bordersize>4</bordersize>
+						<aspectratio>keep</aspectratio>
+					</control>
+
+					<control type="label">
+						<description>Title</description>
+						<left>203</left>
+						<top>9</top>
+						<width>272</width>
+						<font>PanelTitleFont</font>
+						<textcolor>MediaInfoTitleColor</textcolor>
+						<shadowcolor>ShadowColor</shadowcolor>
+						<label>[UPPERCASE]$LOCALIZE[13350][/UPPERCASE]</label>
+					</control>
+
+					<control type="grouplist">
+						<left>203</left>
+						<top>47</top>
+						<itemgap>10</itemgap>
+						<usecontrolcoords>true</usecontrolcoords>
+						<control type="label">
+							<description>Video Title</description>
+							<width>272</width>
+							<height>12</height>
+							<font>PanelInfoHeadFont</font>
+							<textcolor>WhiteColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$INFO[VideoPlayer.Title]</label>
+							<scroll>true</scroll>
+						</control>
+						<control type="label">
+							<description>Elapsed/Duration Time</description>
+							<top>5</top>
+							<width>272</width>
+							<height>12</height>
+							<font>PanelInfoHeadFont</font>
+							<textcolor>WhiteColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<aligny>center</aligny>
+							<label>[COLOR=GreyColor]$INFO[Player.Time][/COLOR] / $INFO[Player.Duration]</label>
+							<visible>!Player.Seeking</visible>
+						</control>	
+						<control type="label">
+							<description>Show/Year</description>
+							<top>9</top>
+							<width>272</width>
+							<height>12</height>
+							<font>PanelInfoFont</font>
+							<textcolor>MediaInfoItemColor2</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$INFO[VideoPlayer.TVShowTitle] $INFO[VideoPlayer.Year,(,)]</label>
+							<scroll>true</scroll>
+						</control>
+						<control type="label">
+							<description>Season/Episode</description>
+							<width>272</width>
+							<height>12</height>
+							<font>PanelInfoFont</font>
+							<textcolor>MediaInfoItemColor2</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$INFO[VideoPlayer.Season,$LOCALIZE[20373] ,] - $INFO[VideoPlayer.Episode,$LOCALIZE[20359] ,]</label>
+							<scroll>true</scroll>
+						</control>
+					</control>
+				</control>
+			</control>
+
+		</control>
+	</include>
+
+	<include name="HomePanelFanart">
+		<control type="group">
+			<visible>[!String.IsEmpty(Container(6882).ListItem.Thumb) + Control.HasFocus(6882)] |
+			[!String.IsEmpty(Container(6887).ListItem.Art(tvshow.fanart)) + Control.HasFocus(6887)] |
+			[!String.IsEmpty(Container(6888).ListItem.Art(fanart)) + Control.HasFocus(6888)] |
+			[!String.IsEmpty(Container(6889).ListItem.Art(fanart)) + Control.HasFocus(6889)] |
+			[!String.IsEmpty(Container(6895).ListItem.Art(tvshow.fanart)) + Control.HasFocus(6895)] |
+			[!String.IsEmpty(Container(6896).ListItem.Art(fanart)) + Control.HasFocus(6896)] |
+			[!String.IsEmpty(Container(6893).ListItem.Art(fanart)) + Control.HasFocus(6893)] |
+			[!String.IsEmpty(Container(6884).ListItem.Art(fanart)) + Control.HasFocus(6884)] |
+			[!String.IsEmpty(Container(6883).ListItem.Art(fanart)) + Control.HasFocus(6883)] |
+			[!String.IsEmpty(Container(6875).ListItem.Art(fanart)) + Control.HasFocus(6875)] |
+			[!String.IsEmpty(Container(6886).ListItem.Art(fanart)) + Control.HasFocus(6886)] |
+			[!String.IsEmpty(Container(6878).ListItem.Art(fanart)) + Control.HasFocus(6878)] |
+			[!String.IsEmpty(Container(6880).ListItem.Art(fanart)) + Control.HasFocus(6880)] </visible>
+			<depth>DepthBackground</depth>
+			<include>RecentlyAddedFanartOpenCloseAnim</include>
+
+			<control type="multiimage">
+				<description>Fanart</description>
+				<include>BackgroundSize</include>
+				<imagepath background="true">$VAR[HomePanelFanart]</imagepath>
+				<aspectratio aligny="top">scale</aspectratio>
+				<timeperimage>10000</timeperimage>
+				<fadetime>BackgroundCrossfadeTime</fadetime>
+				<randomize>true</randomize>
+				<animation effect="fade" start="0" end="100" time="600">VisibleChange</animation>
+			</control>
+		</control>
+	</include>
+
+	<variable name="HomePanelFanart">
+		<value condition="!String.IsEmpty(Container(6882).ListItem.Thumb) + Control.HasFocus(6882)">$INFO[Container(6882).ListItem.Thumb]</value>
+		<value condition="!String.IsEmpty(Container(6887).ListItem.Art(tvshow.fanart)) + Control.HasFocus(6887)">$INFO[Container(6887).ListItem.Art(tvshow.fanart)]</value>
+		<value condition="!String.IsEmpty(Container(6884).ListItem.Art(fanart)) + Control.HasFocus(6884)">$INFO[Container(6884).ListItem.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(6888).ListItem.Art(fanart)) + Control.HasFocus(6888)">$INFO[Container(6888).ListItem.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(6889).ListItem.Art(fanart)) + Control.HasFocus(6889)">$INFO[Container(6889).ListItem.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(6895).ListItem.Art(tvshow.fanart)) + Control.HasFocus(6895)">$INFO[Container(6895).ListItem.Art(tvshow.fanart)]</value>
+		<value condition="!String.IsEmpty(Container(6896).ListItem.Art(fanart)) + Control.HasFocus(6896)">$INFO[Container(6896).ListItem.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(6893).ListItem.Art(fanart)) + Control.HasFocus(6893)">$INFO[Container(6893).ListItem.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(6883).ListItem.Art(fanart)) + Control.HasFocus(6883)">$INFO[Container(6883).ListItem.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(6875).ListItem.Art(fanart)) + Control.HasFocus(6875)">$INFO[Container(6875).ListItem.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(6886).ListItem.Art(fanart)) + Control.HasFocus(6886)">$INFO[Container(6886).ListItem.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(6878).ListItem.Art(fanart)) + Control.HasFocus(6878)">$INFO[Container(6878).ListItem.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(6880).ListItem.Art(fanart)) + Control.HasFocus(6880)">$INFO[Container(6880).ListItem.Art(fanart)]</value>
+	</variable>
+
+	<variable name="SeasonEpisodesWidgetNumberVar">
+		<value condition="Container(850).HasFocus(3)
+						  + Integer.IsLessOrEqual(Container(6887).ListItem.Season,9)
+						  + Integer.IsLessOrEqual(Container(6887).ListItem.Episode,9)">$INFO[Container(6887).ListItem.Season,$LOCALIZE[20373] 0,]$INFO[Container(6887).ListItem.Episode, $LOCALIZE[20452] 0,]</value> 
+		<value condition="Container(850).HasFocus(3) 
+						  + Integer.IsLessOrEqual(ListItem.Season,9)">$INFO[Container(6887).ListItem.Season,$LOCALIZE[20373] 0,]$INFO[Container(6887).ListItem.Episode, $LOCALIZE[20452] ,]</value> 
+		<value condition="Container(850).HasFocus(3)
+						  + Integer.IsLessOrEqual(ListItem.Episode,9)">$INFO[Container(6887).ListItem.Season,$LOCALIZE[20373] ,]$INFOContainer(6887).ListItem.Episode, $LOCALIZE[20452] 0,]</value> 
+		<value condition="Container(850).HasFocus(3)">$INFO[Container(6887).ListItem.Season,S,]$INFO[Container(6887).ListItem.Episode, $LOCALIZE[20452] ,]</value>
+		<value condition="Container(850).HasFocus(4)
+						  + Integer.IsLessOrEqual(Container(6895).ListItem.Season,9)
+						  + Integer.IsLessOrEqual(Container(6895).ListItem.Episode,9)">$INFO[Container(6895).ListItem.Season,$LOCALIZE[20373] 0,]$INFO[Container(6895).ListItem.Episode, $LOCALIZE[20452] 0,]</value> 
+		<value condition="Container(850).HasFocus(4)
+						  + Integer.IsLessOrEqual(ListItem.Season,9)">$INFO[Container(6895).ListItem.Season,$LOCALIZE[20373] 0,]$INFO[Container(6895).ListItem.Episode, $LOCALIZE[20452] ,]</value> 
+		<value condition="Container(850).HasFocus(4)
+						  + Integer.IsLessOrEqual(ListItem.Episode,9)">$INFO[Container(6895).ListItem.Season,$LOCALIZE[20373] ,]$INFOContainer(6895).ListItem.Episode, $LOCALIZE[20452] 0,]</value> 
+		<value condition="Container(850).HasFocus(4)">$INFO[Container(6895).ListItem.Season,$LOCALIZE[20373] ,]$INFO[Container(6895).ListItem.Episode,E,]</value>
+	</variable>
+
+	<include name="RecentlyAddedPanel">
+		<!-- 6888 Recently Added Films -->
+		<control type="group">
+			<visible>Container(850).HasFocus(2)				
+					 + Library.HasContent(Movies)
+					 + !Window.IsActive(PlayerControls)
+					 + !Window.IsActive(ShutdownMenu)
+					 + !Window.IsActive(NumericInput)</visible>
+			<include>HomeRightPanelOpenCloseAnim</include>			
+			<control type="group">
+				<left>510r</left>
+				<top>105</top>
+
+				<control type="image">
+					<width>505</width>
+					<height>260</height>
+					<texture border="8">panels/panel.png</texture>
+				</control>
+
+				<control type="image">
+					<description>IMDB Image</description>
+					<left>70r</left>
+					<top>234</top>
+					<height>25</height>
+					<width>25</width>
+					<texture background="true">overlays/imdb.png</texture>
+					<visible> !String.IsEmpty(Container(6888).ListItem.Rating)</visible>	
+				</control>
+
+				<control type="label">
+					<description>Rating</description>
+					<left>40r</left>
+					<top>235</top>
+					<width>35</width>
+					<font>PanelInfoFont</font>
+					<textcolor>MediaInfoTitleColor</textcolor>
+					<shadowcolor>ShadowColor</shadowcolor>
+					<label>$INFO[Container(6888).ListItem.Rating]</label>
+				</control>
+
+				<control type="group">
+					<top>45</top>
+					<left>13</left>
+					<include content="WidgetListPoster" condition="Library.HasContent(movies)">
+						<param name="title" value="$LOCALIZE[20386]"/>
+						<param name="content_path" value="special://skin/extras/playlists/HomeRecentMoviesUnwatched.xsp"/>
+						<param name="content_limit" value="30"/>
+						<param name="infos" value="$INFO[Container(6888).ListItem.Title]"/>
+						<param name="infos2" value="$INFO[Container(6888).ListItem.Genre]"/>
+						<param name="infos3" value="$INFO[Container(6888).ListItem.Year]"/>
+						<param name="widget_target" value="videos"/>
+						<param name="posX" value="235"/>
+						<param name="posY" value="105"/>
+						<param name="coverWidth" value="119"/>								
+						<param name="coverHeight" value="170"/>						
+						<param name="panelWidth" value="478"/>								
+						<param name="InfoMaxWidth" value="415"/>
+						<param name="panelHeight" value="185"/>	
+						<param name="coverBorder" value="8"/>	
+						<param name="sens" value="horizontal"/>	
+						<param name="fallback_icon" value="defaultmovies.png"/>
+						<param name="list_id" value="6888"/>
+					</include>
+				</control>			
+			</control>
+			
+			<!-- 6884 In Cinemas -->
+			<control type="group">
+				<left>5</left>
+				<top>105</top>
+
+				<include content="WidgetInCinemas" condition="System.AddonIsEnabled(plugin.video.themoviedb.helper)">
+					<param name="list_id" value="6884"/>
+					<param name="title" value="$LOCALIZE[20387]"/>
+					<param name="content_path" value="plugin://plugin.video.themoviedb.helper?info=now_playing&amp;type=movie&amp;nextpage=False<"/>
+				</include>
+			</control>
+			<control type="group">
+				<left>5</left>
+				<top>350</top>
+				<include content="WidgetInCinemas" condition="System.AddonIsEnabled(plugin.video.themoviedb.helper)">
+					<param name="list_id" value="6883"/>
+					<param name="title" value="$LOCALIZE[20387]"/>
+					<param name="content_path" value="plugin://plugin.video.themoviedb.helper?info=upcoming&amp;type=movie&amp;nextpage=False"/>
+				</include>
+			</control>
+
+
+
+
+
+
+		</control>
+		<!-- 6889 Recently Added Tv Shows -->	
+		<control type="group">
+			<visible>Container(850).HasFocus(3)				
+					 + Library.HasContent(TVShows)
+					 + !Window.IsActive(PlayerControls)
+					 + !Window.IsActive(ShutdownMenu)
+					 + !Window.IsActive(NumericInput)</visible>
+			<include>HomeRightPanelOpenCloseAnim</include>
+			<control type="group">
+				<left>510r</left>
+				<top>105</top>
+
+				<control type="image">
+					<width>505</width>
+					<height>260</height>
+					<texture border="8">panels/panel.png</texture>
+				</control>
+
+				<control type="group">
+					<top>45</top>
+					<left>13</left>					
+					<include content="WidgetListPoster" condition="Library.HasContent(tvshows)">
+						<param name="content_path" value="special://skin/extras/playlists/HomeInProgressTvShows.xsp"/>
+						<param name="content_limit" value="0"/>
+						<param name="widget_target" value="videos"/>
+						<param name="sortby" value="lastplayed"/>
+						<param name="sortorder" value="descending"/>
+						<param name="infos" value="$INFO[Container(6889).ListItem.Title]"/>
+						<param name="infos2" value="$LOCALIZE[20360] : $INFO[Container(6889).ListItem.Property(TotalEpisodes)] $LOCALIZE[20360], $LOCALIZE[16101] : $INFO[Container(6889).ListItem.Property(UnWatchedEpisodes)]"/>
+						<param name="infos3" value="$INFO[Container(6889).ListItem.Year]"/>
+						<param name="posX" value="235"/>
+						<param name="posY" value="105"/>
+						<param name="coverWidth" value="119"/>								
+						<param name="coverHeight" value="170"/>						
+						<param name="coverBorder" value="8"/>	
+						<param name="panelWidth" value="478"/>
+						<param name="InfoMaxWidth" value="415"/>
+						<param name="panelHeight" value="185"/>	
+						<param name="sens" value="horizontal"/>	
+						<param name="fallback_icon" value="defaultinprogressshows.png"/>
+						<param name="list_id" value="6889"/>
+					</include>
+				</control>			
+			</control>
+			<!-- 6887 Recently Added Episodes -->
+			<control type="group">
+				<left>5</left>
+				<top>105</top>
+				<include content="WidgetListEpisodes" condition="Library.HasContent(tvshows)">
+					<param name="list_id" value="6887"/>
+					<param name="title" value="$LOCALIZE[20387]"/>
+					<param name="content_path" value="special://skin/extras/playlists/HomeRecentEpisodesUnwatched.xsp"/>
+				</include>
+			</control>
+		</control>
+		<!-- 6896 Recently Added Mangas -->
+		<control type="group">
+			<visible>Container(850).HasFocus(4)				
+					 + Library.HasContent(TVShows)
+					 + !Window.IsActive(PlayerControls)
+					 + !Window.IsActive(ShutdownMenu)
+					 + !Window.IsActive(NumericInput)</visible>			
+			<include>HomeRightPanelOpenCloseAnim</include>
+			
+			<control type="group">
+				<left>510r</left>
+				<top>105</top>
+
+				<control type="image">
+					<width>505</width>
+					<height>270</height>
+					<texture border="8">panels/panel.png</texture>
+				</control>	
+
+				<control type="group">
+					<top>45</top>
+					<left>13</left>					
+					<include content="WidgetListPoster" condition="Library.HasContent(TVShows)">
+						<param name="content_path" value="special://skin/extras/playlists/HomeInProgressAnimes.xsp"/>
+						<param name="content_limit" value="0"/>
+						<param name="widget_target" value="videos"/>
+						<param name="sortby" value="lastplayed"/>
+						<param name="sortorder" value="descending"/>
+						<param name="infos" value="$INFO[Container(6896).ListItem.Title]"/>
+						<param name="infos2" value="$LOCALIZE[20360] : $INFO[Container(6896).ListItem.Property(TotalEpisodes)] $LOCALIZE[20360], $LOCALIZE[16101] : $INFO[Container(6896).ListItem.Property(UnWatchedEpisodes)]"/>
+						<param name="infos3" value="$INFO[Container(6896).ListItem.Year]"/>
+						<param name="decalage" value="0"/>
+						<param name="posX" value="235"/>
+						<param name="posY" value="105"/>
+						<param name="coverWidth" value="119"/>								
+						<param name="coverHeight" value="170"/>						
+						<param name="coverBorder" value="8"/>	
+						<param name="panelWidth" value="478"/>
+						<param name="InfoMaxWidth" value="415"/>
+						<param name="panelHeight" value="185"/>	
+						<param name="sens" value="horizontal"/>	
+						<param name="fallback_icon" value="defaultinprogressshows.png"/>
+						<param name="list_id" value="6896"/>
+					</include>
+				</control>			
+			</control>
+			<!-- 6895 Recently Added Episodes -->
+			<control type="group">
+				<left>5</left>
+				<top>105</top>
+				<include content="WidgetListEpisodes" condition="Library.HasContent(tvshows)">
+					<param name="list_id" value="6895"/>
+					<param name="title" value="$LOCALIZE[20387]"/>
+					<param name="content_path" value="special://skin/extras/playlists/HomeRecentAnimesEpisodesUnwatched.xsp"/>
+				</include>
+			</control>
+		</control>
+	</include>	
+
+	<include name="VideosHomeWidget">
+		<control type="group">
+			<visible>Container(850).HasFocus(1)
+					 + !Window.IsActive(PlayerControls)
+					 + !Window.IsActive(ShutdownMenu)
+					 + !Window.IsActive(NumericInput)</visible>
+
+			<include>HomeRightPanelOpenCloseAnim</include>
+			
+			<control type="group">
+				<control type="group">
+					<left>490r</left>
+					<top>105</top>
+
+					<control type="image">
+						<width>490</width>
+						<height>164</height>
+						<texture border="8">panels/panel.png</texture>
+					</control>
+
+					<include content="BusyListSpinner">
+						<param name="list_id" value="6874"/>
+						<param name="posx" value="245"/>								
+						<param name="posy" value="80"/>
+					</include>
+
+					<control type="multiimage">
+						<description>Cover</description>
+						<left>341</left>
+						<top>15</top>
+						<width>134</width>
+						<height>134</height>
+						<imagepath diffuse="covers/home-panel-diffuse.png" background="true">$INFO[Container(6874).ListItem.Icon]</imagepath>
+						<aspectratio>keep</aspectratio>
+						<fadetime>IconCrossfadeTime</fadetime>
+					</control>
+
+					<control type="label">
+						<description>Title</description>
+						<left>15</left>
+						<top>9</top>
+						<width>368</width>
+						<font>PanelTitleFont</font>
+						<textcolor>MediaInfoTitleColor</textcolor>
+						<shadowcolor>ShadowColor</shadowcolor>
+						<label>[UPPERCASE]$LOCALIZE[24005][/UPPERCASE]</label>
+					</control>
+
+					<control type="list" id="6874">
+						<top>35</top>
+						<width>329</width>
+						<height>125</height>
+						<scrolltime>200</scrolltime>						
+						<onup>6888</onup>
+						<ondown>850</ondown>
+						<onleft condition="Control.IsVisible(6878)">6878</onleft>
+						<onleft>850</onleft>
+						<onright>850</onright>
+						<include>ContainerPosition1</include>
+						<visible>Integer.IsGreater(Container(6874).NumItems,0) | Container(6874).IsUpdating</visible>
+						<itemlayout height="24">
+							<control type="label">
+								<width>309</width>
+								<include>PanelItemlayoutLabel</include>
+								<label>$INFO[ListItem.Label]</label>
+							</control>
+						</itemlayout>
+						<focusedlayout height="24">
+							<control type="image">
+								<left>10</left>
+								<width>319</width>
+								<height>24</height>
+								<texture border="4">views/list-focus.png</texture>
+								<aspectratio>stretch</aspectratio>
+								<visible>Control.HasFocus(6874)</visible>
+								<include content="AnimationFocusedLayout">
+									<param name="list_id" value="6874"/>
+								</include>
+								<include>ListViewSelectFadeAnim</include>
+							</control>
+							<control type="label">
+								<width>309</width>
+								<include>PanelFocusedlayoutLabel</include>
+								<label>$INFO[ListItem.Label]</label>
+							</control>
+						</focusedlayout>
+						<content target="videos">sources://video/</content>
+					</control>
+				</control>
+			</control>
+		</control>
+	</include>
+	
+	<include name="AddonsWidget">
+		<control type="group">
+			<visible>Container(850).HasFocus(1)</visible>
+			<visible>!Window.IsActive(PlayerControls) + !Window.IsActive(ShutdownMenu) + !Window.IsActive(NumericInput)</visible>
+			<include>HomeRightPanelOpenCloseAnim</include>
+			
+			<control type="group">
+				<animation type="Conditional" reversible="false" condition="Integer.IsGreater(Container(6880).NumItems,0)">
+					<effect type="fade" end="100" time="250"/>
+					<effect type="slide" start="100,0" time="300" tween="circle" easing="out"/>
+				</animation>
+				
+				<animation type="Conditional" reversible="false" condition="String.IsEqual(Container(6880).NumItems,0)">
+					<effect type="fade" end="0" time="250"/>
+					<effect type="slide" end="100,0" time="300" tween="circle" easing="out"/>
+				</animation>
+
+				<control type="group">
+					<left>5</left>
+					<top>105</top>
+
+					<control type="image">
+						<width>490</width>
+						<height>164</height>
+						<texture border="8">panels/panel.png</texture>
+					</control>
+					
+					<control type="multiimage">
+						<description>Cover</description>
+						<left>341</left>
+						<top>15</top>
+						<width>134</width>
+						<height>134</height>
+						<imagepath diffuse="covers/home-panel-diffuse.png" background="true">$INFO[Container(6880).ListItem.Art(thumb)]</imagepath>
+						<aspectratio>stretch</aspectratio>
+						<fadetime>IconCrossfadeTime</fadetime>
+					</control>
+
+					<control type="label">
+						<description>Title</description>
+						<left>15</left>
+						<top>9</top>
+						<width>338</width>
+						<font>PanelTitleFont</font>
+						<textcolor>MediaInfoTitleColor</textcolor>
+						<shadowcolor>ShadowColor</shadowcolor>
+						<label>[UPPERCASE]$LOCALIZE[1037][/UPPERCASE]</label>
+					</control>
+
+					<control type="list" id="6880">
+						<top>33</top>
+						<width>383</width>
+						<height>96</height>
+						<scrolltime>200</scrolltime>
+						<onup>555</onup>
+						<ondown>6880</ondown>
+						<onright condition="Control.IsVisible(6878)">6878</onright>
+						<onleft>850</onleft>
+						<onright>850</onright>
+						<include>ContainerPosition1</include>
+						<visible>[Integer.IsGreater(Container(6880).NumItems,0) | Container(6880).IsUpdating]</visible>
+						<itemlayout height="24">
+							<control type="label">
+								<width>309</width>
+								<include>PanelItemlayoutLabel</include>
+								<label>$INFO[ListItem.Label]</label>
+							</control>
+						</itemlayout>
+						<focusedlayout height="24">
+							<control type="image">
+								<left>10</left>
+								<width>319</width>
+								<height>24</height>
+								<texture border="4">views/list-focus.png</texture>
+								<aspectratio>stretch</aspectratio>
+								<visible>Control.HasFocus(6880)</visible>
+								<include content="AnimationFocusedLayout">
+									<param name="list_id" value="6880"/>
+								</include>
+								<include>ListViewSelectFadeAnim</include>
+							</control>
+							<control type="label">
+								<width>309</width>
+								<include>PanelFocusedlayoutLabel</include>
+								<label>$INFO[ListItem.Label]</label>
+							</control>
+						</focusedlayout>
+						<content target="video">addons://sources/video/</content>
+					</control>
+				</control>
+			</control>
+		</control>
+	</include>
+
+	<include name="SystemInfoPanel">
+		<control type="group">
+			<left>495r</left>
+			<top>105</top>
+			<visible>Container(850).HasFocus(16)</visible>
+			<visible>!Window.IsActive(PlayerControls) + !Window.IsActive(ShutdownMenu) + !Window.IsActive(NumericInput)</visible>
+			<include>HomeRightPanelOpenCloseAnim</include>
+
+			<control type="image">
+				<width>490</width>
+				<height>235</height>
+				<texture border="8">panels/panel.png</texture>
+			</control>
+
+			<control type="label">
+				<description>Title</description>
+				<left>15</left>
+				<top>9</top>
+				<width>352</width>
+				<font>PanelTitleFont</font>
+				<textcolor>MediaInfoTitleColor</textcolor>
+				<shadowcolor>ShadowColor</shadowcolor>
+				<label>[UPPERCASE]$LOCALIZE[138][/UPPERCASE]</label>
+			</control>
+
+			<control type="grouplist">
+				<left>15</left>
+				<top>42</top>
+				<itemgap>14</itemgap>
+				<usecontrolcoords>true</usecontrolcoords>
+
+				<control type="label">
+					<description>IP Address</description>
+					<width>450</width>
+					<height>12</height>
+					<font>PanelInfoHeadFont</font>
+					<textcolor>WhiteColor</textcolor>
+					<shadowcolor>ShadowColor</shadowcolor>
+					<label>$LOCALIZE[166]: $INFO[Window(Home).Property(SkinHelper.skinTitle)]</label>
+				</control>
+
+				<control type="label">
+					<description>IP Address</description>
+					<width>450</width>
+					<height>12</height>
+					<font>PanelInfoHeadFont</font>
+					<textcolor>WhiteColor</textcolor>
+					<shadowcolor>ShadowColor</shadowcolor>
+					<label>$LOCALIZE[150]: $INFO[Network.IPAddress]</label>
+				</control>
+				<control type="label">
+					<description>System Uptime</description>
+					<top>7</top>
+					<width>450</width>
+					<height>12</height>
+					<font>PanelInfoFont</font>
+					<textcolor>MediaInfoItemColor2</textcolor>
+					<shadowcolor>ShadowColor</shadowcolor>
+					<label>$LOCALIZE[12390]: $INFO[System.Uptime]</label>
+					<scroll>true</scroll>
+				</control>
+				<control type="label">
+					<description>Resolution</description>
+					<width>450</width>
+					<height>12</height>
+					<font>PanelInfoFont</font>
+					<textcolor>MediaInfoItemColor2</textcolor>
+					<shadowcolor>ShadowColor</shadowcolor>
+					<label>$LOCALIZE[169]: $INFO[System.ScreenWidth] x $INFO[System.ScreenHeight] $INFO[System.ScreenMode]</label>
+					<scroll>true</scroll>
+				</control>					
+				<control type="label">
+					<description>Free Memory</description>
+					<width>450</width>
+					<height>12</height>
+					<font>PanelInfoFont</font>
+					<textcolor>MediaInfoItemColor2</textcolor>
+					<shadowcolor>ShadowColor</shadowcolor>
+					<label>$LOCALIZE[158]: $INFO[System.FreeMemory]</label>
+					<scroll>true</scroll>
+				</control>			
+				<control type="label">
+					<description>Free Space</description>
+					<width>450</width>
+					<height>12</height>
+					<font>PanelInfoFont</font>
+					<textcolor>MediaInfoItemColor2</textcolor>
+					<shadowcolor>ShadowColor</shadowcolor>
+					<label>$LOCALIZE[154]: $INFO[System.FreeSpace]</label>
+					<scroll>true</scroll>
+				</control>						
+				<control type="group">
+					<height>17</height>
+					<control type="progress">
+						<width>460</width>
+						<height>17</height>
+						<info>System.CpuUsage</info>
+					</control>
+					<control type="label">
+						<width>460</width>
+						<height>17</height>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>PanelInfoFont</font>
+						<textcolor>MediaInfoItemColor2</textcolor>
+						<shadowcolor>ShadowColor</shadowcolor>
+						<label>$LOCALIZE[31216]</label>
+					</control>
+				</control>
+			</control>
+		</control>
+	</include>
+
+	<include name="DefaultSkinSettingsValues">
+		<description>Settings Default</description>		
+		<onload>RunScript(script.skin.helper.service,action=setkodisetting,setting=filelists.allowfiledeletion,value=true)</onload>
+		<onload>RunScript(script.skin.helper.service,action=setkodisetting,setting=filelists.ignorethewhensorting,value=true)</onload>
+		<onload>RunScript(script.skin.helper.service,action=setkodisetting,setting=filelists.showaddsourcebuttons,value=true)</onload>
+		<onload>RunScript(script.skin.helper.service,action=setkodisetting,setting=filelists.showextensions,value=false)</onload>
+		<onload>RunScript(script.skin.helper.service,action=setkodisetting,setting=filelists.showhidden,value=false)</onload>
+		<onload>RunScript(script.skin.helper.service,action=setkodisetting,setting=filelists.showparentdiritems,value=false)</onload>
+		<onload>RunScript(script.skin.helper.service,action=setkodisetting,setting=myvideos.extractchapterthumbs,value=true)</onload>
+		<onload>RunScript(script.skin.helper.service,action=setkodisetting,setting=myvideos.extractflags,value=true)</onload>
+		<onload>RunScript(script.skin.helper.service,action=setkodisetting,setting=myvideos.extractthumb,value=true)</onload>
+		<onload>RunScript(script.skin.helper.service,action=setkodisetting,setting=myvideos.flatten,value=false)</onload>
+		<onload>RunScript(script.skin.helper.service,action=setkodisetting,setting=myvideos.replacelabels,value=true)</onload>
+		<onload>RunScript(script.skin.helper.service,action=setkodisetting,setting=myvideos.selectaction,value=3)</onload>
+		<onload>RunScript(script.skin.helper.service,action=setkodisetting,setting=myvideos.stackvideos,value=false)</onload>
+		<onload>RunScript(script.skin.helper.service,action=setkodisetting,setting=videolibrary.actorthumbs,value=true)</onload>
+		<onload>RunScript(script.skin.helper.service,action=setkodisetting,setting=videolibrary.backgroundupdate,value=false)</onload>
+		<onload>RunScript(script.skin.helper.service,action=setkodisetting,setting=videolibrary.flattentvshows,value=1)</onload>
+		<onload>RunScript(script.skin.helper.service,action=setkodisetting,setting=videolibrary.groupmoviesets,value=true)</onload>
+		<onload>RunScript(script.skin.helper.service,action=setkodisetting,setting=videolibrary.groupsingleitemsets,value=false)</onload>
+		<onload>RunScript(script.skin.helper.service,action=setkodisetting,setting=videolibrary.showallitems,value=false)</onload>
+		<onload>RunScript(script.skin.helper.service,action=setkodisetting,setting=videolibrary.showemptytvshows,value=false)</onload>
+		<onload>RunScript(script.skin.helper.service,action=setkodisetting,setting=videolibrary.showunwatchedplots,value=true)</onload>
+		<onload>RunScript(script.skin.helper.service,action=setkodisetting,setting=videolibrary.tvshowsincludeallseasonsandspecials,value=3)</onload>
+		<onload>RunScript(script.skin.helper.service,action=setkodisetting,setting=videolibrary.tvshowsselectfirstunwatcheditem,value=2)</onload>
+		<onload>RunScript(script.skin.helper.service,action=setkodisetting,setting=videolibrary.updateonstartup,value=false)</onload>
+		<onload>RunScript(script.skin.helper.service,action=setkodisetting,setting=general.addonbrokenfilter,value=true)</onload>
+		<onload>RunScript(script.skin.helper.service,action=setkodisetting,setting=general.addonbrokenfilter,value=false)</onload>
+		<onload>RunScript(script.skin.helper.service,action=setkodisetting,setting=general.addonbrokenfilter,value=true)</onload>
+	</include>
+
+
+	<include name="InfoWallMovieLayout">
+		<param name="focused">false</param>
+		<param name="coverWidth">115</param>
+		<param name="coverHeight">170</param>
+		<definition>
+			<control type="group">
+				<control type="image">
+					<width>$PARAM[coverWidth]</width>
+					<height>$PARAM[coverHeight]</height>
+					<texture background="true">covers/cover-case-thumbnail-focus.png</texture>
+					<visible>$PARAM[focused]</visible>
+					<include condition="$PARAM[focused]">AnimationListFocusTextureFade</include>					
+				</control>
+				<control type="image">
+					<width>$PARAM[coverWidth]</width>
+					<height>$PARAM[coverHeight]</height>
+					<texture background="true">covers/cover-case-thumbnail-nofocus.png</texture>
+					<visible>!$PARAM[focused]</visible>
+				</control>
+				<control type="image">
+					<width>$PARAM[coverWidth]</width>
+					<height>$PARAM[coverHeight]</height>
+					<texture fallback="$PARAM[fallback_icon]" background="true">$VAR[PosterThumb]</texture>
+					<aspectratio>stretch</aspectratio>
+					<bordersize>$PARAM[coverBorder]</bordersize>
+				</control>
+
+				<control type="image">
+					<width>$PARAM[coverWidth]</width>
+					<height>$PARAM[coverHeight]</height>					
+					<include>CoverDim</include>
+					<aspectratio>stretch</aspectratio>
+					<bordersize>$PARAM[coverBorder]</bordersize>
+					<visible>!$PARAM[focused]</visible>
+				</control>
+				<control type="image">
+					<left>35</left>
+					<top>145</top>
+					<width>40</width>
+					<height>40</height>
+					<texture>overlays/overlay-bg.png</texture>
+					<visible>Listitem.IsCollection | ListItem.IsPlaying | Integer.IsGreater(ListItem.Playcount,0)</visible>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="WidgetInCinemas">
+		<definition>
+			<control type="group">
+
+				<control type="image">
+					<width>560</width>
+					<height>210</height>
+					<texture border="8">panels/panel.png</texture>
+				</control>
+
+				<include content="BusyListSpinner">
+					<param name="list_id" value="$PARAM[list_id]"/>
+					<param name="posx" value="150"/>								
+					<param name="posy" value="105"/>
+				</include>						
+
+				<control type="group">
+					<left>420</left>
+					<top>15</top>
+					<control type="image">
+						<description>Animes Icon</description>
+						<width>125</width>
+						<height>180</height>
+						<texture background="true">covers/cover-case-thumbnail-nofocus.png</texture>
+					</control>			
+					<control type="image">
+						<left>5</left>
+						<top>5</top>
+						<description>In Cinema Cover</description>
+						<width>115</width>
+						<height>170</height>
+						<texture>$INFO[Container($PARAM[list_id]).ListItem.Art(poster)]</texture>
+						<aspectratio>strecth</aspectratio>
+					</control>
+				</control>
+
+				<control type="list" id="$PARAM[list_id]">
+					<viewtype label="">list</viewtype>
+					<left>0</left>
+					<top>6</top>
+					<width>387</width>
+					<height>190</height>
+					<scrolltime>200</scrolltime>
+					<!-- <onup>555</onup> -->
+					<!-- <ondown>$PARAM[list_id]</ondown> -->
+					<ondown condition="Container(6884).HasFocus() + Control.IsVisible(6883)">6883</ondown>
+					<onup condition="Container(6883).HasFocus() + Control.IsVisible(6884)">6884</onup>
+					<onup condition="Container(6884).HasFocus()">555</onup>
+					<onright condition="Container(850).HasFocus(3) + Control.IsVisible(6889)">6889</onright>
+					<onright condition="Container(850).HasFocus(4) + Control.IsVisible(6896)">6896</onright>
+					<onright>850</onright>
+					<onleft>850</onleft>
+					<onclick>Info</onclick>
+					<itemlayout height="24">
+						<control type="label">
+							<left>15</left>
+							<width>367</width>
+							<height>24</height>
+							<font>PanelInfoFont</font>
+							<textcolor>MediaInfoItemColor2</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]$INFO[ListItem.Premiered, (,)]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout height="24">
+						<control type="image">
+							<left>10</left>
+							<width>377</width>
+							<height>24</height>
+							<texture border="4">views/list-focus.png</texture>
+							<aspectratio>stretch</aspectratio>
+							<visible>Control.HasFocus($PARAM[list_id])</visible>
+							<include content="AnimationFocusedLayout">
+								<param name="list_id" value="$PARAM[list_id]"/>
+							</include>
+							<include>ListViewSelectFadeAnim</include>
+						</control>
+						<control type="label">
+							<left>15</left>
+							<width>367</width>
+							<height>24</height>
+							<font>PanelInfoFont</font>
+							<textcolor>SelectedColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]$INFO[ListItem.Premiered, (,)]</label>
+						</control>
+					</focusedlayout>
+					<content target="video" sortorder="descending" sortby="year">$PARAM[content_path]</content>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="WidgetListEpisodes">
+		<definition>
+			<control type="group">
+
+				<control type="image">
+					<width>560</width>
+					<height>210</height>
+					<texture border="8">panels/panel.png</texture>
+				</control>
+
+				<include content="BusyListSpinner">
+					<param name="list_id" value="$PARAM[list_id]"/>
+					<param name="posx" value="150"/>								
+					<param name="posy" value="105"/>
+				</include>						
+
+				<control type="group">
+					<left>299</left>
+					<top>25</top>
+					<control type="image">
+						<description>Animes Icon</description>
+						<width>256</width>
+						<height>160</height>
+						<texture background="true">covers/cover-case-thumbnail-nofocus.png</texture>
+					</control>			
+					<control type="image">
+						<left>12</left>
+						<top>8</top>
+						<description>Animes Icon</description>
+						<width>232</width>
+						<height>144</height>
+						<texture>$INFO[Container($PARAM[list_id]).ListItem.Art(thumb)]</texture>
+						<aspectratio>strecth</aspectratio>
+					</control>
+				</control>
+
+				<control type="label">
+					<description>Title</description>
+					<left>15</left>
+					<top>9</top>
+					<width>350</width>
+					<font>PanelInfoFont</font>
+					<textcolor>MediaInfoTitleColor</textcolor>
+					<shadowcolor>ShadowColor</shadowcolor>
+					<label>[UPPERCASE]$PARAM[title][/UPPERCASE]</label>
+				</control>
+
+				<control type="label">
+					<description>Season & Episode Number</description>
+					<left>310</left>
+					<top>5</top>
+					<width>232</width>
+					<align>center</align>
+					<scroll>true</scroll>
+					<font>ListFontSize14</font>
+					<textcolor>MediaInfoItemColor2</textcolor>
+					<shadowcolor>ShadowColor</shadowcolor>
+					<label>$VAR[SeasonEpisodesWidgetNumberVar]</label>
+				</control>
+				
+				<control type="label">
+					<description>Episode Title</description>
+					<left>310</left>
+					<top>185</top>
+					<width>232</width>
+					<align>center</align>
+					<scroll>true</scroll>
+					<font>ListFontSize14</font>
+					<textcolor>MediaInfoItemColor2</textcolor>
+					<shadowcolor>ShadowColor</shadowcolor>
+					<label>$INFO[Container($PARAM[list_id]).ListItem.Title]</label>
+				</control>
+
+				<control type="list" id="$PARAM[list_id]">
+					<viewtype label="">list</viewtype>
+					<left>0</left>
+					<top>33</top>
+					<width>287</width>
+					<height>170</height>
+					<scrolltime>200</scrolltime>
+					<onup>555</onup>
+					<ondown>$PARAM[list_id]</ondown>
+					<onright condition="Container(850).HasFocus(3) + Control.IsVisible(6889)">6889</onright>
+					<onright condition="Container(850).HasFocus(4) + Control.IsVisible(6896)">6896</onright>
+					<onright>850</onright>
+					<onleft>850</onleft>
+					<oninfo condition="System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=extendedtvinfo,name=$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle])</oninfo>
+					<itemlayout height="24">
+						<control type="label">
+							<left>15</left>
+							<width>267</width>
+							<height>24</height>
+							<font>PanelInfoFont</font>
+							<textcolor>MediaInfoItemColor2</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<aligny>center</aligny>
+							<label>$VAR[SeasonEpisodesNumberVar]$INFO[ListItem.TVShowTitle, : ,]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout height="24">
+						<control type="image">
+							<left>10</left>
+							<width>277</width>
+							<height>24</height>
+							<texture border="4">views/list-focus.png</texture>
+							<aspectratio>stretch</aspectratio>
+							<visible>Control.HasFocus($PARAM[list_id])</visible>
+							<include content="AnimationFocusedLayout">
+								<param name="list_id" value="$PARAM[list_id]"/>
+							</include>
+							<include>ListViewSelectFadeAnim</include>
+						</control>
+						<control type="label">
+							<left>15</left>
+							<width>267</width>
+							<height>24</height>
+							<font>PanelInfoFont</font>
+							<textcolor>SelectedColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<aligny>center</aligny>
+							<label>$VAR[SeasonEpisodesNumberVar]$INFO[ListItem.TVShowTitle, : ,]</label>
+						</control>
+					</focusedlayout>
+					<content target="video">$PARAM[content_path]</content>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="WidgetListPoster">
+		<definition>
+			<control type="group">
+				<include content="BusyListSpinner">
+					<param name="list_id" value="$PARAM[list_id]"/>
+					<param name="posx" value="$PARAM[posX]"/>								
+					<param name="posy" value="$PARAM[posY]"/>
+				</include>
+
+				<control type="label">
+					<description>Infos</description>
+					<top>-40</top>
+					<left>7</left>
+					<width>$PARAM[InfoMaxWidth]</width>
+					<font>PanelTitleFont</font>
+					<textcolor>MediaInfoTitleColor2</textcolor>
+					<shadowcolor>ShadowColor</shadowcolor>
+					<label>[UPPERCASE]$PARAM[infos][/UPPERCASE]</label>
+				</control>
+
+				<control type="label">
+					<description>Year</description>
+					<top>-40</top>
+					<left>7</left>
+					<width>$PARAM[panelWidth]</width>
+					<align>right</align>
+					<font>PanelTitleFont</font>
+					<textcolor>VeryVigTitleColor</textcolor>
+					<shadowcolor>ShadowColor</shadowcolor>
+					<label>$INFO[Container($PARAM[list_id]).ListItem.Year]</label>
+				</control>
+
+				<control type="group">
+					<top>$PARAM[panelHeight]</top>
+					<control type="label">
+						<top>7</top>
+						<description>Infos2</description>
+						<left>2</left>
+						<top>240</top>
+						<width>$PARAM[InfoMaxWidth]</width>
+						<align>left</align>
+						<font>PanelStatsFont</font>
+						<textcolor>MediaInfoItemColor</textcolor>
+						<shadowcolor>ShadowColor</shadowcolor>
+						<label>$PARAM[infos2]</label>
+					</control>
+				</control>
+
+				<control type="panel" id="$PARAM[list_id]">
+					<onclick condition="Container(850).HasFocus(3) | Container(850).HasFocus(4)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/,Return)</onclick>
+					<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
+					<left>2</left>
+					<right>0</right>
+					<height>$PARAM[panelHeight]</height>
+					<width>$PARAM[panelWidth]</width>
+					<onup>555</onup>
+					<onleft condition="Control.IsVisible(6930)">6930</onleft>
+					<onleft condition="Container(850).HasFocus(2) + Control.IsVisible(6884)">6884</onleft>
+					<onleft condition="Container(850).HasFocus(3) + Control.IsVisible(6887)">6887</onleft>
+					<onleft condition="Container(850).HasFocus(4) + Control.IsVisible(6895)">6895</onleft>
+					<onleft>850</onleft>
+					<onright>850</onright>
+					<ondown>850</ondown>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>$PARAM[sens]</orientation>
+					<onleft>555</onleft>
+					<onright>noop</onright>
+					<onunfocus>SetProperty(listposition,$INFO[Container($PARAM[list_id]).Position],home)</onunfocus>
+					<onfocus>Control.Move($PARAM[list_id],-$INFO[Container($PARAM[list_id]).Position])</onfocus>
+					<onfocus>Control.Move($PARAM[list_id],$INFO[Window(home).Property(listposition)])</onfocus>
+					<onback>SetFocus($PARAM[list_id],0,absolute)</onback>
+					<preloaditems>2</preloaditems>
+					<itemlayout width="$PARAM[coverWidth]" height="$PARAM[coverHeight]">
+						<control type="group">
+							<include content="InfoWallMovieLayout">
+								<param name="focused" value="false" />
+								<param name="coverWidth" value="$PARAM[coverWidth]"/>								
+								<param name="coverHeight" value="$PARAM[coverHeight]"/>
+								<param name="coverBorder" value="$PARAM[coverBorder]"/>
+								<param name="fallback_icon" value="$PARAM[fallback_icon]" />
+							</include>
+						</control>
+					</itemlayout>
+					<focusedlayout width="$PARAM[coverWidth]" height="$PARAM[coverHeight]">
+						<control type="group">
+							<depth>DepthContentPopout</depth>
+							<include>AnimationCoverFocus</include>						
+							<include content="InfoWallMovieLayout">
+								<param name="focused" value="true" />
+								<param name="coverWidth" value="$PARAM[coverWidth]"/>								
+								<param name="coverHeight" value="$PARAM[coverHeight]"/>
+								<param name="coverBorder" value="$PARAM[coverBorder]"/>
+								<param name="fallback_icon" value="$PARAM[fallback_icon]"/>
+							</include>
+						</control>
+					</focusedlayout>
+					<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[content_limit]">$PARAM[content_path]</content>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="AlphabetLetters">
+		<definition>
+			<item id="8">
+				<label>#</label>
+				<onclick>$PARAM[content_path]#.xsp,return)</onclick>				
+				<visible>!Skin.HasSetting(ShowExtraOptions) | Window.IsActive(Home)</visible>
+			</item> 			
+			<item id="9">
+				<label>A</label>
+				<onclick>$PARAM[content_path]A.xsp,return)</onclick>
+				<visible>!Skin.HasSetting(ShowExtraOptions) | Window.IsActive(Home)</visible>
+			</item>  
+			<item id="10">
+				<label>B</label>
+				<onclick>$PARAM[content_path]B.xsp,return)</onclick>
+				<visible>!Skin.HasSetting(ShowExtraOptions) | Window.IsActive(Home)</visible>
+			</item>  
+			<item id="11">
+				<label>C</label>
+				<onclick>$PARAM[content_path]C.xsp,return)</onclick>
+				<visible>!Skin.HasSetting(ShowExtraOptions) | Window.IsActive(Home)</visible>
+			</item>
+			<item id="12">
+				<label>D</label>
+				<onclick>$PARAM[content_path]D.xsp,return)</onclick>
+				<visible>!Skin.HasSetting(ShowExtraOptions) | Window.IsActive(Home)</visible>
+			</item>         
+			<item id="13">
+				<label>E</label>
+				<onclick>$PARAM[content_path]E.xsp,return)</onclick>
+				<visible>!Skin.HasSetting(ShowExtraOptions) | Window.IsActive(Home)</visible>
+			</item>
+			<item id="14">
+				<label>F</label>
+				<onclick>$PARAM[content_path]F.xsp,return)</onclick>
+				<visible>!Skin.HasSetting(ShowExtraOptions) | Window.IsActive(Home)</visible>
+			</item>
+			<item id="15">
+				<label>G</label>
+				<onclick>$PARAM[content_path]G.xsp,return)</onclick>
+				<visible>!Skin.HasSetting(ShowExtraOptions) | Window.IsActive(Home)</visible>
+			</item>   
+			<item id="16">
+				<label>H</label>
+				<onclick>$PARAM[content_path]H.xsp,return)</onclick>
+				<visible>!Skin.HasSetting(ShowExtraOptions) | Window.IsActive(Home)</visible>
+			</item> 
+			<item id="17">
+				<label>I</label>
+				<onclick>$PARAM[content_path]I.xsp,return)</onclick>
+				<visible>!Skin.HasSetting(ShowExtraOptions) | Window.IsActive(Home)</visible>
+			</item>           
+			<item id="19">
+				<label>J</label>
+				<onclick>$PARAM[content_path]J.xsp,return)</onclick>
+				<visible>!Skin.HasSetting(ShowExtraOptions) | Window.IsActive(Home)</visible>
+			</item> 
+			<item id="20">
+				<label>K</label>
+				<onclick>$PARAM[content_path]K.xsp,return)</onclick>
+				<visible>!Skin.HasSetting(ShowExtraOptions) | Window.IsActive(Home)</visible>
+			</item>  
+			<item id="21">
+				<label>L</label>
+				<onclick>$PARAM[content_path]L.xsp,return)</onclick>
+				<visible>!Skin.HasSetting(ShowExtraOptions) | Window.IsActive(Home)</visible>
+			</item>
+			<item id="22">
+				<label>M</label>
+				<onclick>$PARAM[content_path]M.xsp,return)</onclick>
+				<visible>!Skin.HasSetting(ShowExtraOptions) | Window.IsActive(Home)</visible>
+			</item>
+			<item id="23">
+				<label>N</label>
+				<onclick>$PARAM[content_path]N.xsp,return)</onclick>
+				<visible>!Skin.HasSetting(ShowExtraOptions) | Window.IsActive(Home)</visible>
+			</item>
+			<item id="24">
+				<label>O</label>
+				<onclick>$PARAM[content_path]O.xsp,return)</onclick>
+				<visible>!Skin.HasSetting(ShowExtraOptions) | Window.IsActive(Home)</visible>
+			</item>
+			<item id="25">
+				<label>P</label>
+				<onclick>$PARAM[content_path]P.xsp,return)</onclick>
+				<visible>!Skin.HasSetting(ShowExtraOptions) | Window.IsActive(Home)</visible>
+			</item>
+			<item id="26">
+				<label>Q</label>
+				<onclick>$PARAM[content_path]Q.xsp,return)</onclick>
+				<visible>!Skin.HasSetting(ShowExtraOptions) | Window.IsActive(Home)</visible>
+			</item>
+			<item id="27">
+				<label>R</label>
+				<onclick>$PARAM[content_path]R.xsp,return)</onclick>
+				<visible>!Skin.HasSetting(ShowExtraOptions) | Window.IsActive(Home)</visible>
+			</item>
+			<item id="28">
+				<label>S</label>
+				<onclick>$PARAM[content_path]S.xsp,return)</onclick>
+				<visible>!Skin.HasSetting(ShowExtraOptions) | Window.IsActive(Home)</visible>
+			</item>
+			<item id="29">
+				<label>T</label>
+				<onclick>$PARAM[content_path]T.xsp,return)</onclick>
+				<visible>!Skin.HasSetting(ShowExtraOptions) | Window.IsActive(Home)</visible>
+			</item>
+			<item id="30">
+				<label>U</label>
+				<onclick>$PARAM[content_path]U.xsp,return)</onclick>
+				<visible>!Skin.HasSetting(ShowExtraOptions) | Window.IsActive(Home)</visible>
+			</item>
+			<item id="31">
+				<label>V</label>
+				<onclick>$PARAM[content_path]V.xsp,return)</onclick>
+				<visible>!Skin.HasSetting(ShowExtraOptions) | Window.IsActive(Home)</visible>
+			</item>
+			<item id="32">
+				<label>W</label>
+				<onclick>$PARAM[content_path]W.xsp,return)</onclick>
+				<visible>!Skin.HasSetting(ShowExtraOptions) | Window.IsActive(Home)</visible>
+			</item>
+			<item id="33">
+				<label>X</label>
+				<onclick>$PARAM[content_path]X.xsp,return)</onclick>
+				<visible>!Skin.HasSetting(ShowExtraOptions) | Window.IsActive(Home)</visible>
+			</item>
+			<item id="34">
+				<label>Y</label>
+				<onclick>$PARAM[content_path]Y.xsp,return)</onclick>
+				<visible>!Skin.HasSetting(ShowExtraOptions) | Window.IsActive(Home)</visible>
+			</item>
+			<item id="35">
+				<label>Z</label>
+				<onclick>$PARAM[content_path]Z.xsp,return)</onclick>
+				<visible>!Skin.HasSetting(ShowExtraOptions) | Window.IsActive(Home)</visible>
+			</item> 
+			<item id="39">
+				<description>Update Video Library</description>
+				<label></label>
+				<thumb>gui/IconUpdate.png</thumb>
+				<onclick>XBMC.UpdateLibrary(video)</onclick>
+				<visible>!Skin.HasSetting(ShowExtraOptions) + !library.isscanningvideo + Window.IsVisible(Videos)</visible>
+			</item> 		
+			<item id="39">
+				<description>Stop Video Update Library</description>
+				<label></label>
+				<thumb>gui/IconUpdateStop.png</thumb>
+				<onclick>XBMC.UpdateLibrary(video)</onclick>
+				<visible>Library.isscanningvideo</visible>
+			</item>
+			<item id="40">
+				<description>Video Settings</description>
+				<label></label>
+				<thumb>gui/IconConfigure.png</thumb>
+				<onclick>ActivateWindow(InterfaceSettings)</onclick>
+				<visible>!Skin.HasSetting(ShowExtraOptions) + [Window.IsVisible(Videos) | Window.IsVisible(Videos,Files)]</visible>
+			</item>
+		</definition>		
+	</include>
+
+	<include name="WidgetSubMenutList">
+		<definition>
+			<itemlayout width="$PARAM[itemWidth]">
+				<control type="image">
+					<width>$PARAM[widthNoFocus]</width>
+					<height>$PARAM[heightNoFocus]</height>
+					<texture>$INFO[ListItem.thumb]</texture>
+					<visible>String.IsEmpty(ListItem.Label)</visible>
+				</control> 
+				<control type="image">
+					<width>$PARAM[widthNoFocus]</width>
+					<height>$PARAM[heightNoFocus]</height>
+					<texture>covers/cover-case-noshadow-nofocus.png</texture>
+					<visible>!String.IsEmpty(ListItem.Label)</visible>
+				</control>          
+				<control type="label">
+					<width>$PARAM[widthNoFocus]</width>
+					<height>$PARAM[heightNoFocus]</height>
+					<font>$PARAM[fontNoFocus]</font>
+					<textcolor>HomeSubMenuColor</textcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+				</control>				
+			</itemlayout>
+			<focusedlayout width="$PARAM[itemWidthFocus]">
+				<control type="image">
+					<width>$PARAM[heightFocus]</width>
+					<height>$PARAM[heightFocus]</height>
+					<colordiffuse>SelectedColor2</colordiffuse>
+					<texture colordiffuse="ButtonSelectedColor">$INFO[ListItem.thumb]</texture>
+					<visible>String.IsEmpty(ListItem.Label)</visible>
+				</control> 				
+				<control type="label">
+					<top>$PARAM[itemDecalageTopFocus]</top>
+					<width>$PARAM[widthFocus]</width>
+					<height>$PARAM[heightFocus]</height>
+					<font>$PARAM[fontFocus]</font>
+					<textcolor>ButtonSelectedColor</textcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+					<visible>Control.HasFocus(110)</visible>
+				</control>
+				<control type="label">
+					<top>$PARAM[itemDecalageTopFocus]</top>
+					<width>$PARAM[widthFocus]</width>
+					<height>$PARAM[heightFocus]</height>
+					<font>$PARAM[fontFocus]</font>
+					<textcolor>HomeSubMenuColor</textcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+					<visible>!Control.HasFocus(110)</visible>
+				</control>              
+			</focusedlayout>
+			<content>
+				<item id="1">
+					<description>Search</description>
+					<label></label>
+					<thumb>gui/IconSearch.png</thumb>
+					<onclick condition="System.hasAddon(script.globalsearch)">RunScript(script.globalsearch,movies=true&actors=true&directors=true))</onclick>
+					<visible>[Window.IsVisible(Videos) | Window.IsVisible(Videos,Files)] + Container.Content(Movies)</visible>			
+				</item> 
+				<item id="1">
+					<description>Search</description>
+					<label></label>
+					<thumb>gui/IconSearch.png</thumb>
+					<onclick condition="System.hasAddon(script.globalsearch)">RunScript(script.globalsearch,tvshows=true&episodes=true&actors=true&directors=true))</onclick>
+					<visible>[Window.IsVisible(Videos) | Window.IsVisible(Videos,Files)] + [Container.Content(Episodes) | Container.Content(TVShows)]</visible>			
+				</item> 					
+				<item id="2">
+					<description>Extra Options</description>
+					<label></label>
+					<thumb>gui/IconSettings.png</thumb>
+					<onclick>Skin.ToggleSetting(ShowExtraOptions)</onclick>
+					<visible>!Skin.HasSetting(ShowExtraOptions) + [Window.IsVisible(Videos) | Window.IsVisible(Videos,Files)]</visible>
+				</item> 
+				<item id="2">
+					<description>Extra Options</description>
+					<label></label>
+					<thumb>gui/menu-bar-abc-nofocus.png</thumb>
+					<onclick>Skin.ToggleSetting(ShowExtraOptions)</onclick>
+					<visible>Skin.HasSetting(ShowExtraOptions) + [Window.IsVisible(Videos) | Window.IsVisible(Videos,Files)]</visible>
+				</item>	
+				<item id="3">
+					<label></label>
+					<thumb>gui/IconNew.png</thumb>
+					<onclick>ActivateWindow(Videos,videodb://4/, return)</onclick>
+	        		<onclick>ActivateWindow(Videos,videodb://recentlyaddedmovies/, return)</onclick>
+					<visible>!Skin.HasSetting(ShowExtraOptions) + Container.Content(Movies)</visible>
+				</item>			
+				 <item id="4">
+					<label>..</label>
+					<onclick>$PARAM[content_all]</onclick>
+					<visible>Container(850).HasFocus(2) + Library.HasContent(Movies)</visible>
+				</item>
+				<item id="4">
+					<label></label>
+					<thumb>gui/IconMovie.png</thumb>
+					<onclick>$PARAM[content_all]</onclick>
+					<visible>!Skin.HasSetting(ShowExtraOptions) + Container.Content(Movies)</visible>
+				</item>			
+				<include condition="!Window.IsActive(1105)" content="AlphabetLetters">
+					<param name="content_path" value="$PARAM[content_path]"/>
+				</include>			
+			</content>    
+		</definition>
+	</include>
+
+</includes>
+

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<include>DefaultSkinSettingsValues</include>
+	<onload>ReplaceWindow($INFO[System.StartupWindow])</onload>
+	<controls>
+		<control type="button" id="9001">
+			<left>2000</left>
+			<onfocus>PlayMedia($INFO[Skin.String(SplashScreen)],1,noresume)</onfocus>
+			<visible>!String.IsEmpty(Skin.String(SplashScreen)) + ![$EXP[IsSplashScreenImage]]</visible>
+		</control>
+	</controls>
+</window>

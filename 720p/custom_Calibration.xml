@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="1105">
+	<defaultcontrol always="true">110</defaultcontrol>
+	
+	<controls>
+		<control type="group">
+			<control type="multiimage">
+				<description>Image calibration</description>
+				<include>BackgroundSize</include>
+				<imagepath background="true">$VAR[CalibrationImage]</imagepath>
+				<aspectratio aligny="top">scale</aspectratio>
+			</control>
+		</control>
+
+		<control type="list" id="110">
+			<description>Movies Menu Bar</description>
+			<left>35</left>
+			<width>1210</width>
+			<height>68</height>
+			<onup>900</onup>
+			<ondown>900</ondown>
+			<orientation>horizontal</orientation>
+			<include>HomeSubMenuItemOpenCloseAnim</include>
+			<include content="WidgetSubMenutList">
+				<param name="content_all" value=""/>
+				<param name="content_path" value=""/>
+				<param name="widthNoFocus" value="72"/>
+				<param name="heightNoFocus" value="56"/>
+				<param name="widthFocus" value="104"/>
+				<param name="heightFocus" value="84"/>
+				<param name="itemWidth" value="80"/>
+				<param name="itemWidthFocus" value="100"/>
+				<param name="itemDecalageTopFocus" value="-10"/>
+				<param name="fontNoFocus" value="AlphabetNoFocus"/>
+				<param name="fontFocus" value="AlphabetFocus"/>
+			</include>						
+		</control>
+
+
+	</controls>
+</window>

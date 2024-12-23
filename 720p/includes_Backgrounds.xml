@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+	<variable name="FanartImageVar">
+		<value condition="Integer.IsLessOrEqual(Container.NumItems,12) + !String.IsEmpty(Container(584).ListItem.Art(fanart)) + [[Container.Content(Sets) + [!System.HasAddon(script.skin.helper.service) | [System.HasAddon(script.skin.helper.service) + [Control.HasFocus(584) | Control.HasFocus(151)]]]] | Container.Content(Genres) | Container.Content(Years) | Container.Content(Actors) | Container.Content(Directors) | Container.Content(Countries) | Container.Content(Tags)]">$INFO[Container(584).ListItem.Art(fanart)]</value>
+		<value condition="Integer.IsLessOrEqual(Container.NumItems,12) + !String.IsEmpty(Container(581).ListItem.Property(Fanart)) + [Control.HasFocus(581) | Control.HasFocus(907)]">$INFO[Container(581).ListItem.Property(Fanart)]</value>
+		<value condition="Integer.IsLessOrEqual(Container.NumItems,12) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+		<value condition="Integer.IsLessOrEqual(Container.NumItems,12) + !String.IsEmpty(Fanart.Image)">$INFO[Fanart.Image]</value>
+		<value>background/default.png</value>
+	</variable>
+
+	<include name="FanartImage">
+		<control type="image">
+			<include>BackgroundSize</include>
+			<texture background="true">$VAR[FanartImageVar]</texture>
+			<aspectratio>scale</aspectratio>
+			<fadetime>FanartCrossfadeTime</fadetime>
+		</control>
+	</include>
+
+	<include name="M3di4Background">
+		<include>FanartImage</include>
+		<include>BackgroundVideoPlaying</include>
+		<include>BackgroundVisibleAnim</include>
+		<include>WindowOpenFadeInOut</include>
+	</include>
+
+	<include name="BackgroundDefault">		
+		<control type="group">
+			<control type="multiimage">
+				<include>BackgroundSize</include>
+				<imagepath>background/home.png</imagepath>
+				<aspectratio>scale</aspectratio>
+				<timeperimage>10000</timeperimage>
+				<fadetime>BackgroundCrossfadeTime</fadetime>
+				<randomize>true</randomize>
+			</control>
+
+			<control type="image">
+				<include>BackgroundDim</include>
+				<animation effect="fade" end="50" reversible="false" condition="true">Conditional</animation>
+			</control>
+		</control>
+	</include>
+
+	<include name="BackgroundVideoPlaying">
+		<control type="group">
+			<visible>Player.HasVideo</visible>
+			<include>BackgroundVisibleAnim</include>
+			<control type="videowindow">
+				<description>Video</description>
+				<include>BackgroundSize</include>
+			</control>
+			<control type="image">
+				<include>BackgroundSize</include>
+				<texture>views/fanart-dim.png</texture>
+			</control>
+		</control>
+	</include>
+	
+	<include name="BackgroundDim">
+		<include>BackgroundSize</include>
+		<texture>views/fanart-dim.png</texture>
+	</include>
+
+</includes>
